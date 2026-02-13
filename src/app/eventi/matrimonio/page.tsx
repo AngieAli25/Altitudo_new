@@ -22,24 +22,20 @@ export default function EventiMatrimonio() {
               <a href="/" className="font-itc-blair text-white text-[13px] uppercase hover:opacity-80 transition-opacity">
                 HOME
               </a>
-              <div className="relative">
-                <div
-                  className="flex items-center gap-1.5 cursor-pointer hover:opacity-80 transition-opacity"
+              <div className="relative flex items-center gap-1.5">
+                <a href="/eventi" className="font-itc-blair text-white text-[13px] uppercase hover:opacity-80 transition-opacity">
+                  EVENTI
+                </a>
+                <svg
+                  width="8"
+                  height="5"
+                  viewBox="0 0 8 5"
+                  fill="none"
+                  className={`cursor-pointer hover:opacity-80 transition-transform ${eventiOpen ? 'rotate-180' : ''}`}
                   onClick={() => setEventiOpen(!eventiOpen)}
                 >
-                  <span className="font-itc-blair text-white text-[13px] uppercase">
-                    EVENTI
-                  </span>
-                  <svg
-                    width="8"
-                    height="5"
-                    viewBox="0 0 8 5"
-                    fill="none"
-                    className={`transition-transform ${eventiOpen ? 'rotate-180' : ''}`}
-                  >
-                    <path d="M4 5L0 0H8L4 5Z" fill="white"/>
-                  </svg>
-                </div>
+                  <path d="M4 5L0 0H8L4 5Z" fill="white"/>
+                </svg>
                 {eventiOpen && (
                   <div className="absolute top-full left-0 mt-2 bg-black/95 backdrop-blur-md rounded-lg py-2 min-w-[160px] border border-white/10">
                     <a
