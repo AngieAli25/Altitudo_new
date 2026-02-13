@@ -118,7 +118,7 @@ export default function EventiShooting() {
               <a href="/prezzi" className="font-itc-blair text-white text-[13px] uppercase hover:opacity-80 transition-opacity">
                 PREZZI
               </a>
-              <a href="#" className="font-itc-blair text-white text-[13px] uppercase hover:opacity-80 transition-opacity">
+              <a href="/contatti" className="font-itc-blair text-white text-[13px] uppercase hover:opacity-80 transition-opacity">
                 CONTATTI
               </a>
             </nav>

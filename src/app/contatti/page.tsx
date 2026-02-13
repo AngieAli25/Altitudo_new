@@ -2,8 +2,28 @@
 
 import { useState } from "react";
 
-export default function EventiCompleanno() {
+export default function Contatti() {
   const [eventiOpen, setEventiOpen] = useState(false);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  const faqData = [
+    {
+      question: "Che documenti servono per poter guidare la Ferrari?",
+      answer: "È necessario presentare un documento d'identità valido, la patente di guida in corso di validità e una carta di credito intestata al conducente per la garanzia."
+    },
+    {
+      question: "Come posso pagare la prenotazione?",
+      answer: "Accettiamo pagamenti tramite carta di credito, bonifico bancario o contanti. La caparra del 30% viene richiesta al momento della conferma della prenotazione."
+    },
+    {
+      question: "Che tipo di copertura assicurativa è inclusa?",
+      answer: "Il noleggio include una copertura assicurativa completa RCA. È possibile richiedere coperture aggiuntive per una maggiore tranquillità."
+    },
+    {
+      question: "È necessario pagare in anticipo?",
+      answer: "Sì, è richiesta una caparra confirmatoria pari al 30% del costo totale del noleggio al momento della firma del contratto."
+    }
+  ];
 
   return (
     <main className="bg-black min-h-screen w-full overflow-x-hidden">
@@ -77,185 +97,99 @@ export default function EventiCompleanno() {
       <section className="relative h-screen w-full">
         <div className="absolute inset-0">
           <img
-            src="/images/evento_compleanno.png"
-            alt="Compleanno con Ferrari"
+            src="/images/ferrari_contatti.png"
+            alt="Ferrari 296 GTS"
             className="w-full h-full object-cover"
           />
           <div
             className="absolute inset-0"
             style={{
-              background: 'linear-gradient(180deg, rgba(0,0,0,0) 50%, rgb(0,0,0) 100%)'
+              background: 'linear-gradient(180deg, rgba(0,0,0,0) 0%, rgb(0,0,0) 96%)'
             }}
           />
         </div>
 
         <div className="relative z-10 flex flex-col items-center justify-end h-full text-center px-6 pb-[8vh]">
-          <h1 className="font-itc-blair text-white text-[22px] md:text-[32px] lg:text-[38px] leading-[1.2] tracking-tight mb-4 max-w-[800px] uppercase">
-            Rendi unico il tuo compleanno con una Ferrari
+          <h1 className="font-itc-blair text-white text-[22px] md:text-[32px] lg:text-[38px] leading-[1.2] tracking-tight mb-6 max-w-[900px] uppercase">
+            Prenota la tua esperienza
           </h1>
-          <p className="font-aeonik text-white text-[13px] lg:text-[16px] leading-[1.2] tracking-wide mb-6 max-w-[700px] uppercase">
-            Festeggia il tuo compleanno al volante della Ferrari 296 GTS e vivi un&apos;esperienza da sogno!
-          </p>
-          <button className="bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[14px] hover:bg-gray-100 transition-colors">
-            PRENOTA LA TUA ESPERIENZA
-          </button>
-        </div>
-      </section>
-
-      {/* Second Section - Description with Fireworks */}
-      <section className="relative w-full py-16 lg:py-24 overflow-hidden">
-        {/* Fireworks Left - Hidden on mobile */}
-        <div className="hidden lg:block absolute left-0 top-0 h-full w-[180px] z-0 overflow-hidden">
-          <img
-            src="/images/fireworks.png"
-            alt=""
-            className="h-full w-auto object-cover object-right opacity-80"
-          />
-        </div>
-
-        {/* Fireworks Right - Hidden on mobile */}
-        <div className="hidden lg:block absolute right-0 top-0 h-full w-[180px] z-0 overflow-hidden">
-          <img
-            src="/images/fireworks2.png"
-            alt=""
-            className="h-full w-auto object-cover object-left opacity-80"
-          />
-        </div>
-
-        <div className="relative z-10 max-w-[700px] mx-auto px-6 text-center">
-          <img
-            src="/images/logo_altitudo.png"
-            alt="Altitudo Logo"
-            className="w-[40px] lg:w-[50px] h-auto mx-auto mb-8"
-          />
-
-          <h2 className="font-itc-blair text-white text-[24px] md:text-[36px] lg:text-[42px] leading-[1.15] mb-8">
-            noleggio ferrari per il tuo compleanno
-          </h2>
-
-          <div className="font-aeonik text-white text-[13px] lg:text-[15px] leading-[1.5] mb-8 max-w-[650px] mx-auto">
-            <p className="mb-4">
-              Festeggia il tuo compleanno in modo unico con il nostro servizio di <span className="font-aeonik-bold">noleggio Ferrari per compleanno</span> e regalati l&apos;emozione di guidare la straordinaria <span className="font-aeonik-bold">Ferrari 296 GTS</span>.
+          <div className="font-aeonik text-white/80 text-[13px] lg:text-[16px] leading-[1.4] max-w-[900px]">
+            <p className="mb-2">
+              C&apos;è una differenza tra guidare un&apos;auto e vivere un&apos;icona.
             </p>
-            <p className="mb-4">
-              Potenza, eleganza e adrenalina si uniscono per rendere il tuo giorno speciale davvero indimenticabile. Immagina di sfrecciare al volante di una delle supercar italiane più iconiche, vivendo l&apos;adrenalina pura di 830 CV e il fascino di un design mozzafiato.
+            <p className="mb-2">
+              La Ferrari 296 GTS non è semplicemente una vettura: è ingegneria pura, design senza tempo, potenza che si fa presenza. Prenota ora la tua esperienza.
             </p>
             <p>
-              Che sia un regalo per te stesso o una sorpresa per una persona speciale, il noleggio Ferrari per compleanno è l&apos;esperienza perfetta per trasformare il sogno in realtà.
+              Al resto penseremo noi, con la cura e la precisione che ogni dettaglio merita.
             </p>
-          </div>
-
-          <button className="bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[14px] hover:bg-gray-100 transition-colors">
-            PRENOTA LA TUA ESPERIENZA
-          </button>
-        </div>
-      </section>
-
-      {/* Spegni le candeline Section - Full Width */}
-      <section className="relative w-full h-[400px] lg:h-[500px] overflow-hidden">
-        {/* Background Image - Left Side */}
-        <div className="absolute left-0 top-0 w-full lg:w-1/2 h-full">
-          <img
-            src="/images/ferrari_compleanni.png"
-            alt="Ferrari per Compleanni"
-            className="w-full h-full object-cover"
-          />
-          {/* Gradient overlay from right */}
-          <div
-            className="absolute inset-0"
-            style={{
-              background: 'linear-gradient(270deg, rgb(0,0,0) 0%, rgba(0,0,0,0) 40%)'
-            }}
-          />
-        </div>
-
-        {/* Right Side - Text */}
-        <div className="relative z-10 h-full flex items-center justify-end">
-          <div className="w-full lg:w-1/2 px-6 lg:px-16 lg:pr-[10%]">
-            <h2 className="font-itc-blair text-white text-[26px] md:text-[34px] lg:text-[38px] leading-[1.2] mb-6 uppercase">
-              Spegni le candeline.<br />
-              Accendi il motore.
-            </h2>
-
-            <div className="font-aeonik text-white text-[13px] lg:text-[15px] leading-[1.5] max-w-[450px]">
-              <p className="mb-4">
-                Le linee sinuose, la luce che si riflette sulla carrozzeria rossa, il rombo che emoziona: ogni dettaglio della Ferrari 296 GTS è pensato per restare impresso.
-              </p>
-              <p className="mb-4">
-                Le foto del tuo compleanno non avranno bisogno di filtri.
-              </p>
-              <p>
-                Avranno già lo sfondo perfetto.
-              </p>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Pricing Section */}
-      <section className="relative w-full pt-20 lg:pt-28 pb-16 lg:pb-20">
-        <div className="max-w-[1100px] mx-auto px-6">
-          <div className="text-center mb-10">
-            <h2 className="font-itc-blair text-white text-[24px] md:text-[32px] lg:text-[38px] mb-6">
-              MODALITÀ DI NOLEGGIO FERRARI PER COMPLEANNI
-            </h2>
-            <p className="font-aeonik text-white/80 text-[13px] lg:text-[15px] leading-[1.5] max-w-[800px] mx-auto">
-              Scegli l&apos;esperienza perfetta su misura per te. Scegli la modalità che più si adatta ai tuoi desideri e preparati a vivere il sogno Ferrari. <span className="font-aeonik-bold">Prenota ora</span> e festeggia il tuo compleanno con eleganza, potenza e libertà!
-            </p>
-          </div>
+      {/* Dettagli del Servizio Section */}
+      <section className="relative w-full py-16 lg:py-24">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <h2 className="font-itc-blair text-white text-[24px] md:text-[32px] lg:text-[38px] text-center mb-12 uppercase">
+            Dettagli del Servizio
+          </h2>
 
-          {/* Pricing Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-            {/* Card 1 */}
-            <div className="backdrop-blur-[20px] bg-white/[0.04] p-6 text-center">
-              <h3 className="font-itc-blair text-white text-[18px] lg:text-[20px] leading-tight mb-4">
-                noleggio orario
-              </h3>
-              <p className="font-aeonik-bold text-white text-[14px] mb-1">a partire da:</p>
-              <p className="font-aeonik-bold text-white text-[20px] mb-4">150€</p>
-              <p className="font-aeonik text-white text-[13px] leading-[1.5]">
-                Vuoi assaporare l&apos;adrenalina anche solo per un momento? Ideale per un regalo a effetto, un ingresso esclusivo o uno shooting.
-              </p>
-            </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* Box 1 */}
+            <div className="backdrop-blur-[20px] bg-white/[0.04] p-6 lg:p-8 rounded-lg border border-white/10">
+              <div className="font-aeonik text-white text-[13px] lg:text-[15px] leading-[1.6]">
+                <p className="mb-4">
+                  Per garantire un servizio esclusivo, sicuro e senza imprevisti, ti chiediamo solo poche semplici condizioni.
+                </p>
 
-            {/* Card 2 */}
-            <div className="backdrop-blur-[20px] bg-white/[0.04] p-6 text-center">
-              <h3 className="font-itc-blair text-white text-[18px] lg:text-[20px] leading-tight mb-4">
-                intera giornata
-              </h3>
-              <p className="font-aeonik-bold text-white text-[14px] mb-1">a partire da:</p>
-              <div className="font-aeonik text-white text-[14px] mb-4">
-                <p>Lun - gio: <span className="font-aeonik-bold">1.400€</span></p>
-                <p>Ven - Dom: <span className="font-aeonik-bold">1.900€</span></p>
+                <p className="font-aeonik-bold mb-2">Garanzia con blocco carta:</p>
+                <p className="mb-4">
+                  Il giorno prima della consegna dell&apos;auto, durante il check-in, viene effettuato un blocco temporaneo sulla carta di credito di €15.000.<br />
+                  Si tratta esclusivamente di una garanzia:
+                </p>
+                <ul className="list-disc pl-5 mb-4 space-y-1">
+                  <li>non è un addebito</li>
+                  <li>non viene prelevato alcun importo</li>
+                  <li>viene automaticamente sbloccato al termine del noleggio</li>
+                </ul>
+
+                <p className="font-aeonik-bold mb-2">Caparra confirmatoria</p>
+                <p className="mb-4">
+                  Al momento della firma del contratto è prevista una caparra pari al 30% del costo totale del noleggio.<br />
+                  Questo ci permette di riservare in esclusiva il veicolo per te e garantirti la massima disponibilità.
+                </p>
+
+                <p className="font-aeonik-bold">Documentazione e riepilogo</p>
               </div>
-              <p className="font-aeonik text-white text-[13px] leading-[1.5]">
-                Una giornata intera con la Ferrari 296 GTS a tua disposizione. Perfetta per eventi, cerimonie o un&apos;intera esperienza da vivere al volante.
-              </p>
             </div>
 
-            {/* Card 3 */}
-            <div className="backdrop-blur-[20px] bg-white/[0.04] p-6 text-center">
-              <h3 className="font-itc-blair text-white text-[18px] lg:text-[20px] leading-tight mb-4">
-                weekend completo
-              </h3>
-              <p className="font-aeonik-bold text-white text-[14px] mb-1">a partire da:</p>
-              <p className="font-aeonik-bold text-white text-[20px] mb-4">3.400€</p>
-              <p className="font-aeonik text-white text-[13px] leading-[1.5]">
-                Due giorni di emozione, libertà e presenza scenica. Ideale per chi vuole trasformare un&apos;occasione in un&apos;avventura.
-              </p>
-            </div>
-          </div>
+            {/* Box 2 */}
+            <div className="backdrop-blur-[20px] bg-white/[0.04] p-6 lg:p-8 rounded-lg border border-white/10">
+              <div className="font-aeonik text-white text-[13px] lg:text-[15px] leading-[1.6]">
+                <p className="mb-2">Dopo la conferma riceverai via email:</p>
+                <ul className="list-disc pl-5 mb-4 space-y-1">
+                  <li>il riepilogo completo</li>
+                  <li>il contratto in allegato</li>
+                  <li>tutte le informazioni operative</li>
+                </ul>
+                <p className="mb-6">
+                  Così potrai leggere tutto con calma e avere ogni dettaglio a portata di mano.
+                </p>
 
-          {/* Full Width Card */}
-          <div className="backdrop-blur-[20px] bg-white/[0.04] p-6 text-center">
-            <h3 className="font-itc-blair text-white text-[18px] lg:text-[20px] leading-tight mb-3">
-              settimana completa
-            </h3>
-            <p className="font-aeonik-bold text-white text-[14px] mb-1">a partire da:</p>
-            <p className="font-aeonik-bold text-white text-[20px] mb-3">9.800€</p>
-            <p className="font-aeonik text-white text-[13px] leading-[1.5] max-w-[500px] mx-auto">
-              Sette giorni di pura potenza. Soluzione perfetta per eventi estesi, progetti creativi o chi vuole semplicemente esagerare.
-            </p>
+                <p className="font-aeonik-bold mb-2">Politica di cancellazione</p>
+                <p className="mb-4">
+                  Comprendiamo che possano verificarsi imprevisti. Per questo abbiamo previsto condizioni chiare:
+                </p>
+                <ul className="list-disc pl-5 mb-4 space-y-2">
+                  <li>Disdetta entro 30 giorni dalla data di prenotazione → viene trattenuta la caparra (30% del totale).</li>
+                  <li>Disdetta entro 15 giorni dalla data di inizio noleggio → viene trattenuto il 50% dell&apos;importo totale.</li>
+                  <li>Disdetta entro 3 giorni dall&apos;inizio del noleggio → viene trattenuto l&apos;intero importo del noleggio.</li>
+                </ul>
+                <p>
+                  Queste condizioni ci permettono di garantire un servizio organizzato e di alto livello per tutti i nostri clienti.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -318,6 +252,45 @@ export default function EventiCompleanno() {
           <button className="bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[14px] hover:bg-gray-100 transition-colors">
             PRENOTA LA TUA ESPERIENZA
           </button>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="relative w-full py-16 lg:py-24">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
+            {/* Left Side - Title */}
+            <div className="lg:w-1/4">
+              <h2 className="font-itc-blair text-white text-[28px] lg:text-[32px] leading-[1.1]">
+                DOMANDE<br />FREQUENTI
+              </h2>
+            </div>
+
+            {/* Right Side - FAQ Items */}
+            <div className="lg:w-3/4">
+              {faqData.map((faq, index) => (
+                <div key={index} className="border-b border-white/20">
+                  <button
+                    onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                    className="w-full flex items-center justify-between py-5 text-left"
+                  >
+                    <span className="font-aeonik text-white text-[14px] lg:text-[16px] pr-4">
+                      {faq.question}
+                    </span>
+                    <span className="text-white text-[20px] shrink-0">
+                      {openFaq === index ? "−" : "+"}
+                    </span>
+                  </button>
+
+                  {openFaq === index && (
+                    <div className="pb-5 font-aeonik text-white/70 text-[13px] lg:text-[14px] leading-[1.6]">
+                      {faq.answer}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
