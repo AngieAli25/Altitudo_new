@@ -1,10 +1,45 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
+import TermsConsent from "@/components/TermsConsent";
+import DateTimeField from "@/components/DateTimeField";
 
 export default function Contatti() {
   const [eventiOpen, setEventiOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+  const isEventi = pathname === "/eventi" || pathname.startsWith("/eventi/");
+  const isPrezzi = pathname === "/prezzi";
+  const isContatti = pathname === "/contatti";
+
+  const handleOpenDropdown = () => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+    setEventiOpen(true);
+  };
+
+  const handleCloseDropdownDelayed = () => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+    }
+    closeTimeoutRef.current = setTimeout(() => {
+      setEventiOpen(false);
+      closeTimeoutRef.current = null;
+    }, 200);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (closeTimeoutRef.current) {
+        clearTimeout(closeTimeoutRef.current);
+      }
+    };
+  }, []);
 
   const faqData = [
     {
@@ -39,12 +74,22 @@ export default function Contatti() {
               />
             </a>
             <nav className="hidden lg:flex items-center gap-8">
-              <a href="/" className="font-itc-blair text-white text-[13px] uppercase hover:opacity-80 transition-opacity">
+              <a href="/" className="relative pb-1 font-itc-blair text-white text-[13px] uppercase hover:opacity-80 transition-opacity">
                 HOME
+                {isHome && (
+                  <span className="pointer-events-none absolute left-0 right-0 -bottom-1 h-[2px] bg-gradient-to-r from-white/0 via-white/80 to-white/0 rounded-full" />
+                )}
               </a>
-              <div className="relative flex items-center gap-1.5">
-                <a href="/eventi" className="font-itc-blair text-white text-[13px] uppercase hover:opacity-80 transition-opacity">
+              <div
+                className="relative flex items-center gap-1.5"
+                onMouseEnter={handleOpenDropdown}
+                onMouseLeave={handleCloseDropdownDelayed}
+              >
+                <a href="/eventi" className="relative pb-1 font-itc-blair text-white text-[13px] uppercase hover:opacity-80 transition-opacity">
                   EVENTI
+                  {isEventi && (
+                    <span className="pointer-events-none absolute left-0 right-0 -bottom-1 h-[2px] bg-gradient-to-r from-white/0 via-white/80 to-white/0 rounded-full" />
+                  )}
                 </a>
                 <svg
                   width="8"
@@ -57,7 +102,11 @@ export default function Contatti() {
                   <path d="M4 5L0 0H8L4 5Z" fill="white"/>
                 </svg>
                 {eventiOpen && (
-                  <div className="absolute top-full left-0 mt-2 bg-black/95 backdrop-blur-md rounded-lg py-2 min-w-[160px] border border-white/10">
+                  <div
+                    className="absolute top-full left-0 mt-2 bg-black/95 backdrop-blur-md rounded-lg py-2 min-w-[160px] border border-white/10"
+                    onMouseEnter={handleOpenDropdown}
+                    onMouseLeave={handleCloseDropdownDelayed}
+                  >
                     <a
                       href="/eventi/compleanno"
                       className="block px-4 py-2 font-aeonik text-white text-[13px] hover:bg-white/10 transition-colors"
@@ -79,14 +128,20 @@ export default function Contatti() {
                   </div>
                 )}
               </div>
-              <a href="/prezzi" className="font-itc-blair text-white text-[13px] uppercase hover:opacity-80 transition-opacity">
+              <a href="/prezzi" className="relative pb-1 font-itc-blair text-white text-[13px] uppercase hover:opacity-80 transition-opacity">
                 PREZZI
+                {isPrezzi && (
+                  <span className="pointer-events-none absolute left-0 right-0 -bottom-1 h-[2px] bg-gradient-to-r from-white/0 via-white/80 to-white/0 rounded-full" />
+                )}
               </a>
-              <a href="/contatti" className="font-itc-blair text-white text-[13px] uppercase hover:opacity-80 transition-opacity">
+              <a href="/contatti" className="relative pb-1 font-itc-blair text-white text-[13px] uppercase hover:opacity-80 transition-opacity">
                 CONTATTI
+                {isContatti && (
+                  <span className="pointer-events-none absolute left-0 right-0 -bottom-1 h-[2px] bg-gradient-to-r from-white/0 via-white/80 to-white/0 rounded-full" />
+                )}
               </a>
             </nav>
-            <a href="/prezzi" className="bg-white text-black font-itc-blair px-5 py-2.5 rounded-lg text-[13px] hover:bg-gray-100 transition-colors">
+            <a href="#prenota" className="bg-white text-black font-itc-blair px-5 py-2.5 rounded-lg text-[13px] hover:bg-gray-100 transition-colors">
               guidala ora
             </a>
           </div>
@@ -134,10 +189,14 @@ export default function Contatti() {
             Dettagli del Servizio
           </h2>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {/* Box 1 */}
-            <div className="backdrop-blur-[20px] bg-white/[0.04] p-6 lg:p-8 rounded-lg border border-white/10">
-              <div className="font-aeonik text-white text-[13px] lg:text-[15px] leading-[1.6]">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Card 1 - Condizioni principali */}
+            <div className="relative overflow-hidden rounded-2xl ring-1 ring-white/15 bg-gradient-to-br from-white/[0.12] to-white/[0.06] backdrop-blur-[16px] p-6 lg:p-8">
+              <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-white/0 via-white/30 to-white/0" />
+              <span className="inline-block mb-5 px-3 py-1 rounded-full bg-white/10 text-white/80 text-[12px] tracking-wide">
+                Condizioni principali
+              </span>
+              <div className="font-aeonik text-white text-[13px] lg:text-[15px] leading-[1.7]">
                 <p className="mb-4">
                   Per garantire un servizio esclusivo, sicuro e senza imprevisti, ti chiediamo solo poche semplici condizioni.
                 </p>
@@ -147,10 +206,25 @@ export default function Contatti() {
                   Il giorno prima della consegna dell&apos;auto, durante il check-in, viene effettuato un blocco temporaneo sulla carta di credito di €15.000.<br />
                   Si tratta esclusivamente di una garanzia:
                 </p>
-                <ul className="list-disc pl-5 mb-4 space-y-1">
-                  <li>non è un addebito</li>
-                  <li>non viene prelevato alcun importo</li>
-                  <li>viene automaticamente sbloccato al termine del noleggio</li>
+                <ul className="pl-0 mb-5 space-y-2">
+                  <li className="flex items-start gap-2">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="text-white/70 mt-[2px]">
+                      <path d="M9 16.2l-3.5-3.5-1.4 1.4L9 19 20.3 7.7l-1.4-1.4z" />
+                    </svg>
+                    <span>non è un addebito</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="text-white/70 mt-[2px]">
+                      <path d="M9 16.2l-3.5-3.5-1.4 1.4L9 19 20.3 7.7l-1.4-1.4z" />
+                    </svg>
+                    <span>non viene prelevato alcun importo</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="text-white/70 mt-[2px]">
+                      <path d="M9 16.2l-3.5-3.5-1.4 1.4L9 19 20.3 7.7l-1.4-1.4z" />
+                    </svg>
+                    <span>viene automaticamente sbloccato al termine del noleggio</span>
+                  </li>
                 </ul>
 
                 <p className="font-aeonik-bold mb-2">Caparra confirmatoria</p>
@@ -159,18 +233,37 @@ export default function Contatti() {
                   Questo ci permette di riservare in esclusiva il veicolo per te e garantirti la massima disponibilità.
                 </p>
 
-                <p className="font-aeonik-bold">Documentazione e riepilogo</p>
               </div>
             </div>
 
-            {/* Box 2 */}
-            <div className="backdrop-blur-[20px] bg-white/[0.04] p-6 lg:p-8 rounded-lg border border-white/10">
-              <div className="font-aeonik text-white text-[13px] lg:text-[15px] leading-[1.6]">
+            {/* Card 2 - Conferma e cancellazioni */}
+            <div className="relative overflow-hidden rounded-2xl ring-1 ring-white/15 bg-gradient-to-br from-white/[0.12] to-white/[0.06] backdrop-blur-[16px] p-6 lg:p-8">
+              <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-white/0 via-white/30 to-white/0" />
+              <span className="inline-block mb-5 px-3 py-1 rounded-full bg-white/10 text-white/80 text-[12px] tracking-wide">
+                Conferma e cancellazioni
+              </span>
+              <div className="font-aeonik text-white text-[13px] lg:text-[15px] leading-[1.7]">
+                <p className="font-aeonik-bold mb-2">Documentazione e riepilogo</p>
                 <p className="mb-2">Dopo la conferma riceverai via email:</p>
-                <ul className="list-disc pl-5 mb-4 space-y-1">
-                  <li>il riepilogo completo</li>
-                  <li>il contratto in allegato</li>
-                  <li>tutte le informazioni operative</li>
+                <ul className="pl-0 mb-5 space-y-2">
+                  <li className="flex items-start gap-2">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="text-white/70 mt-[2px]">
+                      <path d="M9 16.2l-3.5-3.5-1.4 1.4L9 19 20.3 7.7l-1.4-1.4z" />
+                    </svg>
+                    <span>il riepilogo completo</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="text-white/70 mt-[2px]">
+                      <path d="M9 16.2l-3.5-3.5-1.4 1.4L9 19 20.3 7.7l-1.4-1.4z" />
+                    </svg>
+                    <span>il contratto in allegato</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="text-white/70 mt-[2px]">
+                      <path d="M9 16.2l-3.5-3.5-1.4 1.4L9 19 20.3 7.7l-1.4-1.4z" />
+                    </svg>
+                    <span>tutte le informazioni operative</span>
+                  </li>
                 </ul>
                 <p className="mb-6">
                   Così potrai leggere tutto con calma e avere ogni dettaglio a portata di mano.
@@ -180,10 +273,25 @@ export default function Contatti() {
                 <p className="mb-4">
                   Comprendiamo che possano verificarsi imprevisti. Per questo abbiamo previsto condizioni chiare:
                 </p>
-                <ul className="list-disc pl-5 mb-4 space-y-2">
-                  <li>Disdetta entro 30 giorni dalla data di prenotazione → viene trattenuta la caparra (30% del totale).</li>
-                  <li>Disdetta entro 15 giorni dalla data di inizio noleggio → viene trattenuto il 50% dell&apos;importo totale.</li>
-                  <li>Disdetta entro 3 giorni dall&apos;inizio del noleggio → viene trattenuto l&apos;intero importo del noleggio.</li>
+                <ul className="pl-0 mb-4 space-y-2">
+                  <li className="flex items-start gap-2">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="text-white/70 mt-[2px]">
+                      <path d="M9 16.2l-3.5-3.5-1.4 1.4L9 19 20.3 7.7l-1.4-1.4z" />
+                    </svg>
+                    <span>Disdetta entro 30 giorni dalla data di prenotazione → viene trattenuta la caparra (30% del totale).</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="text-white/70 mt-[2px]">
+                      <path d="M9 16.2l-3.5-3.5-1.4 1.4L9 19 20.3 7.7l-1.4-1.4z" />
+                    </svg>
+                    <span>Disdetta entro 15 giorni dalla data di inizio noleggio → viene trattenuto il 50% dell&apos;importo totale.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="text-white/70 mt-[2px]">
+                      <path d="M9 16.2l-3.5-3.5-1.4 1.4L9 19 20.3 7.7l-1.4-1.4z" />
+                    </svg>
+                    <span>Disdetta entro 3 giorni dall&apos;inizio del noleggio → viene trattenuto l&apos;intero importo del noleggio.</span>
+                  </li>
                 </ul>
                 <p>
                   Queste condizioni ci permettono di garantire un servizio organizzato e di alto livello per tutti i nostri clienti.
@@ -195,7 +303,7 @@ export default function Contatti() {
       </section>
 
       {/* Booking Form Section */}
-      <section className="relative w-full py-14">
+      <section id="prenota" className="relative w-full py-14 scroll-mt-24 md:scroll-mt-28">
         <div className="max-w-[800px] mx-auto px-6 text-center">
           <h2 className="font-itc-blair text-white text-[22px] md:text-[28px] lg:text-[32px] leading-[1.2] mb-2">
             PRENOTA ORA LA
@@ -235,18 +343,25 @@ export default function Contatti() {
               />
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <select className="w-full h-11 bg-white/[0.08] rounded-lg px-4 text-white/50 text-[13px] focus:outline-none focus:ring-1 focus:ring-white/30 appearance-none cursor-pointer">
-                <option value="">Seleziona pacchetto</option>
-                <option value="orario">Noleggio Orario</option>
-                <option value="giornata">Intera Giornata</option>
-                <option value="weekend">Weekend Completo</option>
-                <option value="settimana">Settimana Completa</option>
-              </select>
+              <DateTimeField ariaLabel="Dal" title="Dal (data e ora)" />
+              <DateTimeField ariaLabel="Al" title="Al (data e ora)" />
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <input
-                type="date"
-                className="w-full h-11 bg-white/[0.08] rounded-lg px-4 text-white/50 text-[13px] focus:outline-none focus:ring-1 focus:ring-white/30"
+                type="text"
+                placeholder="Luogo di ritiro"
+                className="w-full h-11 bg-white/[0.08] rounded-lg px-4 text-white text-[13px] placeholder-white/50 focus:outline-none focus:ring-1 focus:ring-white/30"
+              />
+              <input
+                type="text"
+                placeholder="Luogo di consegna"
+                className="w-full h-11 bg-white/[0.08] rounded-lg px-4 text-white text-[13px] placeholder-white/50 focus:outline-none focus:ring-1 focus:ring-white/30"
               />
             </div>
+          </div>
+
+          <div className="mb-6">
+            <TermsConsent checkboxId="terms-contatti" />
           </div>
 
           <button className="bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[14px] hover:bg-gray-100 transition-colors">
@@ -316,7 +431,7 @@ export default function Contatti() {
             </div>
 
             {/* Links */}
-            <div className="text-center lg:text-left">
+            <div className="text-center lg:text-center lg:justify-self-center">
               <h3 className="font-itc-blair text-white text-[13px] mb-3">EVENTI</h3>
               <ul className="font-aeonik text-white text-[12px] space-y-2">
                 <li><a href="/eventi/compleanno" className="hover:opacity-80 transition-opacity">COMPLEANNO</a></li>

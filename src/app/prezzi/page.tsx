@@ -1,9 +1,44 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
+import TermsConsent from "@/components/TermsConsent";
+import DateTimeField from "@/components/DateTimeField";
 
 export default function Prezzi() {
   const [eventiOpen, setEventiOpen] = useState(false);
+  const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+  const isEventi = pathname === "/eventi" || pathname.startsWith("/eventi/");
+  const isPrezzi = pathname === "/prezzi";
+  const isContatti = pathname === "/contatti";
+
+  const handleOpenDropdown = () => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+    setEventiOpen(true);
+  };
+
+  const handleCloseDropdownDelayed = () => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+    }
+    closeTimeoutRef.current = setTimeout(() => {
+      setEventiOpen(false);
+      closeTimeoutRef.current = null;
+    }, 200);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (closeTimeoutRef.current) {
+        clearTimeout(closeTimeoutRef.current);
+      }
+    };
+  }, []);
 
   const pricingData = [
     { period: "1 giorno", km: "150 km", priceDay: "€ 1.700", priceTotal: "€ 1.700", priceExtra: "€ 5 / km" },
@@ -27,12 +62,22 @@ export default function Prezzi() {
               />
             </a>
             <nav className="hidden lg:flex items-center gap-8">
-              <a href="/" className="font-itc-blair text-white text-[13px] uppercase hover:opacity-80 transition-opacity">
+              <a href="/" className="relative pb-1 font-itc-blair text-white text-[13px] uppercase hover:opacity-80 transition-opacity">
                 HOME
+                {isHome && (
+                  <span className="pointer-events-none absolute left-0 right-0 -bottom-1 h-[2px] bg-gradient-to-r from-white/0 via-white/80 to-white/0 rounded-full" />
+                )}
               </a>
-              <div className="relative flex items-center gap-1.5">
-                <a href="/eventi" className="font-itc-blair text-white text-[13px] uppercase hover:opacity-80 transition-opacity">
+              <div
+                className="relative flex items-center gap-1.5"
+                onMouseEnter={handleOpenDropdown}
+                onMouseLeave={handleCloseDropdownDelayed}
+              >
+                <a href="/eventi" className="relative pb-1 font-itc-blair text-white text-[13px] uppercase hover:opacity-80 transition-opacity">
                   EVENTI
+                  {isEventi && (
+                    <span className="pointer-events-none absolute left-0 right-0 -bottom-1 h-[2px] bg-gradient-to-r from-white/0 via-white/80 to-white/0 rounded-full" />
+                  )}
                 </a>
                 <svg
                   width="8"
@@ -45,7 +90,11 @@ export default function Prezzi() {
                   <path d="M4 5L0 0H8L4 5Z" fill="white"/>
                 </svg>
                 {eventiOpen && (
-                  <div className="absolute top-full left-0 mt-2 bg-black/95 backdrop-blur-md rounded-lg py-2 min-w-[160px] border border-white/10">
+                  <div
+                    className="absolute top-full left-0 mt-2 bg-black/95 backdrop-blur-md rounded-lg py-2 min-w-[160px] border border-white/10"
+                    onMouseEnter={handleOpenDropdown}
+                    onMouseLeave={handleCloseDropdownDelayed}
+                  >
                     <a
                       href="/eventi/compleanno"
                       className="block px-4 py-2 font-aeonik text-white text-[13px] hover:bg-white/10 transition-colors"
@@ -67,14 +116,20 @@ export default function Prezzi() {
                   </div>
                 )}
               </div>
-              <a href="/prezzi" className="font-itc-blair text-white text-[13px] uppercase hover:opacity-80 transition-opacity">
+              <a href="/prezzi" className="relative pb-1 font-itc-blair text-white text-[13px] uppercase hover:opacity-80 transition-opacity">
                 PREZZI
+                {isPrezzi && (
+                  <span className="pointer-events-none absolute left-0 right-0 -bottom-1 h-[2px] bg-gradient-to-r from-white/0 via-white/80 to-white/0 rounded-full" />
+                )}
               </a>
-              <a href="/contatti" className="font-itc-blair text-white text-[13px] uppercase hover:opacity-80 transition-opacity">
+              <a href="/contatti" className="relative pb-1 font-itc-blair text-white text-[13px] uppercase hover:opacity-80 transition-opacity">
                 CONTATTI
+                {isContatti && (
+                  <span className="pointer-events-none absolute left-0 right-0 -bottom-1 h-[2px] bg-gradient-to-r from-white/0 via-white/80 to-white/0 rounded-full" />
+                )}
               </a>
             </nav>
-            <a href="/prezzi" className="bg-white text-black font-itc-blair px-5 py-2.5 rounded-lg text-[13px] hover:bg-gray-100 transition-colors">
+            <a href="/contatti#prenota" className="bg-white text-black font-itc-blair px-5 py-2.5 rounded-lg text-[13px] hover:bg-gray-100 transition-colors">
               guidala ora
             </a>
           </div>
@@ -98,7 +153,7 @@ export default function Prezzi() {
         </div>
 
         <div className="relative z-10 flex flex-col items-center justify-end h-full text-center px-6 pb-[8vh]">
-          <h1 className="font-itc-blair text-white text-[22px] md:text-[32px] lg:text-[38px] leading-[1.2] tracking-tight mb-6 max-w-[900px] uppercase">
+          <h1 className="font-itc-blair text-white text-[22px] md:text-[32px] lg:text-[38px] leading-[1.2] tracking-tight mb-6 max-w-[900px] uppercase whitespace-nowrap">
             Personalizza la tua esperienza
           </h1>
           <div className="font-aeonik text-white/80 text-[13px] lg:text-[16px] leading-[1.4] max-w-[900px]">
@@ -127,7 +182,8 @@ export default function Prezzi() {
           {/* Pricing Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
             {/* Card 1 */}
-            <div className="backdrop-blur-[20px] bg-white/[0.04] p-6 text-center">
+            <div className="relative overflow-hidden rounded-2xl ring-1 ring-white/15 bg-gradient-to-br from-white/[0.12] to-white/[0.06] backdrop-blur-[16px] p-6 text-center">
+              <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-white/0 via-white/30 to-white/0" />
               <h3 className="font-itc-blair text-white text-[18px] lg:text-[20px] leading-tight mb-4">
                 noleggio orario
               </h3>
@@ -139,7 +195,8 @@ export default function Prezzi() {
             </div>
 
             {/* Card 2 */}
-            <div className="backdrop-blur-[20px] bg-white/[0.04] p-6 text-center">
+            <div className="relative overflow-hidden rounded-2xl ring-1 ring-white/15 bg-gradient-to-br from-white/[0.12] to-white/[0.06] backdrop-blur-[16px] p-6 text-center">
+              <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-white/0 via-white/30 to-white/0" />
               <h3 className="font-itc-blair text-white text-[18px] lg:text-[20px] leading-tight mb-4">
                 intera giornata
               </h3>
@@ -154,7 +211,8 @@ export default function Prezzi() {
             </div>
 
             {/* Card 3 */}
-            <div className="backdrop-blur-[20px] bg-white/[0.04] p-6 text-center">
+            <div className="relative overflow-hidden rounded-2xl ring-1 ring-white/15 bg-gradient-to-br from-white/[0.12] to-white/[0.06] backdrop-blur-[16px] p-6 text-center">
+              <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-white/0 via-white/30 to-white/0" />
               <h3 className="font-itc-blair text-white text-[18px] lg:text-[20px] leading-tight mb-4">
                 weekend completo
               </h3>
@@ -167,7 +225,8 @@ export default function Prezzi() {
           </div>
 
           {/* Full Width Card */}
-          <div className="backdrop-blur-[20px] bg-white/[0.04] p-6 text-center">
+          <div className="relative overflow-hidden rounded-2xl ring-1 ring-white/15 bg-gradient-to-br from-white/[0.12] to-white/[0.06] backdrop-blur-[16px] p-6 text-center">
+            <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-white/0 via-white/30 to-white/0" />
             <h3 className="font-itc-blair text-white text-[18px] lg:text-[20px] leading-tight mb-3">
               settimana completa
             </h3>
@@ -306,23 +365,25 @@ export default function Prezzi() {
               />
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <select className="w-full h-11 bg-white/[0.08] rounded-lg px-4 text-white/50 text-[13px] focus:outline-none focus:ring-1 focus:ring-white/30 appearance-none cursor-pointer">
-                <option value="">Seleziona pacchetto</option>
-                <option value="orario">Noleggio Orario</option>
-                <option value="giornata">Intera Giornata</option>
-                <option value="weekend">Weekend Completo</option>
-                <option value="settimana">Settimana Completa</option>
-                <option value="1giorno">1 Giorno</option>
-                <option value="2giorni">2 Giorni</option>
-                <option value="5giorni">5 Giorni</option>
-                <option value="7giorni">7 Giorni</option>
-                <option value="1mese">1 Mese</option>
-              </select>
+              <DateTimeField ariaLabel="Dal" title="Dal (data e ora)" />
+              <DateTimeField ariaLabel="Al" title="Al (data e ora)" />
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <input
-                type="date"
-                className="w-full h-11 bg-white/[0.08] rounded-lg px-4 text-white/50 text-[13px] focus:outline-none focus:ring-1 focus:ring-white/30"
+                type="text"
+                placeholder="Luogo di ritiro"
+                className="w-full h-11 bg-white/[0.08] rounded-lg px-4 text-white text-[13px] placeholder-white/50 focus:outline-none focus:ring-1 focus:ring-white/30"
+              />
+              <input
+                type="text"
+                placeholder="Luogo di consegna"
+                className="w-full h-11 bg-white/[0.08] rounded-lg px-4 text-white text-[13px] placeholder-white/50 focus:outline-none focus:ring-1 focus:ring-white/30"
               />
             </div>
+          </div>
+
+          <div className="mb-6">
+            <TermsConsent checkboxId="terms-prezzi" />
           </div>
 
           <button className="bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[14px] hover:bg-gray-100 transition-colors">
@@ -353,7 +414,7 @@ export default function Prezzi() {
             </div>
 
             {/* Links */}
-            <div className="text-center lg:text-left">
+            <div className="text-center lg:text-center lg:justify-self-center">
               <h3 className="font-itc-blair text-white text-[13px] mb-3">EVENTI</h3>
               <ul className="font-aeonik text-white text-[12px] space-y-2">
                 <li><a href="/eventi/compleanno" className="hover:opacity-80 transition-opacity">COMPLEANNO</a></li>

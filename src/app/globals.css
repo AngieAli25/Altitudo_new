@@ -51,6 +51,71 @@ body {
   padding: 0;
 }
 
+.date-input,
+input[type="date"] {
+  /* Usa palette scura per i controlli nativi del datepicker */
+  color-scheme: dark;
+  /* Icona calendario custom bianca, coerente con il tema */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23FFFFFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4' width='18' height='18' rx='2' ry='2'/%3E%3Cline x1='16' y1='2' x2='16' y2='6'/%3E%3Cline x1='8' y1='2' x2='8' y2='6'/%3E%3Cline x1='3' y1='10' x2='21' y2='10'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 18px 18px;
+  padding-right: 44px; /* spazio per l'icona */
+}
+
+/* Stile coerente anche per datetime-local */
+input[type="datetime-local"] {
+  color-scheme: dark;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23FFFFFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4' width='18' height='18' rx='2' ry='2'/%3E%3Cline x1='16' y1='2' x2='16' y2='6'/%3E%3Cline x1='8' y1='2' x2='8' y2='6'/%3E%3Cline x1='3' y1='10' x2='21' y2='10'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 18px 18px;
+  padding-right: 44px;
+}
+
+/* Restyling dell'icona del datepicker per armonizzarla con il tema */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  /* Forza l'icona del calendario ad essere bianca sui temi scuri */
+  opacity: 0; /* nasconde quella nativa mantenendo la funzionalità di click */
+  transition: opacity 160ms ease;
+}
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  transition: opacity 160ms ease;
+}
+
+/* Variante per gli input interni al popover custom: usa SOLO l'icona nativa */
+.dt-native {
+  padding-right: 44px !important;
+  background-repeat: no-repeat !important;
+  background-position: right 14px center !important;
+  background-size: 18px 18px !important;
+}
+.dt-native::-webkit-calendar-picker-indicator {
+  /* nasconde quella nativa per evitare doppioni */
+  opacity: 0 !important;
+}
+.dt-native--date {
+  /* l'icona viene resa con uno span assoluto; nessuna immagine di sfondo */
+  background-image: none !important;
+}
+.dt-native--time {
+  background-image: none !important;
+}
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+}
+/* Migliora la leggibilità del testo interno del campo data su WebKit */
+input[type="date"]::-webkit-datetime-edit {
+  color: rgba(255,255,255,0.8);
+}
+input[type="date"]::-webkit-datetime-edit-text,
+input[type="date"]::-webkit-datetime-edit-year-field,
+input[type="date"]::-webkit-datetime-edit-month-field,
+input[type="date"]::-webkit-datetime-edit-day-field {
+  color: rgba(255,255,255,0.8);
+}
+
 .font-itc-blair {
   font-family: var(--font-itc-blair);
 }
