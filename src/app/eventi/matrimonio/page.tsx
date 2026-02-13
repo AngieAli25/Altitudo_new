@@ -122,38 +122,43 @@ export default function EventiMatrimonio() {
         </div>
       </section>
 
-      {/* Un'auto. Una promessa. Section */}
-      <section className="relative w-full py-16 lg:py-24">
-        <div className="max-w-[1200px] mx-auto px-6 lg:px-16">
-          <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
-            {/* Left Side - Text */}
-            <div className="lg:w-1/2 order-2 lg:order-1">
-              <h2 className="font-itc-blair text-white text-[26px] md:text-[34px] lg:text-[38px] leading-[1.2] mb-6 uppercase">
-                Un&apos;auto.<br />
-                Una promessa.<br />
-                Un sogno su quattro ruote.
-              </h2>
+      {/* Un'auto. Una promessa. Section - Full Width */}
+      <section className="relative w-full h-[400px] lg:h-[500px] overflow-hidden">
+        {/* Background Image - Right Side */}
+        <div className="absolute right-0 top-0 w-full lg:w-1/2 h-full">
+          <img
+            src="/images/ferrari_matrimoni.png"
+            alt="Ferrari per Matrimoni"
+            className="w-full h-full object-cover"
+          />
+          {/* Gradient overlay from left */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background: 'linear-gradient(90deg, rgb(0,0,0) 0%, rgba(0,0,0,0) 40%)'
+            }}
+          />
+        </div>
 
-              <div className="font-aeonik text-white text-[13px] lg:text-[15px] leading-[1.5]">
-                <p className="mb-4">
-                  Le linee sinuose, la luce che si riflette sulla carrozzeria rossa, il rombo che emoziona: ogni dettaglio della Ferrari 296 GTS è pensato per restare impresso.
-                </p>
-                <p className="mb-4">
-                  Le foto del tuo matrimonio non avranno bisogno di filtri.
-                </p>
-                <p>
-                  Avranno già lo sfondo perfetto.
-                </p>
-              </div>
-            </div>
+        {/* Left Side - Text */}
+        <div className="relative z-10 h-full flex items-center">
+          <div className="w-full lg:w-1/2 px-6 lg:px-16 lg:pl-[10%]">
+            <h2 className="font-itc-blair text-white text-[26px] md:text-[34px] lg:text-[38px] leading-[1.2] mb-6 uppercase">
+              Un&apos;auto.<br />
+              Una promessa.<br />
+              Un sogno su quattro ruote.
+            </h2>
 
-            {/* Right Side - Image */}
-            <div className="lg:w-1/2 order-1 lg:order-2">
-              <img
-                src="/images/ferrari_matrimoni.png"
-                alt="Ferrari per Matrimoni"
-                className="w-full h-auto object-cover"
-              />
+            <div className="font-aeonik text-white text-[13px] lg:text-[15px] leading-[1.5] max-w-[450px]">
+              <p className="mb-4">
+                Le linee sinuose, la luce che si riflette sulla carrozzeria rossa, il rombo che emoziona: ogni dettaglio della Ferrari 296 GTS è pensato per restare impresso.
+              </p>
+              <p className="mb-4">
+                Le foto del tuo matrimonio non avranno bisogno di filtri.
+              </p>
+              <p>
+                Avranno già lo sfondo perfetto.
+              </p>
             </div>
           </div>
         </div>
