@@ -1,6 +1,10 @@
 "use client";
 
+import { useState } from "react";
+
 export default function Prezzi() {
+  const [eventiOpen, setEventiOpen] = useState(false);
+
   const pricingData = [
     { period: "1 giorno", km: "150 km", priceDay: "€ 1.700", priceTotal: "€ 1.700", priceExtra: "€ 5 / km" },
     { period: "2 giorni", km: "300 km", priceDay: "€ 1.500", priceTotal: "€ 3.000", priceExtra: "€ 5 / km" },
@@ -26,13 +30,46 @@ export default function Prezzi() {
               <a href="/" className="font-itc-blair text-white text-[13px] uppercase hover:opacity-80 transition-opacity">
                 HOME
               </a>
-              <div className="flex items-center gap-1.5 cursor-pointer hover:opacity-80 transition-opacity">
-                <span className="font-itc-blair text-white text-[13px] uppercase">
-                  EVENTI
-                </span>
-                <svg width="8" height="5" viewBox="0 0 8 5" fill="none">
-                  <path d="M4 5L0 0H8L4 5Z" fill="white"/>
-                </svg>
+              <div className="relative">
+                <div
+                  className="flex items-center gap-1.5 cursor-pointer hover:opacity-80 transition-opacity"
+                  onClick={() => setEventiOpen(!eventiOpen)}
+                >
+                  <span className="font-itc-blair text-white text-[13px] uppercase">
+                    EVENTI
+                  </span>
+                  <svg
+                    width="8"
+                    height="5"
+                    viewBox="0 0 8 5"
+                    fill="none"
+                    className={`transition-transform ${eventiOpen ? 'rotate-180' : ''}`}
+                  >
+                    <path d="M4 5L0 0H8L4 5Z" fill="white"/>
+                  </svg>
+                </div>
+                {eventiOpen && (
+                  <div className="absolute top-full left-0 mt-2 bg-black/95 backdrop-blur-md rounded-lg py-2 min-w-[160px] border border-white/10">
+                    <a
+                      href="/eventi/compleanno"
+                      className="block px-4 py-2 font-aeonik text-white text-[13px] hover:bg-white/10 transition-colors"
+                    >
+                      Compleanno
+                    </a>
+                    <a
+                      href="/eventi/shooting"
+                      className="block px-4 py-2 font-aeonik text-white text-[13px] hover:bg-white/10 transition-colors"
+                    >
+                      Shooting
+                    </a>
+                    <a
+                      href="/eventi/matrimonio"
+                      className="block px-4 py-2 font-aeonik text-white text-[13px] hover:bg-white/10 transition-colors"
+                    >
+                      Matrimonio
+                    </a>
+                  </div>
+                )}
               </div>
               <a href="/prezzi" className="font-itc-blair text-white text-[13px] uppercase hover:opacity-80 transition-opacity">
                 PREZZI
@@ -41,9 +78,9 @@ export default function Prezzi() {
                 CONTATTI
               </a>
             </nav>
-            <button className="bg-white text-black font-itc-blair px-5 py-2.5 rounded-lg text-[13px] hover:bg-gray-100 transition-colors">
+            <a href="/prezzi" className="bg-white text-black font-itc-blair px-5 py-2.5 rounded-lg text-[13px] hover:bg-gray-100 transition-colors">
               guidala ora
-            </button>
+            </a>
           </div>
         </div>
       </header>
