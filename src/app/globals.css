@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'ITC Blair';
+  src: local('ITC Blair Medium');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ITC Blair Light';
+  src: local('ITC Blair Light');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Aeonik';
+  src: local('Aeonik Regular');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Aeonik Bold';
+  src: local('Aeonik Bold');
+  font-weight: 700;
+  font-style: normal;
+}
+
+:root {
+  --font-itc-blair: 'ITC Blair', 'Inter', sans-serif;
+  --font-itc-blair-light: 'ITC Blair Light', 'Inter', sans-serif;
+  --font-aeonik: 'Aeonik', 'Inter', sans-serif;
+  --font-aeonik-bold: 'Aeonik Bold', 'Inter', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: var(--font-aeonik);
+  margin: 0;
+  padding: 0;
+}
+
+.font-itc-blair {
+  font-family: var(--font-itc-blair);
+}
+
+.font-itc-blair-light {
+  font-family: var(--font-itc-blair-light);
+}
+
+.font-aeonik {
+  font-family: var(--font-aeonik);
+}
+
+.font-aeonik-bold {
+  font-family: var(--font-aeonik-bold);
+}
