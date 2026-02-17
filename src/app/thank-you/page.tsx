@@ -1,24 +1,28 @@
 export default function ThankYou() {
   return (
-    <main className="relative min-h-screen w-full overflow-hidden">
-      {/* Background image full-bleed */}
-      <img
-        src="/images/ferrari_home.png"
-        alt="Altitudo Ferrari"
-        className="absolute inset-0 h-full w-full object-cover"
-      />
-      {/* Overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/25 to-black/60" />
-      <div className="pointer-events-none absolute -left-40 top-20 h-[520px] w-[520px] rounded-full bg-white/10 blur-[140px]" />
-      <div className="pointer-events-none absolute right-0 -bottom-10 h-[420px] w-[460px] rounded-full bg-white/5 blur-[120px]" />
+    <main className="relative min-h-[70vh] w-full flex items-center justify-center px-6 py-16">
+      {/* soft glow */}
+      <div className="pointer-events-none absolute -left-40 top-20 h-[420px] w-[420px] rounded-full bg-white/10 blur-[120px]" />
+      <div className="pointer-events-none absolute right-0 -bottom-10 h-[320px] w-[380px] rounded-full bg-white/5 blur-[100px]" />
 
-      {/* Full-screen message (no box) */}
-      <div className="relative z-10 flex min-h-screen items-center justify-center px-6">
-        <div className="max-w-[900px] w-full text-center">
-          <h1 className="font-itc-blair text-white text-[34px] sm:text-[42px] md:text-[52px] leading-[1.1] tracking-wide mb-4">
-            Grazie, la tua richiesta è stata ricevuta
+      <div className="relative max-w-[720px] w-full text-center">
+        <div className="relative overflow-hidden rounded-2xl ring-1 ring-white/15 bg-gradient-to-br from-white/[0.12] to-white/[0.06] backdrop-blur-[16px] px-8 py-10 md:px-12 md:py-14">
+          <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-white/0 via-white/30 to-white/0" />
+          {/* Hero image */}
+          <div className="relative mb-6 -mx-8 -mt-10 md:-mx-12 md:-mt-14">
+            <div className="relative h-[180px] md:h-[220px] overflow-hidden">
+              <img
+                src="/images/ferrari_home.png"
+                alt="Altitudo Ferrari"
+                className="h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/10 to-black/30" />
+            </div>
+          </div>
+          <h1 className="font-itc-blair text-white text-[26px] md:text-[32px] leading-tight mb-3">
+            Grazie! La tua richiesta è stata ricevuta
           </h1>
-          <p className="font-aeonik text-white/90 text-[15px] md:text-[17px] leading-[1.8] mb-8">
+          <p className="font-aeonik text-white/90 text-[14px] md:text-[15px] leading-[1.7] mb-8">
             Ti contatteremo entro 24 ore per confermare i dettagli e completare la prenotazione.
           </p>
           <div className="flex items-center justify-center gap-3">
