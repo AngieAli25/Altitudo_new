@@ -7,6 +7,7 @@ type DateTimeFieldProps = {
   title?: string;
   placeholder?: string;
   nameCombined?: string; // hidden field name to submit combined datetime (ISO local)
+  required?: boolean;
 };
 
 export default function DateTimeField({
@@ -14,6 +15,7 @@ export default function DateTimeField({
   title,
   placeholder = "gg/mm/aaaa, --:--",
   nameCombined,
+  required = false,
 }: DateTimeFieldProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [dateValue, setDateValue] = useState<string>("");
@@ -169,6 +171,7 @@ export default function DateTimeField({
                 readOnly
                 onClick={() => setIsDateMenuOpen((v) => !v)}
                 onFocus={() => setIsDateMenuOpen(true)}
+                required={required}
               />
               <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-white/90" aria-hidden="true">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
@@ -276,6 +279,7 @@ export default function DateTimeField({
                 readOnly
                 onClick={() => setIsTimeMenuOpen((v) => !v)}
                 onFocus={() => setIsTimeMenuOpen(true)}
+                required={required}
               />
               <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-white/90" aria-hidden="true">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none">

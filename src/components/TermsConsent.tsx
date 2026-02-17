@@ -5,9 +5,15 @@ import TermsModal from "./TermsModal";
 
 type TermsConsentProps = {
   checkboxId?: string;
+  name?: string;
+  required?: boolean;
 };
 
-export default function TermsConsent({ checkboxId = "terms-consent" }: TermsConsentProps) {
+export default function TermsConsent({
+  checkboxId = "terms-consent",
+  name = "termsAccepted",
+  required = true,
+}: TermsConsentProps) {
   const [isChecked, setIsChecked] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -17,8 +23,11 @@ export default function TermsConsent({ checkboxId = "terms-consent" }: TermsCons
         <input
           id={checkboxId}
           type="checkbox"
+          name={name}
+          value="yes"
           checked={isChecked}
           onChange={(e) => setIsChecked(e.target.checked)}
+          required={required}
           className="mt-[3px] h-4 w-4 rounded border-white/40 bg-white/[0.08] text-black focus:ring-white/30"
         />
         <label htmlFor={checkboxId} className="font-aeonik text-white/80 text-[12px] lg:text-[13px] leading-[1.5]">

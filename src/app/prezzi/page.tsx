@@ -340,17 +340,21 @@ export default function Prezzi() {
 
           {/* Form Fields */}
           <form action="/api/send" method="post" className="space-y-4 mb-8">
+            <input type="hidden" name="formName" value="booking-prezzi" />
+            <input type="hidden" name="pageTitle" value="Prezzi - Prenotazione" />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <input
                 type="text"
                 name="firstName"
                 placeholder="Nome"
+                required
                 className="w-full h-11 bg-white/[0.08] rounded-lg px-4 text-white text-[13px] placeholder-white/50 focus:outline-none focus:ring-1 focus:ring-white/30"
               />
               <input
                 type="text"
                 name="lastName"
                 placeholder="Cognome"
+                required
                 className="w-full h-11 bg-white/[0.08] rounded-lg px-4 text-white text-[13px] placeholder-white/50 focus:outline-none focus:ring-1 focus:ring-white/30"
               />
             </div>
@@ -359,36 +363,37 @@ export default function Prezzi() {
                 type="email"
                 name="email"
                 placeholder="Email"
+                required
                 className="w-full h-11 bg-white/[0.08] rounded-lg px-4 text-white text-[13px] placeholder-white/50 focus:outline-none focus:ring-1 focus:ring-white/30"
               />
               <input
                 type="tel"
                 name="phone"
                 placeholder="Telefono"
+                required
                 className="w-full h-11 bg-white/[0.08] rounded-lg px-4 text-white text-[13px] placeholder-white/50 focus:outline-none focus:ring-1 focus:ring-white/30"
               />
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <DateTimeField ariaLabel="Dal" title="Dal (data e ora)" nameCombined="fromDateTime" />
-              <DateTimeField ariaLabel="Al" title="Al (data e ora)" nameCombined="toDateTime" />
+              <DateTimeField ariaLabel="Dal" title="Dal (data e ora)" nameCombined="fromDateTime" required />
+              <DateTimeField ariaLabel="Al" title="Al (data e ora)" nameCombined="toDateTime" required />
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <input
                 type="text"
                 name="pickupPlace"
                 placeholder="Luogo di ritiro"
+                required
                 className="w-full h-11 bg-white/[0.08] rounded-lg px-4 text-white text-[13px] placeholder-white/50 focus:outline-none focus:ring-1 focus:ring-white/30"
               />
               <input
                 type="text"
                 name="dropoffPlace"
                 placeholder="Luogo di consegna"
+                required
                 className="w-full h-11 bg-white/[0.08] rounded-lg px-4 text-white text-[13px] placeholder-white/50 focus:outline-none focus:ring-1 focus:ring-white/30"
               />
             </div>
-          </form>
-
-          <form action="/api/send" method="post">
             <div className="mb-6">
               <TermsConsent checkboxId="terms-prezzi" />
             </div>
@@ -408,11 +413,14 @@ export default function Prezzi() {
               <h3 className="font-itc-blair text-white text-[13px] uppercase mb-4 leading-[1.4] max-w-[280px]">
                 ISCRIVITI ALLA NEWSLETTER PER PROMOZIONI E OFFERTE ESCLUSIVE
               </h3>
-              <form action="/thank-you" method="post" className="flex gap-2">
+              <form action="/api/send" method="post" className="flex gap-2">
+                <input type="hidden" name="formName" value="newsletter" />
+                <input type="hidden" name="pageTitle" value="Prezzi - Newsletter" />
                 <input
                   type="email"
                   name="newsletterEmail"
                   placeholder="Enter Your Email"
+                  required
                   className="flex-1 h-11 bg-white/[0.05] backdrop-blur-md rounded-lg px-4 text-white text-[13px] placeholder-white/60 focus:outline-none"
                 />
                 <button type="submit" className="bg-white text-black font-itc-blair px-4 py-2.5 rounded-lg text-[13px] hover:bg-gray-100 transition-colors">
