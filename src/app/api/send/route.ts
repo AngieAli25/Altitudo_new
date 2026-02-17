@@ -15,28 +15,56 @@ export async function POST(request: NextRequest) {
     const toDateTime = String(form.get("toDateTime") ?? "");
     const pickupPlace = String(form.get("pickupPlace") ?? "");
     const dropoffPlace = String(form.get("dropoffPlace") ?? "");
+    const formName = String(form.get("formName") ?? (email && !firstName && !phone ? "newsletter" : "booking"));
+    const pageTitle = String(form.get("pageTitle") ?? "");
     const source = request.headers.get("referer") ?? "";
 
     const hasBooking =
       firstName || lastName || phone || fromDateTime || toDateTime || pickupPlace || dropoffPlace;
-    const subject = hasBooking
+    const subject = hasBooking || formName !== "newsletter"
       ? "Nuova richiesta prenotazione - Altitudo"
       : "Nuova iscrizione newsletter - Altitudo";
+
+    const labelMap: Record<string, string> = {
+      formName: "Modulo",
+      pageTitle: "Pagina",
+      email: "Email",
+      firstName: "Nome",
+      lastName: "Cognome",
+      phone: "Telefono",
+      fromDateTime: "Dal (data e ora)",
+      toDateTime: "Al (data e ora)",
+      pickupPlace: "Luogo di ritiro",
+      dropoffPlace: "Luogo di consegna",
+      newsletterEmail: "Email",
+      termsAccepted: "Consenso termini",
+    };
+
+    // Costruisci tabella campi dinamicamente mostrando anche eventuali extra
+    const entries = Array.from(form.entries())
+      .filter(([k, v]) => v && typeof v === "string" && v !== "")
+      .filter(([k]) => k !== "pageTitle"); // lo mostriamo a parte
+
+    const rows = entries
+      .map(([k, v]) => {
+        if (k === "formName") v = formName;
+        const label = labelMap[k] || k;
+        if (k === "newsletterEmail" && formName === "newsletter") {
+          // normalizza campo newsletter in Email
+          return `<tr><td><strong>Email</strong></td><td>${v}</td></tr>`;
+        }
+        return `<tr><td><strong>${label}</strong></td><td>${v}</td></tr>`;
+      })
+      .join("");
 
     const html = `
       <div style="font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;line-height:1.6">
         <h2 style="margin:0 0 12px">Altitudo - ${subject}</h2>
-        <p style="margin:0 0 12px"><strong>Pagina:</strong> ${source}</p>
-        <table cellpadding="6" cellspacing="0" style="border-collapse:collapse;min-width:420px">
-          ${email ? `<tr><td><strong>Email</strong></td><td>${email}</td></tr>` : ""}
-          ${firstName ? `<tr><td><strong>Nome</strong></td><td>${firstName}</td></tr>` : ""}
-          ${lastName ? `<tr><td><strong>Cognome</strong></td><td>${lastName}</td></tr>` : ""}
-          ${phone ? `<tr><td><strong>Telefono</strong></td><td>${phone}</td></tr>` : ""}
-          ${fromDateTime ? `<tr><td><strong>Dal</strong></td><td>${fromDateTime}</td></tr>` : ""}
-          ${toDateTime ? `<tr><td><strong>Al</strong></td><td>${toDateTime}</td></tr>` : ""}
-          ${pickupPlace ? `<tr><td><strong>Ritiro</strong></td><td>${pickupPlace}</td></tr>` : ""}
-          ${dropoffPlace ? `<tr><td><strong>Consegna</strong></td><td>${dropoffPlace}</td></tr>` : ""}
-        </table>
+        <p style="margin:0 0 12px">
+          <strong>Pagina:</strong> ${pageTitle || source} <br/>
+          <strong>URL:</strong> ${source}
+        </p>
+        <table cellpadding="6" cellspacing="0" style="border-collapse:collapse;min-width:420px">${rows}</table>
       </div>
     `;
 
@@ -97,8 +125,9 @@ export async function POST(request: NextRequest) {
     await transporter.verify();
 
     await transporter.sendMail({
-      from: process.env.MAIL_FROM || process.env.SMTP_USER,
+      from: process.env.MAIL_FROM || `Altitudo • Sito <${process.env.SMTP_USER}>`,
       to: process.env.MAIL_TO || process.env.SMTP_USER,
+      replyTo: email || undefined,
       subject,
       html,
     });
