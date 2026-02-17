@@ -6,12 +6,14 @@ type DateTimeFieldProps = {
   ariaLabel?: string;
   title?: string;
   placeholder?: string;
+  nameCombined?: string; // hidden field name to submit combined datetime (ISO local)
 };
 
 export default function DateTimeField({
   ariaLabel,
   title,
   placeholder = "gg/mm/aaaa, --:--",
+  nameCombined,
 }: DateTimeFieldProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [dateValue, setDateValue] = useState<string>("");
@@ -113,8 +115,16 @@ export default function DateTimeField({
     a.getMonth() === b.getMonth() &&
     a.getDate() === b.getDate();
 
+  const combinedValue = useMemo(() => {
+    if (!dateValue || !timeValue) return "";
+    return `${dateValue}T${timeValue}:00`;
+  }, [dateValue, timeValue]);
+
   return (
     <div ref={containerRef} className="relative">
+      {nameCombined ? (
+        <input type="hidden" name={nameCombined} value={combinedValue} />
+      ) : null}
       <button
         type="button"
         aria-label={ariaLabel}

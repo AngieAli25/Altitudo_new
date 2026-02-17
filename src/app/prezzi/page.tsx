@@ -339,15 +339,17 @@ export default function Prezzi() {
           </p>
 
           {/* Form Fields */}
-          <form action="/thank-you" method="post" className="space-y-4 mb-8">
+          <form action="/api/send" method="post" className="space-y-4 mb-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <input
                 type="text"
+                name="firstName"
                 placeholder="Nome"
                 className="w-full h-11 bg-white/[0.08] rounded-lg px-4 text-white text-[13px] placeholder-white/50 focus:outline-none focus:ring-1 focus:ring-white/30"
               />
               <input
                 type="text"
+                name="lastName"
                 placeholder="Cognome"
                 className="w-full h-11 bg-white/[0.08] rounded-lg px-4 text-white text-[13px] placeholder-white/50 focus:outline-none focus:ring-1 focus:ring-white/30"
               />
@@ -355,34 +357,38 @@ export default function Prezzi() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <input
                 type="email"
+                name="email"
                 placeholder="Email"
                 className="w-full h-11 bg-white/[0.08] rounded-lg px-4 text-white text-[13px] placeholder-white/50 focus:outline-none focus:ring-1 focus:ring-white/30"
               />
               <input
                 type="tel"
+                name="phone"
                 placeholder="Telefono"
                 className="w-full h-11 bg-white/[0.08] rounded-lg px-4 text-white text-[13px] placeholder-white/50 focus:outline-none focus:ring-1 focus:ring-white/30"
               />
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <DateTimeField ariaLabel="Dal" title="Dal (data e ora)" />
-              <DateTimeField ariaLabel="Al" title="Al (data e ora)" />
+              <DateTimeField ariaLabel="Dal" title="Dal (data e ora)" nameCombined="fromDateTime" />
+              <DateTimeField ariaLabel="Al" title="Al (data e ora)" nameCombined="toDateTime" />
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <input
                 type="text"
+                name="pickupPlace"
                 placeholder="Luogo di ritiro"
                 className="w-full h-11 bg-white/[0.08] rounded-lg px-4 text-white text-[13px] placeholder-white/50 focus:outline-none focus:ring-1 focus:ring-white/30"
               />
               <input
                 type="text"
+                name="dropoffPlace"
                 placeholder="Luogo di consegna"
                 className="w-full h-11 bg-white/[0.08] rounded-lg px-4 text-white text-[13px] placeholder-white/50 focus:outline-none focus:ring-1 focus:ring-white/30"
               />
             </div>
           </form>
 
-          <form action="/thank-you" method="post">
+          <form action="/api/send" method="post">
             <div className="mb-6">
               <TermsConsent checkboxId="terms-prezzi" />
             </div>

@@ -377,7 +377,7 @@ export default function EventiCompleanno() {
             </div>
           </form>
 
-          <form action="/thank-you" method="post">
+          <form action="/api/send" method="post">
             <div className="mb-6">
               <TermsConsent checkboxId="terms-compleanno" />
             </div>
@@ -397,7 +397,7 @@ export default function EventiCompleanno() {
               <h3 className="font-itc-blair text-white text-[13px] uppercase mb-4 leading-[1.4] max-w-[280px]">
                 ISCRIVITI ALLA NEWSLETTER PER PROMOZIONI E OFFERTE ESCLUSIVE
               </h3>
-              <form action="/thank-you" method="post" className="flex gap-2">
+              <form action="/api/send" method="post" className="flex gap-2">
                 <input
                   type="email"
                   name="newsletterEmail"
