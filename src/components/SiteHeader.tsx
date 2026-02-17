@@ -148,7 +148,7 @@ export default function SiteHeader() {
 
       {/* Mobile overlay menu */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-[60] bg-black/95 backdrop-blur-md">
+        <div className="fixed inset-0 z-[60] bg-black">
           <div className="max-w-[1400px] mx-auto px-6 pt-4 pb-8">
             <div className="flex items-center justify-between">
               <a href="/" className="h-[28px]">

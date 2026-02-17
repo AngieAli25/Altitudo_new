@@ -37,7 +37,7 @@ export default function EventiMatrimonio() {
             NOLEGGIA UNA FERRARI PER IL TUO MATRIMONIO TRA<br />
             ELEGANZA, POTENZA ED EMOZIONI INDIMENTICABILI
           </p>
-          <a href="#prenota" className="bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[14px] hover:bg-gray-100 transition-colors">
+          <a href="#prenota" className="inline-block w-fit mx-auto bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[14px] hover:bg-gray-100 transition-colors">
             PRENOTA LA TUA ESPERIENZA
           </a>
         </div>
