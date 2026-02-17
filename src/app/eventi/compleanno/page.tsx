@@ -402,7 +402,7 @@ export default function EventiCompleanno() {
       {/* Footer */}
       <footer className="relative w-full py-12 border-t border-white/10">
         <div className="max-w-[1100px] mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 mb-12">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-10 mb-12">
             {/* Newsletter */}
             <div>
               <h3 className="font-itc-blair text-white text-[13px] uppercase mb-4 leading-[1.4] max-w-[280px]">
