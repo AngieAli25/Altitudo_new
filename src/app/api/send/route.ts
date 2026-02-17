@@ -45,6 +45,7 @@ export async function POST(request: NextRequest) {
     const secure = String(process.env.SMTP_SECURE || "false") === "true";
     const user = process.env.SMTP_USER || "";
     const pass = process.env.SMTP_PASS || "";
+    const authMode = (process.env.SMTP_AUTH || "login").toLowerCase(); // 'login' | 'oauth2'
 
     if (!host || !user || !pass) {
       return NextResponse.json(
@@ -53,18 +54,44 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const transporter =
-      host.includes("gmail.com") || host === "smtp.gmail.com"
-        ? nodemailer.createTransport({
-            service: "gmail",
-            auth: { user, pass },
-          })
-        : nodemailer.createTransport({
-            host,
-            port,
-            secure,
-            auth: { user, pass },
-          });
+    let transporter: nodemailer.Transporter;
+    if (authMode === "oauth2") {
+      const clientId = process.env.OAUTH_CLIENT_ID || "";
+      const clientSecret = process.env.OAUTH_CLIENT_SECRET || "";
+      const refreshToken = process.env.OAUTH_REFRESH_TOKEN || "";
+      if (!clientId || !clientSecret || !refreshToken) {
+        return NextResponse.json(
+          { ok: false, error: "Missing OAuth2 variables (clientId/clientSecret/refreshToken)" },
+          { status: 500 }
+        );
+      }
+      transporter = nodemailer.createTransport({
+        service: (host.includes("gmail") ? "gmail" : undefined) as any,
+        host: host || undefined,
+        port: host ? port : undefined,
+        secure: host ? secure : undefined,
+        auth: {
+          type: "OAuth2",
+          user,
+          clientId,
+          clientSecret,
+          refreshToken,
+        },
+      } as any);
+    } else {
+      transporter =
+        host.includes("gmail.com") || host === "smtp.gmail.com"
+          ? nodemailer.createTransport({
+              service: "gmail",
+              auth: { user, pass },
+            })
+          : nodemailer.createTransport({
+              host,
+              port,
+              secure,
+              auth: { user, pass },
+            });
+    }
 
     // Verifica credenziali/connessione per errori chiari (es. 535 Gmail)
     await transporter.verify();
