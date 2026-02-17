@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
+
 export async function POST(request: NextRequest) {
   try {
     const form = await request.formData();
@@ -37,15 +40,34 @@ export async function POST(request: NextRequest) {
       </div>
     `;
 
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: Number(process.env.SMTP_PORT || 587),
-      secure: String(process.env.SMTP_SECURE || "false") === "true",
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-    });
+    const host = process.env.SMTP_HOST || "";
+    const port = Number(process.env.SMTP_PORT || 587);
+    const secure = String(process.env.SMTP_SECURE || "false") === "true";
+    const user = process.env.SMTP_USER || "";
+    const pass = process.env.SMTP_PASS || "";
+
+    if (!host || !user || !pass) {
+      return NextResponse.json(
+        { ok: false, error: "Missing SMTP configuration (host/user/pass)" },
+        { status: 500 }
+      );
+    }
+
+    const transporter =
+      host.includes("gmail.com") || host === "smtp.gmail.com"
+        ? nodemailer.createTransport({
+            service: "gmail",
+            auth: { user, pass },
+          })
+        : nodemailer.createTransport({
+            host,
+            port,
+            secure,
+            auth: { user, pass },
+          });
+
+    // Verifica credenziali/connessione per errori chiari (es. 535 Gmail)
+    await transporter.verify();
 
     await transporter.sendMail({
       from: process.env.MAIL_FROM || process.env.SMTP_USER,
@@ -56,9 +78,12 @@ export async function POST(request: NextRequest) {
 
     // redirect al thank-you
     return NextResponse.redirect(new URL("/thank-you", request.url), 303);
-  } catch (err) {
+  } catch (err: any) {
+    const message =
+      (err && (err.response || err.message)) ||
+      "Mail send failed";
     console.error("SMTP error:", err);
-    return NextResponse.json({ ok: false, error: "Mail send failed" }, { status: 500 });
+    return NextResponse.json({ ok: false, error: String(message) }, { status: 500 });
   }
 }
 
