@@ -414,7 +414,7 @@ export default function EventiShooting() {
           </p>
 
           {/* Form Fields */}
-          <div className="space-y-4 mb-8">
+          <form action="/thank-you" method="post" className="space-y-4 mb-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <input
                 type="text"
@@ -455,15 +455,16 @@ export default function EventiShooting() {
                 className="w-full h-11 bg-white/[0.08] rounded-lg px-4 text-white text-[13px] placeholder-white/50 focus:outline-none focus:ring-1 focus:ring-white/30"
               />
             </div>
-          </div>
+          </form>
 
-          <div className="mb-6">
-            <TermsConsent checkboxId="terms-shooting" />
-          </div>
-
-          <button className="bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[14px] hover:bg-gray-100 transition-colors">
-            PRENOTA LA TUA ESPERIENZA
-          </button>
+          <form action="/thank-you" method="post">
+            <div className="mb-6">
+              <TermsConsent checkboxId="terms-shooting" />
+            </div>
+            <button type="submit" className="bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[14px] hover:bg-gray-100 transition-colors">
+              PRENOTA LA TUA ESPERIENZA
+            </button>
+          </form>
         </div>
       </section>
 
@@ -476,16 +477,17 @@ export default function EventiShooting() {
               <h3 className="font-itc-blair text-white text-[13px] uppercase mb-4 leading-[1.4] max-w-[280px]">
                 ISCRIVITI ALLA NEWSLETTER PER PROMOZIONI E OFFERTE ESCLUSIVE
               </h3>
-              <div className="flex gap-2">
+              <form action="/thank-you" method="post" className="flex gap-2">
                 <input
                   type="email"
+                  name="newsletterEmail"
                   placeholder="Enter Your Email"
                   className="flex-1 h-11 bg-white/[0.05] backdrop-blur-md rounded-lg px-4 text-white text-[13px] placeholder-white/60 focus:outline-none"
                 />
-                <button className="bg-white text-black font-itc-blair px-4 py-2.5 rounded-lg text-[13px] hover:bg-gray-100 transition-colors">
+                <button type="submit" className="bg-white text-black font-itc-blair px-4 py-2.5 rounded-lg text-[13px] hover:bg-gray-100 transition-colors">
                   iscriviti
                 </button>
-              </div>
+              </form>
             </div>
 
             {/* Links */}
