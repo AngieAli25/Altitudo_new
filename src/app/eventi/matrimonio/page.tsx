@@ -1,132 +1,17 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { usePathname } from "next/navigation";
+import { useEffect } from "react";
 import TermsConsent from "@/components/TermsConsent";
 import DateTimeField from "@/components/DateTimeField";
+import SiteHeader from "@/components/SiteHeader";
 
 export default function EventiMatrimonio() {
-  const [eventiOpen, setEventiOpen] = useState(false);
-  const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const pathname = usePathname();
-  const isHome = pathname === "/";
-  const isEventi = pathname === "/eventi" || pathname.startsWith("/eventi/");
-  const isPrezzi = pathname === "/prezzi";
-  const isContatti = pathname === "/contatti";
-
-  const handleOpenDropdown = () => {
-    if (closeTimeoutRef.current) {
-      clearTimeout(closeTimeoutRef.current);
-      closeTimeoutRef.current = null;
-    }
-    setEventiOpen(true);
-  };
-
-  const handleCloseDropdownDelayed = () => {
-    if (closeTimeoutRef.current) {
-      clearTimeout(closeTimeoutRef.current);
-    }
-    closeTimeoutRef.current = setTimeout(() => {
-      setEventiOpen(false);
-      closeTimeoutRef.current = null;
-    }, 200);
-  };
-
-  useEffect(() => {
-    return () => {
-      if (closeTimeoutRef.current) {
-        clearTimeout(closeTimeoutRef.current);
-      }
-    };
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <main className="bg-black min-h-screen w-full overflow-x-hidden">
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-16 py-4">
-          <div className="flex items-center justify-between">
-            <a href="/" className="h-[30px] lg:h-[36px]">
-              <img
-                src="/images/logo_altitudo_esteso.png"
-                alt="Altitudo"
-                className="h-full w-auto object-contain"
-              />
-            </a>
-            <nav className="hidden lg:flex items-center gap-8">
-              <a href="/" className="relative pb-1 font-itc-blair text-white text-[13px] uppercase hover:opacity-80 transition-opacity">
-                HOME
-                {isHome && (
-                  <span className="pointer-events-none absolute left-0 right-0 -bottom-1 h-[2px] bg-gradient-to-r from-white/0 via-white/80 to-white/0 rounded-full" />
-                )}
-              </a>
-              <div
-                className="relative flex items-center gap-1.5"
-                onMouseEnter={handleOpenDropdown}
-                onMouseLeave={handleCloseDropdownDelayed}
-              >
-                <a href="/eventi" className="relative pb-1 font-itc-blair text-white text-[13px] uppercase hover:opacity-80 transition-opacity">
-                  EVENTI
-                  {isEventi && (
-                    <span className="pointer-events-none absolute left-0 right-0 -bottom-1 h-[2px] bg-gradient-to-r from-white/0 via-white/80 to-white/0 rounded-full" />
-                  )}
-                </a>
-                <svg
-                  width="8"
-                  height="5"
-                  viewBox="0 0 8 5"
-                  fill="none"
-                  className={`cursor-pointer hover:opacity-80 transition-transform ${eventiOpen ? 'rotate-180' : ''}`}
-                  onClick={() => setEventiOpen(!eventiOpen)}
-                >
-                  <path d="M4 5L0 0H8L4 5Z" fill="white"/>
-                </svg>
-                {eventiOpen && (
-                  <div
-                    className="absolute top-full left-0 mt-2 bg-black/95 backdrop-blur-md rounded-lg py-2 min-w-[160px] border border-white/10"
-                    onMouseEnter={handleOpenDropdown}
-                    onMouseLeave={handleCloseDropdownDelayed}
-                  >
-                    <a
-                      href="/eventi/compleanno"
-                      className="block px-4 py-2 font-aeonik text-white text-[13px] hover:bg-white/10 transition-colors"
-                    >
-                      Compleanno
-                    </a>
-                    <a
-                      href="/eventi/shooting"
-                      className="block px-4 py-2 font-aeonik text-white text-[13px] hover:bg-white/10 transition-colors"
-                    >
-                      Shooting
-                    </a>
-                    <a
-                      href="/eventi/matrimonio"
-                      className="block px-4 py-2 font-aeonik text-white text-[13px] hover:bg-white/10 transition-colors"
-                    >
-                      Matrimonio
-                    </a>
-                  </div>
-                )}
-              </div>
-              <a href="/prezzi" className="relative pb-1 font-itc-blair text-white text-[13px] uppercase hover:opacity-80 transition-opacity">
-                PREZZI
-                {isPrezzi && (
-                  <span className="pointer-events-none absolute left-0 right-0 -bottom-1 h-[2px] bg-gradient-to-r from-white/0 via-white/80 to-white/0 rounded-full" />
-                )}
-              </a>
-              <a href="/contatti" className="relative pb-1 font-itc-blair text-white text-[13px] uppercase hover:opacity-80 transition-opacity">
-                CONTATTI
-                {isContatti && (
-                  <span className="pointer-events-none absolute left-0 right-0 -bottom-1 h-[2px] bg-gradient-to-r from-white/0 via-white/80 to-white/0 rounded-full" />
-                )}
-              </a>
-            </nav>
-            <a href="/contatti#prenota" className="bg-white text-black font-itc-blair px-5 py-2.5 rounded-lg text-[13px] hover:bg-gray-100 transition-colors">
-              guidala ora
-            </a>
-          </div>
-        </div>
-      </header>
+      <SiteHeader />
 
       {/* Hero Section */}
       <section className="relative h-screen w-full">
