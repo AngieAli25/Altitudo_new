@@ -11,6 +11,18 @@
   font-display: swap;
 }
 
+/* Alias 400 -> usa il file Medium per i testi che non specificano il peso */
+@font-face {
+  font-family: 'ITC Blair';
+  src:
+    local('ITC Blair Medium'),
+    url('/font/ITC-Blair/WOFF2/ITC Blair Medium.woff2') format('woff2'),
+    url('/font/ITC-Blair/TTF/ITC Blair Medium.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 @font-face {
   font-family: 'ITC Blair Light';
   src:
