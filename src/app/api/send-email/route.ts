@@ -86,15 +86,15 @@ export async function POST(request: NextRequest) {
     const text = `${subject}\n\nPagina: ${pageTitle || formName}\nURL: ${referer}\n\n${textRows}`;
 
     /* ── Configurazione SMTP (Zoho) ── */
-    const host = process.env.SMTP_HOST || "";
+    const host = process.env.SMTP_HOST || "smtppro.zoho.eu";
     const port = Number(process.env.SMTP_PORT || 587);
     const secure = String(process.env.SMTP_SECURE || "false") === "true";
-    const user = process.env.SMTP_USER || "";
+    const user = process.env.SMTP_USER || "info@altitudo.club";
     const pass = process.env.SMTP_PASS || "";
 
-    if (!host || !user || !pass) {
+    if (!pass) {
       return NextResponse.json(
-        { ok: false, error: "Missing SMTP configuration (host/user/pass)" },
+        { ok: false, error: "Missing SMTP_PASS environment variable" },
         { status: 500 }
       );
     }
