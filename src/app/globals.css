@@ -85,6 +85,13 @@ h1, h2, h3, h4, h5, h6, p, a, span, li {
   hyphens: auto;
 }
 
+/* Titoli: evita di spezzare le parole */
+h1, h2, h3 {
+  overflow-wrap: normal;
+  word-break: keep-all;
+  hyphens: none;
+}
+
 /* Tipografia più stretta su schermi molto piccoli per evitare overflow */
 @media (max-width: 360px) {
   h1 {

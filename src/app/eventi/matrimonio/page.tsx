@@ -14,7 +14,7 @@ export default function EventiMatrimonio() {
       <SiteHeader />
 
       {/* Hero Section */}
-      <section className="relative h-screen w-full">
+      <section className="relative h-[85vh] md:h-screen w-full">
         <div className="absolute inset-0">
           <img
             src="/images/eventi_matrimonio.png"
@@ -37,7 +37,7 @@ export default function EventiMatrimonio() {
             NOLEGGIA UNA FERRARI PER IL TUO MATRIMONIO TRA<br />
             ELEGANZA, POTENZA ED EMOZIONI INDIMENTICABILI
           </p>
-          <a href="#prenota" className="inline-block w-fit mx-auto bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[14px] hover:bg-gray-100 transition-colors">
+          <a href="#prenota" className="inline-block w-fit mx-auto bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[13px] md:text-[14px] whitespace-nowrap text-center hover:bg-gray-100 transition-colors">
             PRENOTA LA TUA ESPERIENZA
           </a>
         </div>
@@ -89,7 +89,7 @@ export default function EventiMatrimonio() {
             </p>
           </div>
 
-          <a href="#prenota" className="bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[14px] hover:bg-gray-100 transition-colors">
+          <a href="#prenota" className="inline-block bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[13px] md:text-[14px] whitespace-nowrap text-center hover:bg-gray-100 transition-colors">
             PRENOTA LA TUA ESPERIENZA
           </a>
         </div>
@@ -99,18 +99,20 @@ export default function EventiMatrimonio() {
       <section className="relative w-full h-[400px] lg:h-[500px] overflow-hidden">
         {/* Background Image - Right Side */}
         <div className="absolute right-0 top-0 w-full lg:w-1/2 h-full">
+          {/* Mobile-specific background */}
+          <img
+            src="/images/ferrari_matrimoni%20(mobile).png"
+            alt="Ferrari per Matrimoni"
+            className="w-full h-full object-cover lg:hidden"
+          />
+          {/* Desktop/large screens background */}
           <img
             src="/images/ferrari_matrimoni.png"
             alt="Ferrari per Matrimoni"
-            className="w-full h-full object-cover"
+            className="hidden lg:block w-full h-full object-cover"
           />
-          {/* Gradient overlay from left */}
-          <div
-            className="absolute inset-0"
-            style={{
-              background: 'linear-gradient(90deg, rgb(0,0,0) 0%, rgba(0,0,0,0) 40%)'
-            }}
-          />
+          {/* Dark overlay for better text contrast */}
+          <div className="absolute inset-0 bg-black/45" />
         </div>
 
         {/* Left Side - Text */}
@@ -282,7 +284,7 @@ export default function EventiMatrimonio() {
             <div className="mb-6">
               <TermsConsent checkboxId="terms-matrimonio" />
             </div>
-            <button type="submit" className="bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[14px] hover:bg-gray-100 transition-colors">
+            <button type="submit" className="inline-block bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[13px] md:text-[14px] whitespace-nowrap text-center hover:bg-gray-100 transition-colors">
               PRENOTA LA TUA ESPERIENZA
             </button>
           </form>

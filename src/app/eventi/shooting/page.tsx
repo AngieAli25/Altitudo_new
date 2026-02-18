@@ -73,7 +73,7 @@ export default function EventiShooting() {
       <SiteHeader />
 
       {/* Hero Section */}
-      <section className="relative h-screen w-full">
+      <section className="relative h-[80vh] md:h-screen w-full">
         <div className="absolute inset-0">
           <img
             src="/images/ferrari_shooting.png"
@@ -90,7 +90,7 @@ export default function EventiShooting() {
           <p className="font-aeonik text-white text-[14px] lg:text-[18px] tracking-wide mb-6 max-w-[700px]">
             METTI IN SCENA LO STILE. FAI BRILLARE L&apos;EMOZIONE.
           </p>
-          <a href="#prenota" className="bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[14px] hover:bg-gray-100 transition-colors">
+          <a href="#prenota" className="inline-block bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[13px] md:text-[14px] whitespace-nowrap text-center hover:bg-gray-100 transition-colors">
             PRENOTA LA TUA ESPERIENZA
           </a>
         </div>
@@ -135,7 +135,7 @@ export default function EventiShooting() {
             </p>
           </div>
 
-          <a href="#prenota" className="bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[14px] hover:bg-gray-100 transition-colors">
+          <a href="#prenota" className="inline-block bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[13px] md:text-[14px] whitespace-nowrap text-center hover:bg-gray-100 transition-colors">
             PRENOTA LA TUA ESPERIENZA
           </a>
         </div>
@@ -161,7 +161,7 @@ export default function EventiShooting() {
                 </p>
               </div>
 
-              <a href="#prenota" className="inline-block bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[14px] hover:bg-gray-100 transition-colors">
+              <a href="#prenota" className="inline-block bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[13px] md:text-[14px] whitespace-nowrap text-center hover:bg-gray-100 transition-colors">
                 PRENOTA LA TUA ESPERIENZA
               </a>
             </div>
@@ -201,7 +201,7 @@ export default function EventiShooting() {
       </section>
 
       {/* Image Section */}
-      <section className="relative w-full h-[400px] lg:h-[500px]">
+      <section className="relative w-full h-[40vh] lg:h-[500px]">
         <img
           src="/images/shooting_music.png"
           alt="Ferrari Shooting"
@@ -360,7 +360,7 @@ export default function EventiShooting() {
             <div className="mb-6">
               <TermsConsent checkboxId="terms-shooting" />
             </div>
-            <button type="submit" className="bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[14px] hover:bg-gray-100 transition-colors">
+            <button type="submit" className="inline-block bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[13px] md:text-[14px] whitespace-nowrap text-center hover:bg-gray-100 transition-colors">
               PRENOTA LA TUA ESPERIENZA
             </button>
           </form>

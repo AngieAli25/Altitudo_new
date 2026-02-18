@@ -6,6 +6,9 @@ import SiteFooter from "@/components/SiteFooter";
 export const metadata: Metadata = {
   title: "Altitudo - Noleggio Ferrari 296 GTS",
   description: "Vivi l'adrenalina, guida l'esclusività. Noleggio Ferrari 296 GTS per eventi, matrimoni, shooting e compleanni.",
+  icons: {
+    icon: "/images/logo_altitudo.png",
+  },
   other: {
     "facebook-domain-verification": "r4cv5e60aobemy63ukgtztl89khf6g",
   },

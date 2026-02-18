@@ -22,7 +22,7 @@ export default function Prezzi() {
       <SiteHeader />
 
       {/* Hero Section */}
-      <section className="relative h-screen w-full">
+      <section className="relative h-[85vh] md:h-screen w-full">
         <div className="absolute inset-0">
           <img
             src="/images/ferrari_prezzi.png"
@@ -37,11 +37,11 @@ export default function Prezzi() {
           />
         </div>
 
-        <div className="relative z-10 flex flex-col items-center justify-end h-full text-center px-6 pb-[8vh]">
-          <h1 className="font-itc-blair text-white text-[22px] md:text-[32px] lg:text-[38px] leading-[1.2] tracking-tight mb-6 max-w-[900px] uppercase whitespace-nowrap">
+        <div className="relative z-10 flex flex-col items-center justify-end h-full text-center px-6 pb-[6vh]">
+          <h1 className="font-itc-blair text-white text-[22px] md:text-[32px] lg:text-[38px] leading-[1.2] tracking-tight mb-4 max-w-[900px] uppercase">
             Personalizza la tua esperienza
           </h1>
-          <div className="font-aeonik text-white/80 text-[13px] lg:text-[16px] leading-[1.4] max-w-[900px]">
+          <div className="font-aeonik text-white/85 text-[12px] md:text-[13px] lg:text-[16px] leading-[1.45] max-w-[900px]">
             <p className="mb-2">
               Se stai cercando un&apos;esperienza unica ed esclusiva, il nostro servizio di <span className="font-aeonik-bold">noleggio Ferrari</span> è la scelta perfetta. Che sia per un <span className="font-aeonik-bold">compleanno, un matrimonio, uno shooting fotografico o un videoclip</span>, una Ferrari aggiunge stile, potenza ed emozione a ogni occasione.
             </p>
@@ -162,42 +162,55 @@ export default function Prezzi() {
 
           {/* Table Rows */}
           {pricingData.map((row, index) => (
-            <div
-              key={index}
-              className="grid grid-cols-2 md:grid-cols-5 gap-4 py-4 border-b border-white/20"
-            >
-              {/* Mobile: Period label */}
-              <div className="md:hidden col-span-2 mb-2">
-                <p className="font-aeonik-bold text-white text-[16px]">{row.period}</p>
+            <div key={index} className="py-4 border-b border-white/20">
+              {/* Mobile layout: 30% period, 70% data grid 2x2 */}
+              <div className="md:hidden flex">
+                <div className="w-[30%] pr-3">
+                  <p className="font-aeonik-bold text-white text-[15px] leading-tight">
+                    {row.period}
+                  </p>
+                </div>
+                <div className="w-[70%]">
+                  <div className="grid grid-cols-2 gap-x-3 gap-y-1 text-[12px]">
+                    <span className="text-white/60">Km inclusi</span>
+                    <span className="text-white text-right">{row.km}</span>
+                    <span className="text-white/60">Prezzo/giorno</span>
+                    <span className="text-white text-right">{row.priceDay}</span>
+                    <span className="text-white/60">Totale</span>
+                    <span className="text-white text-right">{row.priceTotal}</span>
+                    <span className="text-white/60">Km extra</span>
+                    <span className="text-white text-right">{row.priceExtra}</span>
+                  </div>
+                </div>
               </div>
 
-              {/* Desktop: Period */}
-              <div className="hidden md:block text-center">
-                <p className="font-aeonik text-white text-[14px] lg:text-[16px]">{row.period}</p>
-              </div>
-
-              {/* Km inclusi */}
-              <div className="text-center">
-                <p className="md:hidden font-aeonik text-white/60 text-[12px] mb-1">Km inclusi</p>
-                <p className="font-aeonik text-white text-[14px] lg:text-[16px]">{row.km}</p>
-              </div>
-
-              {/* Prezzo al giorno */}
-              <div className="text-center">
-                <p className="md:hidden font-aeonik text-white/60 text-[12px] mb-1">Prezzo/giorno</p>
-                <p className="font-aeonik text-white text-[14px] lg:text-[16px]">{row.priceDay}</p>
-              </div>
-
-              {/* Prezzo totale */}
-              <div className="text-center">
-                <p className="md:hidden font-aeonik text-white/60 text-[12px] mb-1">Totale</p>
-                <p className="font-aeonik text-white text-[14px] lg:text-[16px]">{row.priceTotal}</p>
-              </div>
-
-              {/* Prezzo km extra */}
-              <div className="text-center">
-                <p className="md:hidden font-aeonik text-white/60 text-[12px] mb-1">Km extra</p>
-                <p className="font-aeonik text-white text-[14px] lg:text-[16px]">{row.priceExtra}</p>
+              {/* Desktop/tablet layout unchanged */}
+              <div className="hidden md:grid grid-cols-5 gap-4">
+                <div className="text-center">
+                  <p className="font-aeonik text-white text-[14px] lg:text-[16px]">
+                    {row.period}
+                  </p>
+                </div>
+                <div className="text-center">
+                  <p className="font-aeonik text-white text-[14px] lg:text-[16px]">
+                    {row.km}
+                  </p>
+                </div>
+                <div className="text-center">
+                  <p className="font-aeonik text-white text-[14px] lg:text-[16px]">
+                    {row.priceDay}
+                  </p>
+                </div>
+                <div className="text-center">
+                  <p className="font-aeonik text-white text-[14px] lg:text-[16px]">
+                    {row.priceTotal}
+                  </p>
+                </div>
+                <div className="text-center">
+                  <p className="font-aeonik text-white text-[14px] lg:text-[16px]">
+                    {row.priceExtra}
+                  </p>
+                </div>
               </div>
             </div>
           ))}
@@ -282,7 +295,7 @@ export default function Prezzi() {
             <div className="mb-6">
               <TermsConsent checkboxId="terms-prezzi" />
             </div>
-            <button type="submit" className="bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[14px] hover:bg-gray-100 transition-colors">
+            <button type="submit" className="inline-block bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[13px] md:text-[14px] whitespace-nowrap text-center hover:bg-gray-100 transition-colors">
               PRENOTA LA TUA ESPERIENZA
             </button>
           </form>

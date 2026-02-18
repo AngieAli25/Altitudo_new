@@ -46,7 +46,7 @@ export default function Home() {
           <p className="font-aeonik text-white/80 text-[14px] lg:text-[16px] tracking-wide mb-6">
             FERRARI 296 GTS
           </p>
-          <a href="#prenota" className="bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[14px] hover:bg-gray-100 transition-colors">
+          <a href="#prenota" className="inline-block bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[13px] md:text-[14px] whitespace-nowrap text-center hover:bg-gray-100 transition-colors">
             PRENOTA ORA
           </a>
         </div>
@@ -58,9 +58,12 @@ export default function Home() {
           {/* Top Row: Title/Price/Button + Ferrari Image */}
           <div className="flex flex-col lg:flex-row gap-6 lg:gap-12 items-start lg:items-center justify-between w-full">
             {/* Left Column: Title, Price, Button */}
-            <div className="flex flex-col gap-4 lg:gap-5 w-full lg:w-[240px] shrink-0">
+            <div className="flex flex-col gap-4 lg:gap-5 w-full lg:w-[240px] shrink-0 items-center text-center lg:items-start lg:text-left">
               {/* Title */}
-              <h2 className="font-itc-blair text-white text-[28px] lg:text-[38px] leading-none">
+              <h2 className="font-itc-blair text-white text-[24px] leading-none lg:hidden">
+                ferrari 296 gts
+              </h2>
+              <h2 className="hidden lg:block font-itc-blair text-white lg:text-[38px] leading-none">
                 <span className="block">ferrari</span>
                 <span className="block">296 gts</span>
               </h2>
@@ -68,13 +71,20 @@ export default function Home() {
               {/* Price + Button */}
               <div className="flex flex-col gap-5 lg:gap-7 w-full">
                 {/* Price text */}
-                <div className="flex flex-col gap-1 text-[16px] lg:text-[22px] leading-[1.2] text-white">
-                  <p className="font-aeonik-bold">a partire da:</p>
-                  <p className="font-aeonik">1.400€ al giorno</p>
+                <div className="text-white">
+                  {/* Mobile: single line */}
+                  <p className="lg:hidden font-aeonik text-[13px] leading-[1.2]">
+                    a partire da <span className="font-aeonik-bold">1.400€</span> al giorno
+                  </p>
+                  {/* Desktop: two lines */}
+                  <div className="hidden lg:flex flex-col gap-1 text-[22px] leading-[1.2]">
+                    <p className="font-aeonik-bold">a partire da:</p>
+                    <p className="font-aeonik">1.400€ al giorno</p>
+                  </div>
                 </div>
 
                 {/* Button */}
-              <a href="/prezzi" className="bg-white text-black font-itc-blair px-5 py-3 rounded-lg text-[13px] lg:text-[14px] hover:bg-gray-100 transition-colors w-fit">
+              <a href="/prezzi" className="inline-block bg-white text-black font-itc-blair px-5 py-3 rounded-lg text-[13px] lg:text-[14px] whitespace-nowrap text-center hover:bg-gray-100 transition-colors w-fit mx-auto lg:mx-0">
                 scopri di più
               </a>
               </div>
@@ -146,7 +156,7 @@ export default function Home() {
           }} />
         </div>
 
-        <div className="relative z-10 flex flex-col items-center justify-end h-full text-center px-6 pb-10">
+        <div className="relative z-10 flex flex-col items-center justify-end h-full text-center px-6 pb-0">
           <h2 className="font-itc-blair text-white text-[24px] md:text-[32px] lg:text-[42px] leading-[1.15] max-w-[650px]">
             STILE E LUSSO PER LA TUA ESPERIENZA
           </h2>
@@ -154,7 +164,7 @@ export default function Home() {
       </section>
 
       {/* Interior Section - Text on black background */}
-      <section className="relative w-full bg-black py-12">
+      <section className="relative w-full bg-black pt-[30px] pb-12">
         <div className="max-w-[800px] mx-auto px-6 text-center">
           <p className="font-aeonik text-white/80 text-[13px] lg:text-[15px] leading-[1.7] mb-6">
             Noleggia la <span className="font-aeonik-bold">Ferrari 296 GTS</span> e vivi un&apos;esperienza di guida unica tra potenza e stile. Con i suoi 830 CV, il motore V6 ibrido e il tetto retrattile, la 296 GTS unisce prestazioni straordinarie e design inconfondibile. Perfetta per eventi esclusivi, weekend di lusso o semplicemente per provare l&apos;adrenalina pura di guidare una supercar italiana. Scopri il nostro servizio di noleggio Ferrari a ore, giornata intera oppure weekend e trasforma ogni viaggio in un&apos;esperienza indimenticabile. Prenota ora e porta la leggenda su strada!
@@ -461,7 +471,7 @@ export default function Home() {
             <div className="mb-6">
               <TermsConsent checkboxId="terms-home" />
             </div>
-            <button type="submit" className="bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[14px] hover:bg-gray-100 transition-colors">
+            <button type="submit" className="inline-block bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[13px] md:text-[14px] whitespace-nowrap text-center hover:bg-gray-100 transition-colors">
               PRENOTA LA TUA ESPERIENZA
             </button>
           </form>

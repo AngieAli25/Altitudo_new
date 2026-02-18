@@ -191,18 +191,27 @@ export default function SiteHeader() {
               >
                 HOME
               </a>
-              <button
-                className="w-full flex items-center justify-between px-3 py-3 rounded-lg font-itc-blair text-white text-[14px] uppercase hover:bg-white/10 transition-colors"
-                onClick={() => setMobileEventsOpen(!mobileEventsOpen)}
-                aria-expanded={mobileEventsOpen}
-              >
-                <span>EVENTI</span>
-                <span className={`transition-transform ${mobileEventsOpen ? 'rotate-180' : ''}`}>
-                  <svg width="12" height="7" viewBox="0 0 8 5" fill="none">
-                    <path d="M4 5L0 0H8L4 5Z" fill="white"/>
-                  </svg>
-                </span>
-              </button>
+              <div className="w-full flex items-center justify-between rounded-lg hover:bg-white/10 transition-colors">
+                <a
+                  href="/eventi"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block flex-1 px-3 py-3 font-itc-blair text-white text-[14px] uppercase"
+                >
+                  EVENTI
+                </a>
+                <button
+                  className="px-3 py-3"
+                  onClick={() => setMobileEventsOpen(!mobileEventsOpen)}
+                  aria-expanded={mobileEventsOpen}
+                  aria-label="Apri sottomenu Eventi"
+                >
+                  <span className={`inline-block transition-transform ${mobileEventsOpen ? 'rotate-180' : ''}`}>
+                    <svg width="12" height="7" viewBox="0 0 8 5" fill="none">
+                      <path d="M4 5L0 0H8L4 5Z" fill="white"/>
+                    </svg>
+                  </span>
+                </button>
+              </div>
               {mobileEventsOpen && (
                 <div className="ml-2 pl-1 border-l border-white/10 space-y-1">
                   <a

@@ -189,7 +189,7 @@ export default function Eventi() {
           <p className="font-aeonik text-white text-[14px] lg:text-[16px] leading-[1.5] mb-8 max-w-[800px] mx-auto">
             Scegli il nostro noleggio Ferrari e vivi un&apos;esperienza indimenticabile! Puoi prenotare la tua Ferrari per poche ore, un&apos;intera giornata o un weekend completo, immergendoti nel lusso e nella potenza di una vera supercar. Non perdere l&apos;occasione di guidare un&apos;icona italiana: prenota ora il noleggio Ferrari e trasforma il tuo sogno in realtà!
           </p>
-          <a href="#prenota" className="inline-block bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[14px] hover:bg-gray-100 transition-colors">
+          <a href="#prenota" className="inline-block bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[13px] md:text-[14px] whitespace-nowrap text-center hover:bg-gray-100 transition-colors">
             PRENOTA LA TUA ESPERIENZA
           </a>
         </div>
@@ -344,7 +344,7 @@ export default function Eventi() {
             <div className="mb-6">
               <TermsConsent checkboxId="terms-eventi" />
             </div>
-            <button type="submit" className="bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[14px] hover:bg-gray-100 transition-colors">
+            <button type="submit" className="inline-block bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[13px] md:text-[14px] whitespace-nowrap text-center hover:bg-gray-100 transition-colors">
               PRENOTA LA TUA ESPERIENZA
             </button>
           </form>

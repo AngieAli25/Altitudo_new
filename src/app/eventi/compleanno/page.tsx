@@ -14,7 +14,7 @@ export default function EventiCompleanno() {
       <SiteHeader />
 
       {/* Hero Section */}
-      <section className="relative h-screen w-full">
+      <section className="relative h-[85vh] md:h-screen w-full">
         <div className="absolute inset-0">
           <img
             src="/images/evento_compleanno.png"
@@ -36,7 +36,7 @@ export default function EventiCompleanno() {
           <p className="font-aeonik text-white text-[13px] lg:text-[16px] leading-[1.2] tracking-wide mb-6 max-w-[700px] uppercase">
             Festeggia il tuo compleanno al volante della Ferrari 296 GTS e vivi un&apos;esperienza da sogno!
           </p>
-          <a href="#prenota" className="bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[14px] hover:bg-gray-100 transition-colors">
+          <a href="#prenota" className="inline-block bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[13px] md:text-[14px] whitespace-nowrap text-center hover:bg-gray-100 transition-colors">
             PRENOTA LA TUA ESPERIENZA
           </a>
         </div>
@@ -85,7 +85,7 @@ export default function EventiCompleanno() {
             </p>
           </div>
 
-          <a href="#prenota" className="bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[14px] hover:bg-gray-100 transition-colors">
+          <a href="#prenota" className="inline-block bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[13px] md:text-[14px] whitespace-nowrap text-center hover:bg-gray-100 transition-colors">
             PRENOTA LA TUA ESPERIENZA
           </a>
         </div>
@@ -95,18 +95,20 @@ export default function EventiCompleanno() {
       <section className="relative w-full h-[400px] lg:h-[500px] overflow-hidden">
         {/* Background Image - Left Side */}
         <div className="absolute left-0 top-0 w-full lg:w-1/2 h-full">
+          {/* Mobile-specific background */}
+          <img
+            src="/images/ferrari_compleanni%20(mobile).png"
+            alt="Ferrari per Compleanni"
+            className="w-full h-full object-cover lg:hidden"
+          />
+          {/* Desktop/large screens background */}
           <img
             src="/images/ferrari_compleanni.png"
             alt="Ferrari per Compleanni"
-            className="w-full h-full object-cover"
+            className="hidden lg:block w-full h-full object-cover"
           />
-          {/* Gradient overlay from right */}
-          <div
-            className="absolute inset-0"
-            style={{
-              background: 'linear-gradient(270deg, rgb(0,0,0) 0%, rgba(0,0,0,0) 40%)'
-            }}
-          />
+          {/* Static dark overlay to improve text readability */}
+          <div className="absolute inset-0 bg-black/55" />
         </div>
 
         {/* Right Side - Text */}
@@ -277,7 +279,7 @@ export default function EventiCompleanno() {
             <div className="mb-6">
               <TermsConsent checkboxId="terms-compleanno" />
             </div>
-            <button type="submit" className="bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[14px] hover:bg-gray-100 transition-colors">
+            <button type="submit" className="inline-block bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[13px] md:text-[14px] whitespace-nowrap text-center hover:bg-gray-100 transition-colors">
               PRENOTA LA TUA ESPERIENZA
             </button>
           </form>
