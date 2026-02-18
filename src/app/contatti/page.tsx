@@ -70,6 +70,62 @@ export default function Contatti() {
         </div>
       </section>
 
+      {/* Contatti - inline columns (after hero) */}
+      <section className="relative w-full py-12">
+        <div className="max-w-[1100px] mx-auto px-6">
+          <h2 className="font-itc-blair text-white text-[24px] md:text-[32px] lg:text-[38px] text-center mb-8 uppercase">
+            CONTATTI
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-8">
+            <div className="flex flex-col items-center md:items-start">
+              <span className="font-itc-blair text-white/70 text-[12px] uppercase">Telefono</span>
+              <a href="tel:+393453096645" className="font-aeonik text-white text-[14px] hover:opacity-80 transition-opacity">
+                345 3096645
+              </a>
+            </div>
+            <div className="flex flex-col items-center md:items-start">
+              <span className="font-itc-blair text-white/70 text-[12px] uppercase">WhatsApp</span>
+              <a
+                href="https://wa.me/393453096645"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-aeonik text-white text-[14px] hover:opacity-80 transition-opacity"
+              >
+                Chatta con noi
+              </a>
+            </div>
+            <div className="flex flex-col items-center md:items-start">
+              <span className="font-itc-blair text-white/70 text-[12px] uppercase">Email</span>
+              <a href="mailto:info@altitudo.club" className="font-aeonik text-white text-[14px] hover:opacity-80 transition-opacity">
+                info@altitudo.club
+              </a>
+            </div>
+            <div className="flex flex-col items-center md:items-start">
+              <span className="font-itc-blair text-white/70 text-[12px] uppercase">Instagram</span>
+              <a
+                href="https://www.instagram.com/altitudo.luxury.rent/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-aeonik text-white text-[14px] hover:opacity-80 transition-opacity"
+              >
+                @altitudo.luxury.rent
+              </a>
+            </div>
+            <div className="flex flex-col items-center md:items-start">
+              <span className="font-itc-blair text-white/70 text-[12px] uppercase">Facebook</span>
+              <a
+                href="https://www.facebook.com/profile.php?id=61579178040735"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-aeonik text-white text-[14px] hover:opacity-80 transition-opacity"
+              >
+                Seguici su Facebook
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Dettagli del Servizio Section */}
       <section className="relative w-full py-16 lg:py-24">
         <div className="max-w-[1200px] mx-auto px-6">
@@ -189,6 +245,8 @@ export default function Contatti() {
           </div>
         </div>
       </section>
+
+      
 
       {/* Booking Form Section */}
       <section id="prenota" className="relative w-full py-14 scroll-mt-24 md:scroll-mt-28">
@@ -310,11 +368,11 @@ export default function Contatti() {
       </section>
 
       {/* Footer */}
-      <footer className="relative w-full py-12 border-t border-white/10">
+      <footer className="hidden">
         <div className="max-w-[1100px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-10 mb-12">
             {/* Newsletter */}
-            <div>
+            <div className="hidden">
               <h3 className="font-itc-blair text-white text-[13px] uppercase mb-4 leading-[1.4] max-w-[280px]">
                 ISCRIVITI ALLA NEWSLETTER PER PROMOZIONI E OFFERTE ESCLUSIVE
               </h3>
@@ -367,8 +425,8 @@ export default function Contatti() {
                   </a>
                 </li>
                 <li>
-                  <a href="mailto:altitudo.club@gmail.com" className="hover:opacity-80 transition-opacity">
-                    altitudo.club@gmail.com
+                  <a href="mailto:info@altitudo.club" className="hover:opacity-80 transition-opacity">
+                    info@altitudo.club
                   </a>
                 </li>
                 <li>
@@ -406,7 +464,7 @@ export default function Contatti() {
               className="h-[24px] w-auto mx-auto mb-4"
             />
             <p className="font-aeonik text-white/70 text-[11px]">
-              2025 - ALTITUDO LUXURY RENT - All rights Reserved - Produced by meravigliä Lab
+              2026 - ALTITUDO LUXURY RENT - All rights Reserved - Produced by meravigliä Lab
             </p>
           </div>
         </div>

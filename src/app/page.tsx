@@ -469,11 +469,11 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="relative w-full py-12 border-t border-white/10">
+      <footer className="hidden">
         <div className="max-w-[1100px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-10 mb-12">
             {/* Newsletter */}
-            <div>
+            <div className="hidden">
               <h3 className="font-itc-blair text-white text-[13px] uppercase mb-4 leading-[1.4] max-w-[280px]">
                 ISCRIVITI ALLA NEWSLETTER PER PROMOZIONI E OFFERTE ESCLUSIVE
               </h3>
@@ -513,8 +513,8 @@ export default function Home() {
                   </a>
                 </li>
                 <li>
-                  <a href="mailto:altitudo.club@gmail.com" className="hover:opacity-80 transition-opacity">
-                    altitudo.club@gmail.com
+                  <a href="mailto:info@altitudo.club" className="hover:opacity-80 transition-opacity">
+                    info@altitudo.club
                   </a>
                 </li>
                 <li>
@@ -567,7 +567,7 @@ export default function Home() {
               className="h-[24px] w-auto mx-auto mb-4"
             />
             <p className="font-aeonik text-white/70 text-[11px]">
-              2025 - ALTITUDO LUXURY RENT - All rights Reserved - Produced by meravigliä Lab
+              2026 - ALTITUDO LUXURY RENT - All rights Reserved - Produced by meravigliä Lab
             </p>
           </div>
         </div>
