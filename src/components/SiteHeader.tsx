@@ -41,6 +41,20 @@ export default function SiteHeader() {
     };
   }, []);
 
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+    const original = document.body.style.overflow;
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = original || "";
+    }
+    return () => {
+      document.body.style.overflow = original || "";
+    };
+  }, [mobileMenuOpen]);
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-16 py-4">
@@ -148,8 +162,8 @@ export default function SiteHeader() {
 
       {/* Mobile overlay menu */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-[60] bg-black">
-          <div className="max-w-[1400px] mx-auto px-6 pt-4 pb-8">
+        <div className="fixed inset-0 w-screen h-screen z-[9999] bg-black/95 backdrop-blur-sm">
+          <div className="max-w-[1400px] mx-auto px-6 pt-4 pb-8 min-h-screen">
             <div className="flex items-center justify-between">
               <a href="/" className="h-[28px]">
                 <img
