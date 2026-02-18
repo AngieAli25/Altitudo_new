@@ -14,7 +14,7 @@ export default function SiteFooter({ pageTitle }: SiteFooterProps) {
             <h3 className="font-itc-blair text-white text-[13px] uppercase mb-4 leading-[1.4] max-w-[280px]">
               ISCRIVITI ALLA NEWSLETTER PER PROMOZIONI E OFFERTE ESCLUSIVE
             </h3>
-            <form action="/api/send" method="post" className="flex gap-2">
+            <form action="/api/send-email" method="post" className="flex gap-2">
               <input type="hidden" name="formName" value="newsletter" />
               <input type="hidden" name="pageTitle" value={pageTitle} />
               <input
