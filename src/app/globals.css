@@ -75,6 +75,42 @@ body {
   font-family: var(--font-aeonik);
   margin: 0;
   padding: 0;
+  overflow-x: hidden; /* evita scroll orizzontale su mobile */
+}
+
+/* Migliora wrapping del testo su mobile per evitare overflow */
+h1, h2, h3, h4, h5, h6, p, a, span, li {
+  overflow-wrap: anywhere;
+  word-break: normal;
+  hyphens: auto;
+}
+
+/* Tipografia più stretta su schermi molto piccoli per evitare overflow */
+@media (max-width: 360px) {
+  h1 {
+    font-size: clamp(20px, 7.0vw, 26px);
+    line-height: 1.2;
+  }
+  h2 {
+    font-size: clamp(18px, 6.2vw, 24px);
+    line-height: 1.22;
+  }
+  h3 {
+    font-size: clamp(16px, 5.6vw, 20px);
+    line-height: 1.24;
+  }
+}
+
+/* Aumenta i target touch per i principali bottoni/CTA */
+@media (max-width: 640px) {
+  a.bg-white, button.bg-white,
+  a[class*="px-"].bg-white, button[class*="px-"].bg-white {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  a[class*="px-"], button[class*="px-"] {
+    min-height: 40px;
+  }
 }
 
 .date-input,
