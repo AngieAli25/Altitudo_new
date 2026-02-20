@@ -17,7 +17,7 @@ export default function EventiMatrimonio() {
       <section className="relative h-[85vh] md:h-screen w-full">
         <div className="absolute inset-0">
           <img
-            src="/images/eventi_matrimonio.png"
+            src="/images/sposa_matrimonio.png"
             alt="Matrimonio con Ferrari"
             className="w-full h-full object-cover"
           />
