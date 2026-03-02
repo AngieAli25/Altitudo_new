@@ -29,17 +29,19 @@ export default function EventoFerrari() {
         {/* Desktop image – object-[center_60%] keeps Ferrari visible, crops sky */}
         <div className="absolute inset-0 hidden md:block">
           <img
-            src="/images/foto_evento_ferrari_agriturismo_orizzontale.png"
+            src="/images/landing%20evento.png"
             alt="Pranzo con Ferrari - Tenuta Cambiaga"
             className="w-full h-full object-cover object-[center_60%]"
+            style={{ objectPosition: 'center calc(60% - 80px)' }}
           />
         </div>
         {/* Mobile image */}
         <div className="absolute inset-0 md:hidden">
           <img
-            src="/images/foto_evento_ferrari_agriturismo_verticale.png"
+            src="/images/landing%20evento.png"
             alt="Pranzo con Ferrari - Tenuta Cambiaga"
             className="w-full h-full object-cover object-[center_60%]"
+            style={{ objectPosition: 'center calc(60% - 80px)' }}
           />
         </div>
         {/* Gradient overlay – only darkens bottom strip where text lives */}
@@ -51,17 +53,15 @@ export default function EventoFerrari() {
           }}
         />
 
-        {/* Logo top center */}
-        <div className="absolute top-8 left-1/2 -translate-x-1/2 z-10">
-          <img
-            src="/images/logo_altitudo.png"
-            alt="Altitudo"
-            className="w-[50px] lg:w-[60px] h-auto"
-          />
-        </div>
+        {/* Logo positioned relative to the title (40px above) */}
 
         {/* Hero content – title, subtitle & CTA pinned to the bottom */}
         <div className="relative z-10 flex flex-col items-center justify-end h-full text-center px-6 pb-[6vh]">
+          <img
+            src="/images/logo_altitudo.png"
+            alt="Altitudo"
+            className="w-[50px] lg:w-[60px] h-auto mb-[40px]"
+          />
           <h1 className="font-itc-blair text-white text-[22px] md:text-[32px] lg:text-[42px] leading-[1.15] tracking-tight mb-3 max-w-[800px] uppercase">
             Un pranzo, una Ferrari,
             <br />
@@ -102,7 +102,7 @@ export default function EventoFerrari() {
             L&apos;esperienza
           </h2>
 
-          <div className="font-aeonik text-white text-[14px] lg:text-[16px] leading-[1.7] text-center max-w-[750px] mx-auto">
+          <div className="font-aeonik text-white text-[14px] lg:text-[16px] leading-[1.7] text-center max-w-[750px] mx-auto no-hyphen">
             <p className="mb-5">
               Immagina una giornata diversa da tutte le altre. Il profumo
               dell&apos;erba appena tagliata, il calore di un pranzo in
@@ -169,74 +169,65 @@ export default function EventoFerrari() {
       {/* ====== 3. LA LOCATION ====== */}
       <section className="relative w-full py-20 lg:py-28">
         <div className="max-w-[1100px] mx-auto px-6">
-          <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
-            {/* Text */}
-            <div className="lg:w-1/2">
-              <h2 className="font-itc-blair text-white text-[24px] md:text-[32px] lg:text-[38px] leading-[1.15] mb-6 uppercase">
-                La Location
-              </h2>
-              <div className="font-aeonik text-white text-[14px] lg:text-[16px] leading-[1.7]">
-                <p className="mb-4">
-                  L&apos;evento si svolge presso l&apos;
-                  <span className="font-aeonik-bold">
-                    Agriturismo Tenuta Cambiaga
-                  </span>
-                  , a Robecco sul Naviglio, alle porte di Milano. Un luogo dove
-                  il tempo rallenta e la natura diventa protagonista.
-                </p>
-                <p className="mb-4">
-                  Circondata da campi coltivati e antiche cascine, la Tenuta
-                  offre un&apos;atmosfera{" "}
-                  <span className="font-aeonik-bold">
-                    rurale, accogliente e familiare
-                  </span>
-                  : il contesto perfetto per una giornata che unisce la
-                  genuinit&agrave; della campagna lombarda all&apos;emozione di
-                  una supercar italiana.
-                </p>
-                <p>
-                  Un pranzo con ingredienti locali, spazi verdi dove i bambini
-                  possono correre liberi, e la Ferrari 296 GTS che svetta
-                  elegante nel cortile della tenuta. Ogni dettaglio &egrave;
-                  pensato per farti vivere qualcosa di unico.
-                </p>
-              </div>
+          <div className="no-hyphen-location">
+            {/* Title + decorative line (centered) */}
+            <h2 className="text-center font-itc-blair text-white text-[24px] md:text-[32px] lg:text-[38px] leading-[1.1] tracking-[0.16em] uppercase mb-3">
+              La Location
+            </h2>
+            <div className="mx-auto h-[2px] w-[72px] bg-white/25 mb-6" />
 
-              <div className="mt-8 flex flex-col sm:flex-row gap-4">
-                <a
-                  href="#richiedi-info"
-                  className="inline-block bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[13px] md:text-[14px] whitespace-nowrap text-center hover:bg-gray-100 transition-colors"
-                >
-                  RICHIEDI MAGGIORI INFORMAZIONI
-                </a>
-              </div>
-            </div>
-
-            {/* Map / Image */}
-            <div className="lg:w-1/2 w-full">
-              <div className="relative overflow-hidden rounded-2xl ring-1 ring-white/15">
-                <iframe
-                  title="Tenuta Cambiaga - Robecco sul Naviglio"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2798.7!2d8.8831!3d45.4372!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786e8c3e0d3abfb%3A0x2b7b2e6a1c7e9d0a!2sRobecco%20sul%20Naviglio%2C%20MI!5e0!3m2!1sit!2sit!4v1700000000000!5m2!1sit!2sit"
-                  width="100%"
-                  height="350"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="w-full"
-                />
-              </div>
-              <p className="font-aeonik text-white/60 text-[12px] mt-3 text-center">
-                Agriturismo Tenuta Cambiaga &middot; Robecco sul Naviglio (MI)
+            {/* Centered body copy */}
+            <div className="font-aeonik text-white text-[14px] lg:text-[16px] leading-[1.7] text-center max-w-[700px] mx-auto">
+              <p className="mb-4">
+                L&apos;evento si svolge presso l&apos;
+                <span className="font-aeonik-bold">
+                  Agriturismo Tenuta Cambiaga
+                </span>
+                , a Robecco sul Naviglio, alle porte di Milano. Un luogo dove
+                il tempo rallenta e la natura diventa protagonista.
+              </p>
+              <p className="mb-4">
+                Circondata da campi coltivati e antiche cascine, la Tenuta
+                offre un&apos;atmosfera{" "}
+                <span className="font-aeonik-bold">
+                  rurale, accogliente e familiare
+                </span>
+                : il contesto perfetto per una giornata che unisce la
+                genuinit&agrave; della campagna lombarda all&apos;emozione di
+                una supercar italiana.
+              </p>
+              <p>
+                Un pranzo con ingredienti locali, spazi verdi dove i bambini
+                possono correre liberi, e la Ferrari 296 GTS che svetta
+                elegante nel cortile della tenuta. Ogni dettaglio &egrave;
+                pensato per farti vivere qualcosa di unico.
               </p>
             </div>
+
+            {/* Centered button */}
+            <div className="text-center mt-8">
+              <a
+                href="#richiedi-info"
+                className="inline-block bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[13px] md:text-[14px] whitespace-nowrap text-center hover:bg-gray-100 transition-colors"
+              >
+                RICHIEDI MAGGIORI INFORMAZIONI
+              </a>
+            </div>
           </div>
+
+          {/* Mappa rimossa su richiesta */}
         </div>
       </section>
 
       {/* ====== 4. I PACCHETTI ====== */}
-      <section className="relative w-full py-20 lg:py-28">
+      <section className="relative w-full pt-10 lg:pt-14 pb-20 lg:pb-28">
+        {/* Decorative image to the right of the section header */}
+        <img
+          aria-hidden="true"
+          src="/images/ferrari_home.png"
+          alt=""
+          className="pointer-events-none select-none hidden md:block absolute right-0 -top-6 lg:-top-10 w-[30%] lg:w-[26%] max-w-[520px] h-auto object-contain opacity-95"
+        />
         <div className="max-w-[1100px] mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="font-itc-blair text-white text-[24px] md:text-[32px] lg:text-[38px] leading-[1.15] mb-4 uppercase">
@@ -407,6 +398,24 @@ export default function EventoFerrari() {
           alt="Ferrari 296 GTS frontale"
           className="w-full h-full object-cover"
         />
+        {/* Left text block vertically centered on black area */}
+        <div className="absolute inset-0 flex items-center z-10">
+          <div className="px-6 lg:px-16 w-full flex justify-start">
+            <div className="menu-block max-w-[560px] w-full lg:w-1/2 text-left">
+              <h3 className="font-itc-blair text-white text-[24px] md:text-[32px] lg:text-[38px] leading-[1.15] uppercase mb-4">
+                IL MENÙ
+              </h3>
+              <ul className="font-aeonik text-white/90 text-[13px] lg:text-[15px] leading-[1.7] divide-y divide-white/10">
+                <li className="py-2">Entrée di benvenuto</li>
+                <li className="py-2">Tagliere di salumi</li>
+                <li className="py-2">Vitello tonnato</li>
+                <li className="py-2">Riso carnaroli allo zafferano</li>
+                <li className="py-2">Tagliatina di vitellone alla senape e miele</li>
+                <li className="py-2 text-white">Torta finale</li>
+              </ul>
+            </div>
+          </div>
+        </div>
         <div
           className="absolute inset-0"
           style={{
@@ -415,6 +424,17 @@ export default function EventoFerrari() {
           }}
         />
       </section>
+      <style jsx>{`
+        .menu-block p,
+        .menu-block li,
+        .menu-block h3 {
+          hyphens: none;
+          -webkit-hyphens: none;
+          -ms-hyphens: none;
+          word-break: keep-all;
+          overflow-wrap: normal;
+        }
+      `}</style>
 
       {/* ====== 5. PROGRAMMA DELLA GIORNATA ====== */}
       <section className="relative w-full py-20 lg:py-28">
@@ -684,6 +704,32 @@ export default function EventoFerrari() {
           2026 - ALTITUDO LUXURY RENT - All rights Reserved
         </p>
       </div>
+      {/* Local page-only styles consolidated to avoid nested styled-jsx errors */}
+      <style jsx global>{`
+        .no-hyphen p {
+          hyphens: none;
+          -webkit-hyphens: none;
+          -ms-hyphens: none;
+          word-break: keep-all;
+          overflow-wrap: normal;
+        }
+        .no-hyphen-location * {
+          hyphens: none;
+          -webkit-hyphens: none;
+          -ms-hyphens: none;
+          word-break: keep-all;
+          overflow-wrap: normal;
+        }
+        .menu-block p,
+        .menu-block li,
+        .menu-block h3 {
+          hyphens: none;
+          -webkit-hyphens: none;
+          -ms-hyphens: none;
+          word-break: keep-all;
+          overflow-wrap: normal;
+        }
+      `}</style>
     </main>
   );
 }
