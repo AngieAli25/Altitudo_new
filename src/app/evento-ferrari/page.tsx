@@ -1,8 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
-import TermsConsent from "@/components/TermsConsent";
-import DateTimeField from "@/components/DateTimeField";
+import { useEffect, useRef } from "react";
 
 export default function EventoFerrari() {
   /* Hide the global SiteFooter and WhatsApp button rendered by root layout */
@@ -22,25 +20,36 @@ export default function EventoFerrari() {
     };
   }, []);
 
+  /* Scroll-triggered reveal animations */
+  const mainRef = useRef<HTMLElement>(null);
+  useEffect(() => {
+    const el = mainRef.current;
+    if (!el) return;
+    const targets = el.querySelectorAll("[data-animate]");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            (entry.target as HTMLElement).classList.add("animate-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+    targets.forEach((t) => observer.observe(t));
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <main className="bg-black min-h-screen w-full overflow-x-hidden">
+    <main ref={mainRef} className="evento-ferrari-page bg-black min-h-screen w-full overflow-x-hidden">
       {/* ====== 1. HERO SECTION ====== */}
-      <section className="relative h-screen w-full">
-        {/* Desktop image – object-[center_60%] keeps Ferrari visible, crops sky */}
-        <div className="absolute inset-0 hidden md:block">
+      <section className="relative h-[100svh] w-full">
+        <div className="absolute inset-0">
           <img
             src="/images/landing%20evento.png"
             alt="Pranzo con Ferrari - Tenuta Cambiaga"
-            className="w-full h-full object-cover object-[center_60%]"
-            style={{ objectPosition: 'center calc(60% - 80px)' }}
-          />
-        </div>
-        {/* Mobile image */}
-        <div className="absolute inset-0 md:hidden">
-          <img
-            src="/images/landing%20evento.png"
-            alt="Pranzo con Ferrari - Tenuta Cambiaga"
-            className="w-full h-full object-cover object-[center_60%]"
+            className="w-full h-full object-cover"
             style={{ objectPosition: 'center calc(60% - 80px)' }}
           />
         </div>
@@ -56,7 +65,7 @@ export default function EventoFerrari() {
         {/* Logo positioned relative to the title (40px above) */}
 
         {/* Hero content – title, subtitle & CTA pinned to the bottom */}
-        <div className="relative z-10 flex flex-col items-center justify-end h-full text-center px-6 pb-[6vh]">
+        <div className="relative z-10 flex flex-col items-center justify-end h-full text-center px-5 md:px-6 pb-[8vh] md:pb-[6vh]">
           <img
             src="/images/logo_altitudo.png"
             alt="Altitudo"
@@ -97,42 +106,33 @@ export default function EventoFerrari() {
           />
         </div>
 
-        <div className="relative z-10 max-w-[900px] mx-auto px-6">
+        <div className="relative z-10 max-w-[900px] mx-auto px-6" data-animate>
           <h2 className="font-itc-blair text-white text-[24px] md:text-[32px] lg:text-[38px] leading-[1.15] text-center mb-10 uppercase">
             L&apos;esperienza
           </h2>
 
           <div className="font-aeonik text-white text-[14px] lg:text-[16px] leading-[1.7] text-center max-w-[750px] mx-auto no-hyphen">
             <p className="mb-5">
-              Immagina una giornata diversa da tutte le altre. Il profumo
-              dell&apos;erba appena tagliata, il calore di un pranzo in
-              famiglia tra le campagne del Naviglio, e poi{" "}
+              Immagina una giornata diversa da tutte le altre. Un pranzo in
+              famiglia tra le campagne del Naviglio e{" "}
               <span className="font-aeonik-bold">
                 lo sguardo dei tuoi figli che si illumina
               </span>{" "}
-              davanti alla maestosit&agrave; di una Ferrari 296 GTS.
+              davanti a una Ferrari 296 GTS.
             </p>
             <p className="mb-5">
-              Questo non &egrave; un semplice pranzo fuori. &Egrave;
-              un&apos;esperienza pensata per chi vuole{" "}
+              Non un semplice pranzo fuori, ma un&apos;esperienza pensata per{" "}
               <span className="font-aeonik-bold">
-                regalare un ricordo indimenticabile alla propria famiglia
+                regalare un ricordo indimenticabile alla tua famiglia
               </span>
-              . L&apos;emozione di un bambino che tocca per la prima volta la
-              carrozzeria di una supercar. L&apos;orgoglio di un padre che
-              condivide una passione. La gioia di una giornata vissuta insieme,
-              in un contesto autentico e speciale.
-            </p>
-            <p className="mb-5">
-              La{" "}
+              . La{" "}
               <span className="font-aeonik-bold">Ferrari 296 GTS</span>, con i
-              suoi 830 cavalli e un design mozzafiato, sar&agrave; la
-              protagonista della giornata. Potrai ammirarla, fotografarla e,
-              se lo desideri, vivere l&apos;adrenalina di un&apos;esperienza
-              di guida che non dimenticherai mai.
+              suoi 830 cavalli, sar&agrave; la protagonista: potrai ammirarla,
+              fotografarla e vivere l&apos;adrenalina di un&apos;esperienza di
+              guida unica.
             </p>
             <p>
-              Il tutto immerso nell&apos;atmosfera calda e genuina della{" "}
+              Il tutto nell&apos;atmosfera genuina della{" "}
               <span className="font-aeonik-bold">Tenuta Cambiaga</span>, tra
               piatti della tradizione lombarda e il fascino della campagna
               milanese.
@@ -150,86 +150,77 @@ export default function EventoFerrari() {
         </div>
       </section>
 
-      {/* Full-width Ferrari image break */}
-      <section className="relative w-full h-[35vh] lg:h-[450px]">
-        <img
-          src="/images/interno_home.png"
-          alt="Interni Ferrari 296 GTS"
-          className="w-full h-full object-cover"
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(180deg, rgb(0,0,0) 0%, rgba(0,0,0,0) 25%), linear-gradient(180deg, rgba(0,0,0,0) 75%, rgb(0,0,0) 100%)",
-          }}
-        />
-      </section>
-
       {/* ====== 3. LA LOCATION ====== */}
       <section className="relative w-full py-20 lg:py-28">
         <div className="max-w-[1100px] mx-auto px-6">
-          <div className="no-hyphen-location">
-            {/* Title + decorative line (centered) */}
-            <h2 className="text-center font-itc-blair text-white text-[24px] md:text-[32px] lg:text-[38px] leading-[1.1] tracking-[0.16em] uppercase mb-3">
-              La Location
-            </h2>
-            <div className="mx-auto h-[2px] w-[72px] bg-white/25 mb-6" />
+          <div className="no-hyphen-location grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-center" data-animate>
+            {/* Left column – text */}
+            <div>
+              <h2 className="font-itc-blair text-white text-[24px] md:text-[32px] lg:text-[38px] leading-[1.15] uppercase mb-3">
+                La Location
+              </h2>
+              <div className="h-[2px] w-[72px] bg-white/25 mb-6" />
 
-            {/* Centered body copy */}
-            <div className="font-aeonik text-white text-[14px] lg:text-[16px] leading-[1.7] text-center max-w-[700px] mx-auto">
-              <p className="mb-4">
-                L&apos;evento si svolge presso l&apos;
-                <span className="font-aeonik-bold">
-                  Agriturismo Tenuta Cambiaga
-                </span>
-                , a Robecco sul Naviglio, alle porte di Milano. Un luogo dove
-                il tempo rallenta e la natura diventa protagonista.
-              </p>
-              <p className="mb-4">
-                Circondata da campi coltivati e antiche cascine, la Tenuta
-                offre un&apos;atmosfera{" "}
-                <span className="font-aeonik-bold">
-                  rurale, accogliente e familiare
-                </span>
-                : il contesto perfetto per una giornata che unisce la
-                genuinit&agrave; della campagna lombarda all&apos;emozione di
-                una supercar italiana.
-              </p>
-              <p>
-                Un pranzo con ingredienti locali, spazi verdi dove i bambini
-                possono correre liberi, e la Ferrari 296 GTS che svetta
-                elegante nel cortile della tenuta. Ogni dettaglio &egrave;
-                pensato per farti vivere qualcosa di unico.
-              </p>
+              <div className="font-aeonik text-white text-[14px] lg:text-[16px] leading-[1.7]">
+                <p className="mb-4">
+                  L&apos;evento si svolge presso l&apos;
+                  <span className="font-aeonik-bold">
+                    Agriturismo Tenuta Cambiaga
+                  </span>
+                  , a Robecco sul Naviglio, alle porte di Milano. Un luogo dove
+                  il tempo rallenta e la natura diventa protagonista.
+                </p>
+                <p className="mb-4">
+                  Circondata da campi coltivati e antiche cascine, la Tenuta
+                  offre un&apos;atmosfera{" "}
+                  <span className="font-aeonik-bold">
+                    rurale, accogliente e familiare
+                  </span>
+                  : il contesto perfetto per una giornata che unisce la
+                  genuinit&agrave; della campagna lombarda all&apos;emozione di
+                  una supercar italiana.
+                </p>
+                <p>
+                  Un pranzo con ingredienti locali, spazi verdi dove i bambini
+                  possono correre liberi, e la Ferrari 296 GTS che svetta
+                  elegante nel cortile della tenuta. Ogni dettaglio &egrave;
+                  pensato per farti vivere qualcosa di unico.
+                </p>
+              </div>
+
+              <div className="mt-8">
+                <a
+                  href="#richiedi-info"
+                  className="inline-block bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[13px] md:text-[14px] whitespace-nowrap text-center hover:bg-gray-100 transition-colors"
+                >
+                  RICHIEDI MAGGIORI INFORMAZIONI
+                </a>
+              </div>
             </div>
 
-            {/* Centered button */}
-            <div className="text-center mt-8">
-              <a
-                href="#richiedi-info"
-                className="inline-block bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[13px] md:text-[14px] whitespace-nowrap text-center hover:bg-gray-100 transition-colors"
-              >
-                RICHIEDI MAGGIORI INFORMAZIONI
-              </a>
+            {/* Right column – image with black gradient */}
+            <div className="relative rounded-2xl overflow-hidden">
+              <img
+                src="/images/tenuta_cambiaga_robecco_image.jpg"
+                alt="Tenuta Cambiaga, Robecco sul Naviglio"
+                className="w-full h-[300px] md:h-[400px] lg:h-[460px] object-cover"
+              />
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background:
+                    "linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.5) 100%), linear-gradient(270deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.4) 100%)",
+                }}
+              />
             </div>
           </div>
-
-          {/* Mappa rimossa su richiesta */}
         </div>
       </section>
 
       {/* ====== 4. I PACCHETTI ====== */}
       <section className="relative w-full pt-10 lg:pt-14 pb-20 lg:pb-28">
-        {/* Decorative image to the right of the section header */}
-        <img
-          aria-hidden="true"
-          src="/images/ferrari_home.png"
-          alt=""
-          className="pointer-events-none select-none hidden md:block absolute right-0 -top-6 lg:-top-10 w-[30%] lg:w-[26%] max-w-[520px] h-auto object-contain opacity-95"
-        />
         <div className="max-w-[1100px] mx-auto px-6">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12" data-animate>
             <h2 className="font-itc-blair text-white text-[24px] md:text-[32px] lg:text-[38px] leading-[1.15] mb-4 uppercase">
               I Pacchetti
             </h2>
@@ -241,7 +232,7 @@ export default function EventoFerrari() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             {/* Pacchetto 1 */}
-            <div className="relative overflow-hidden rounded-2xl ring-1 ring-white/15 bg-gradient-to-br from-white/[0.12] to-white/[0.06] backdrop-blur-[16px] p-6 lg:p-8 flex flex-col">
+            <div className="relative overflow-hidden rounded-2xl ring-1 ring-white/15 bg-gradient-to-br from-white/[0.12] to-white/[0.06] backdrop-blur-[16px] p-6 lg:p-8 flex flex-col" data-animate>
               <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-white/0 via-white/30 to-white/0" />
 
               <span className="inline-block mb-4 px-3 py-1 rounded-full bg-white/10 text-white/80 text-[12px] tracking-wide self-start">
@@ -307,7 +298,7 @@ export default function EventoFerrari() {
             </div>
 
             {/* Pacchetto 2 */}
-            <div className="relative overflow-hidden rounded-2xl ring-1 ring-white/15 bg-gradient-to-br from-white/[0.12] to-white/[0.06] backdrop-blur-[16px] p-6 lg:p-8 flex flex-col">
+            <div className="relative overflow-hidden rounded-2xl ring-1 ring-white/15 bg-gradient-to-br from-white/[0.12] to-white/[0.06] backdrop-blur-[16px] p-6 lg:p-8 flex flex-col" data-animate>
               <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-white/0 via-white/30 to-white/0" />
 
               <span className="inline-block mb-4 px-3 py-1 rounded-full bg-white/10 text-white/80 text-[12px] tracking-wide self-start">
@@ -391,54 +382,104 @@ export default function EventoFerrari() {
         </div>
       </section>
 
-      {/* Full-width Ferrari image break */}
-      <section className="relative w-full h-[35vh] lg:h-[450px]">
-        <img
-          src="/images/muso_eventi.png"
-          alt="Ferrari 296 GTS frontale"
-          className="w-full h-full object-cover"
-        />
-        {/* Left text block vertically centered on black area */}
-        <div className="absolute inset-0 flex items-center z-10">
-          <div className="px-6 lg:px-16 w-full flex justify-start">
-            <div className="menu-block max-w-[560px] w-full lg:w-1/2 text-left">
-              <h3 className="font-itc-blair text-white text-[24px] md:text-[32px] lg:text-[38px] leading-[1.15] uppercase mb-4">
+      {/* ====== IL MENÙ ====== */}
+      <section className="relative w-full py-20 lg:py-28">
+        <div className="max-w-[1100px] mx-auto px-5 md:px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-center" data-animate>
+            {/* Left column – menu text */}
+            <div className="menu-block text-left">
+              <h3 className="font-itc-blair text-white text-[24px] md:text-[32px] lg:text-[38px] leading-[1.15] uppercase mb-6">
                 IL MENÙ
               </h3>
-              <ul className="font-aeonik text-white/90 text-[13px] lg:text-[15px] leading-[1.7] divide-y divide-white/10">
-                <li className="py-2">Entrée di benvenuto</li>
-                <li className="py-2">Tagliere di salumi</li>
-                <li className="py-2">Vitello tonnato</li>
-                <li className="py-2">Riso carnaroli allo zafferano</li>
-                <li className="py-2">Tagliatina di vitellone alla senape e miele</li>
-                <li className="py-2 text-white">Torta finale</li>
-              </ul>
+
+              <div className="space-y-3 font-aeonik text-[13px] lg:text-[15px] leading-[1.6]">
+                {/* Entrée */}
+                <div>
+                  <span className="font-itc-blair text-white/50 text-[11px] lg:text-[12px] uppercase tracking-widest">
+                    Entr&eacute;e
+                  </span>
+                  <p className="text-white/90 mt-1">L&apos;Entr&egrave;e di benvenuto</p>
+                </div>
+
+                <div className="h-px bg-white/10" />
+
+                {/* Antipasti */}
+                <div>
+                  <span className="font-itc-blair text-white/50 text-[11px] lg:text-[12px] uppercase tracking-widest">
+                    Antipasti
+                  </span>
+                  <p className="text-white/90 mt-1">
+                    Tagliere dei salumi della nostra Tenuta Cambiaga
+                  </p>
+                  <p className="text-white/90 mt-2">Vitello in salsa tonnata e fiore di cappero</p>
+                  <p className="text-white/90 mt-2">Tarte tatin salata agli asparagi e provola</p>
+                </div>
+
+                <div className="h-px bg-white/10" />
+
+                {/* Primo */}
+                <div>
+                  <span className="font-itc-blair text-white/50 text-[11px] lg:text-[12px] uppercase tracking-widest">
+                    Primo
+                  </span>
+                  <p className="text-white/90 mt-1">Riso carnaroli, zafferano, zucchine e robiola</p>
+                </div>
+
+                <div className="h-px bg-white/10" />
+
+                {/* Secondo */}
+                <div>
+                  <span className="font-itc-blair text-white/50 text-[11px] lg:text-[12px] uppercase tracking-widest">
+                    Secondo
+                  </span>
+                  <p className="text-white/90 mt-1">Tagliatina di vitellone alla senape e miele</p>
+                </div>
+
+                <div className="h-px bg-white/10" />
+
+                {/* Dolce */}
+                <div>
+                  <span className="font-itc-blair text-white/50 text-[11px] lg:text-[12px] uppercase tracking-widest">
+                    Dolce
+                  </span>
+                  <p className="text-white/90 mt-1">Torta della casa</p>
+                </div>
+
+              </div>
+            </div>
+
+            {/* Right column – dish image */}
+            <div className="relative rounded-2xl overflow-hidden">
+              <img
+                src="/images/piatto_menu_altitudo.png"
+                alt="Piatto del menù"
+                className="w-full h-[300px] md:h-[400px] lg:h-[460px] object-cover"
+              />
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background:
+                    "linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.5) 100%), linear-gradient(90deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 40%)",
+                }}
+              />
             </div>
           </div>
         </div>
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(180deg, rgb(0,0,0) 0%, rgba(0,0,0,0) 25%), linear-gradient(180deg, rgba(0,0,0,0) 75%, rgb(0,0,0) 100%)",
-          }}
-        />
       </section>
-      <style jsx>{`
-        .menu-block p,
-        .menu-block li,
-        .menu-block h3 {
-          hyphens: none;
-          -webkit-hyphens: none;
-          -ms-hyphens: none;
-          word-break: keep-all;
-          overflow-wrap: normal;
-        }
-      `}</style>
-
       {/* ====== 5. PROGRAMMA DELLA GIORNATA ====== */}
       <section className="relative w-full py-20 lg:py-28">
-        <div className="max-w-[900px] mx-auto px-6">
+        {/* Decorative image – right side, desktop only */}
+        <img
+          aria-hidden="true"
+          src="/images/muso_eventi.png"
+          alt=""
+          className="pointer-events-none select-none hidden lg:block absolute right-0 top-[10%] w-[48%] max-w-[640px] h-auto object-contain opacity-70"
+          style={{
+            maskImage: "linear-gradient(to left, black 70%, transparent 100%)",
+            WebkitMaskImage: "linear-gradient(to left, black 70%, transparent 100%)",
+          }}
+        />
+        <div className="relative z-10 max-w-[900px] mx-auto px-5 md:px-6">
           <h2 className="font-itc-blair text-white text-[24px] md:text-[32px] lg:text-[38px] leading-[1.15] text-center mb-4 uppercase">
             Il Programma della Giornata
           </h2>
@@ -452,12 +493,9 @@ export default function EventoFerrari() {
             <div className="absolute left-[19px] md:left-1/2 md:-translate-x-px top-0 bottom-0 w-[2px] bg-white/15" />
 
             {/* Step 1 */}
-            <div className="relative flex flex-col md:flex-row md:items-start mb-14 last:mb-0">
+            <div className="relative flex flex-col md:flex-row md:items-start mb-14 last:mb-0" data-animate>
               <div className="hidden md:block md:w-1/2 md:pr-12 md:text-right">
-                <span className="font-itc-blair text-white/50 text-[13px]">
-                  11:30
-                </span>
-                <h3 className="font-itc-blair text-white text-[18px] lg:text-[20px] mt-1 uppercase">
+                <h3 className="font-itc-blair text-white text-[18px] lg:text-[20px] uppercase">
                   Accoglienza
                 </h3>
                 <p className="font-aeonik text-white/70 text-[13px] lg:text-[14px] leading-[1.6] mt-2">
@@ -469,10 +507,7 @@ export default function EventoFerrari() {
               <div className="absolute left-[12px] md:left-1/2 md:-translate-x-1/2 top-1 w-[16px] h-[16px] rounded-full bg-white ring-4 ring-black z-10" />
               {/* Mobile content */}
               <div className="md:hidden pl-12">
-                <span className="font-itc-blair text-white/50 text-[13px]">
-                  11:30
-                </span>
-                <h3 className="font-itc-blair text-white text-[18px] mt-1 uppercase">
+                <h3 className="font-itc-blair text-white text-[18px] uppercase">
                   Accoglienza
                 </h3>
                 <p className="font-aeonik text-white/70 text-[13px] leading-[1.6] mt-2">
@@ -484,16 +519,13 @@ export default function EventoFerrari() {
             </div>
 
             {/* Step 2 */}
-            <div className="relative flex flex-col md:flex-row md:items-start mb-14 last:mb-0">
+            <div className="relative flex flex-col md:flex-row md:items-start mb-14 last:mb-0" data-animate>
               <div className="hidden md:block md:w-1/2 md:pr-12" />
               {/* Dot */}
               <div className="absolute left-[12px] md:left-1/2 md:-translate-x-1/2 top-1 w-[16px] h-[16px] rounded-full bg-white ring-4 ring-black z-10" />
               {/* Desktop content */}
               <div className="hidden md:block md:w-1/2 md:pl-12">
-                <span className="font-itc-blair text-white/50 text-[13px]">
-                  12:30
-                </span>
-                <h3 className="font-itc-blair text-white text-[18px] lg:text-[20px] mt-1 uppercase">
+                <h3 className="font-itc-blair text-white text-[18px] lg:text-[20px] uppercase">
                   Pranzo
                 </h3>
                 <p className="font-aeonik text-white/70 text-[13px] lg:text-[14px] leading-[1.6] mt-2">
@@ -503,10 +535,7 @@ export default function EventoFerrari() {
               </div>
               {/* Mobile content */}
               <div className="md:hidden pl-12">
-                <span className="font-itc-blair text-white/50 text-[13px]">
-                  12:30
-                </span>
-                <h3 className="font-itc-blair text-white text-[18px] mt-1 uppercase">
+                <h3 className="font-itc-blair text-white text-[18px] uppercase">
                   Pranzo
                 </h3>
                 <p className="font-aeonik text-white/70 text-[13px] leading-[1.6] mt-2">
@@ -517,12 +546,9 @@ export default function EventoFerrari() {
             </div>
 
             {/* Step 3 */}
-            <div className="relative flex flex-col md:flex-row md:items-start mb-14 last:mb-0">
+            <div className="relative flex flex-col md:flex-row md:items-start mb-14 last:mb-0" data-animate>
               <div className="hidden md:block md:w-1/2 md:pr-12 md:text-right">
-                <span className="font-itc-blair text-white/50 text-[13px]">
-                  14:30
-                </span>
-                <h3 className="font-itc-blair text-white text-[18px] lg:text-[20px] mt-1 uppercase">
+                <h3 className="font-itc-blair text-white text-[18px] lg:text-[20px] uppercase">
                   Shooting Fotografico
                 </h3>
                 <p className="font-aeonik text-white/70 text-[13px] lg:text-[14px] leading-[1.6] mt-2">
@@ -535,10 +561,7 @@ export default function EventoFerrari() {
               <div className="absolute left-[12px] md:left-1/2 md:-translate-x-1/2 top-1 w-[16px] h-[16px] rounded-full bg-white ring-4 ring-black z-10" />
               {/* Mobile content */}
               <div className="md:hidden pl-12">
-                <span className="font-itc-blair text-white/50 text-[13px]">
-                  14:30
-                </span>
-                <h3 className="font-itc-blair text-white text-[18px] mt-1 uppercase">
+                <h3 className="font-itc-blair text-white text-[18px] uppercase">
                   Shooting Fotografico
                 </h3>
                 <p className="font-aeonik text-white/70 text-[13px] leading-[1.6] mt-2">
@@ -551,15 +574,12 @@ export default function EventoFerrari() {
             </div>
 
             {/* Step 4 */}
-            <div className="relative flex flex-col md:flex-row md:items-start">
+            <div className="relative flex flex-col md:flex-row md:items-start" data-animate>
               <div className="hidden md:block md:w-1/2 md:pr-12" />
               {/* Dot */}
               <div className="absolute left-[12px] md:left-1/2 md:-translate-x-1/2 top-1 w-[16px] h-[16px] rounded-full bg-white ring-4 ring-black z-10" />
               {/* Desktop content */}
               <div className="hidden md:block md:w-1/2 md:pl-12">
-                <span className="font-itc-blair text-white/50 text-[13px]">
-                  15:30
-                </span>
                 <h3 className="font-itc-blair text-white text-[18px] lg:text-[20px] mt-1 uppercase">
                   Esperienza di Guida
                 </h3>
@@ -571,10 +591,7 @@ export default function EventoFerrari() {
               </div>
               {/* Mobile content */}
               <div className="md:hidden pl-12">
-                <span className="font-itc-blair text-white/50 text-[13px]">
-                  15:30
-                </span>
-                <h3 className="font-itc-blair text-white text-[18px] mt-1 uppercase">
+                <h3 className="font-itc-blair text-white text-[18px] uppercase">
                   Esperienza di Guida
                 </h3>
                 <p className="font-aeonik text-white/70 text-[13px] leading-[1.6] mt-2">
@@ -593,7 +610,7 @@ export default function EventoFerrari() {
         id="richiedi-info"
         className="relative w-full py-14 scroll-mt-24 md:scroll-mt-28"
       >
-        <div className="max-w-[800px] mx-auto px-6 text-center">
+        <div className="max-w-[800px] mx-auto px-6 text-center" data-animate>
           <h2 className="font-itc-blair text-white text-[22px] md:text-[28px] lg:text-[32px] leading-[1.2] mb-4 uppercase">
             Vuoi partecipare? Scrivici!
           </h2>
@@ -602,7 +619,7 @@ export default function EventoFerrari() {
             i prezzi dei pacchetti e riservare il tuo posto per il 12 Aprile.
           </p>
 
-          {/* Form - copied as-is from existing pages */}
+          {/* Dedicated event form – independent from site-wide booking forms */}
           <form
             action="/api/send-email"
             method="post"
@@ -611,7 +628,7 @@ export default function EventoFerrari() {
             <input
               type="hidden"
               name="formName"
-              value="booking-evento-ferrari"
+              value="evento-ferrari-info"
             />
             <input
               type="hidden"
@@ -619,69 +636,80 @@ export default function EventoFerrari() {
               value="Evento Ferrari Tenuta Cambiaga - Richiesta Info"
             />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <input
-                type="text"
-                name="firstName"
-                placeholder="Nome"
-                required
-                className="w-full h-11 bg-white/[0.08] rounded-lg px-4 text-white text-[13px] placeholder-white/50 focus:outline-none focus:ring-1 focus:ring-white/30"
-              />
-              <input
-                type="text"
-                name="lastName"
-                placeholder="Cognome"
-                required
-                className="w-full h-11 bg-white/[0.08] rounded-lg px-4 text-white text-[13px] placeholder-white/50 focus:outline-none focus:ring-1 focus:ring-white/30"
-              />
+              <div className="text-left">
+                <label className="font-aeonik text-white/70 text-[12px] mb-1 block">Nome</label>
+                <input
+                  type="text"
+                  name="firstName"
+                  placeholder="Inserisci il tuo nome"
+                  required
+                  className="w-full h-11 bg-white/[0.08] rounded-lg px-4 text-white text-[13px] placeholder-white/50 focus:outline-none focus:ring-1 focus:ring-white/30"
+                />
+              </div>
+              <div className="text-left">
+                <label className="font-aeonik text-white/70 text-[12px] mb-1 block">Cognome</label>
+                <input
+                  type="text"
+                  name="lastName"
+                  placeholder="Inserisci il tuo cognome"
+                  required
+                  className="w-full h-11 bg-white/[0.08] rounded-lg px-4 text-white text-[13px] placeholder-white/50 focus:outline-none focus:ring-1 focus:ring-white/30"
+                />
+              </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                required
-                className="w-full h-11 bg-white/[0.08] rounded-lg px-4 text-white text-[13px] placeholder-white/50 focus:outline-none focus:ring-1 focus:ring-white/30"
-              />
-              <input
-                type="tel"
-                name="phone"
-                placeholder="Telefono"
-                required
-                className="w-full h-11 bg-white/[0.08] rounded-lg px-4 text-white text-[13px] placeholder-white/50 focus:outline-none focus:ring-1 focus:ring-white/30"
-              />
+              <div className="text-left">
+                <label className="font-aeonik text-white/70 text-[12px] mb-1 block">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="La tua email di contatto"
+                  required
+                  className="w-full h-11 bg-white/[0.08] rounded-lg px-4 text-white text-[13px] placeholder-white/50 focus:outline-none focus:ring-1 focus:ring-white/30"
+                />
+              </div>
+              <div className="text-left">
+                <label className="font-aeonik text-white/70 text-[12px] mb-1 block">Telefono</label>
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Il tuo numero di telefono"
+                  required
+                  className="w-full h-11 bg-white/[0.08] rounded-lg px-4 text-white text-[13px] placeholder-white/50 focus:outline-none focus:ring-1 focus:ring-white/30"
+                />
+              </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <DateTimeField
-                ariaLabel="Dal"
-                title="Dal (data e ora)"
-                nameCombined="fromDateTime"
-                required
-              />
-              <DateTimeField
-                ariaLabel="Al"
-                title="Al (data e ora)"
-                nameCombined="toDateTime"
-                required
-              />
+            <div className="text-left">
+              <label className="font-aeonik text-white/70 text-[12px] mb-1 block">Pacchetto</label>
+              <div className="relative">
+                <select
+                  name="pacchetto"
+                  className="w-full h-11 bg-white/[0.08] rounded-lg px-4 pr-10 text-white text-[13px] placeholder-white/50 focus:outline-none focus:ring-1 focus:ring-white/30 appearance-none"
+                  defaultValue=""
+                >
+                  <option value="" disabled className="text-black">
+                    Seleziona il pacchetto di tuo interesse
+                  </option>
+                  <option value="Pacchetto 1 – Pranzo + Shooting" className="text-black">
+                    Pacchetto 1 – Pranzo + Shooting
+                  </option>
+                  <option value="Pacchetto 2 – Pranzo + Shooting + Drive" className="text-black">
+                    Pacchetto 2 – Pranzo + Shooting + Drive
+                  </option>
+                </select>
+                <svg className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/60" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
+                </svg>
+              </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <input
-                type="text"
-                name="pickupPlace"
-                placeholder="Luogo di ritiro"
-                required
-                className="w-full h-11 bg-white/[0.08] rounded-lg px-4 text-white text-[13px] placeholder-white/50 focus:outline-none focus:ring-1 focus:ring-white/30"
+            <div className="text-left">
+              <label className="font-aeonik text-white/70 text-[12px] mb-1 block">Messaggio</label>
+              <textarea
+                name="message"
+                placeholder="Hai qualche domanda? Scrivila qui"
+                rows={3}
+                className="w-full bg-white/[0.08] rounded-lg px-4 py-3 text-white text-[13px] placeholder-white/50 focus:outline-none focus:ring-1 focus:ring-white/30 resize-none"
               />
-              <input
-                type="text"
-                name="dropoffPlace"
-                placeholder="Luogo di consegna"
-                required
-                className="w-full h-11 bg-white/[0.08] rounded-lg px-4 text-white text-[13px] placeholder-white/50 focus:outline-none focus:ring-1 focus:ring-white/30"
-              />
-            </div>
-            <div className="mb-6">
-              <TermsConsent checkboxId="terms-evento-ferrari" />
             </div>
             <button
               type="submit"
@@ -704,30 +732,26 @@ export default function EventoFerrari() {
           2026 - ALTITUDO LUXURY RENT - All rights Reserved
         </p>
       </div>
-      {/* Local page-only styles consolidated to avoid nested styled-jsx errors */}
+      {/* Local page-only styles */}
       <style jsx global>{`
-        .no-hyphen p {
-          hyphens: none;
-          -webkit-hyphens: none;
-          -ms-hyphens: none;
+        .evento-ferrari-page,
+        .evento-ferrari-page * {
+          hyphens: none !important;
+          -webkit-hyphens: none !important;
+          -ms-hyphens: none !important;
           word-break: keep-all;
           overflow-wrap: normal;
         }
-        .no-hyphen-location * {
-          hyphens: none;
-          -webkit-hyphens: none;
-          -ms-hyphens: none;
-          word-break: keep-all;
-          overflow-wrap: normal;
+
+        /* Scroll reveal animations */
+        [data-animate] {
+          opacity: 0;
+          transform: translateY(32px);
+          transition: opacity 0.7s ease-out, transform 0.7s ease-out;
         }
-        .menu-block p,
-        .menu-block li,
-        .menu-block h3 {
-          hyphens: none;
-          -webkit-hyphens: none;
-          -ms-hyphens: none;
-          word-break: keep-all;
-          overflow-wrap: normal;
+        [data-animate].animate-visible {
+          opacity: 1;
+          transform: translateY(0);
         }
       `}</style>
     </main>
