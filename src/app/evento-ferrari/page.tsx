@@ -621,9 +621,16 @@ export default function EventoFerrari() {
 
           {/* Dedicated event form – independent from site-wide booking forms */}
           <form
-            action="/api/send-email"
-            method="post"
             className="space-y-4 mb-8"
+            onSubmit={async (e) => {
+              e.preventDefault();
+              const formEl = e.currentTarget;
+              const data = new FormData(formEl);
+              try {
+                await fetch("/api/send-email", { method: "POST", body: data });
+              } catch { /* ignore */ }
+              window.location.href = "/evento-ferrari/grazie";
+            }}
           >
             <input
               type="hidden"
@@ -637,7 +644,7 @@ export default function EventoFerrari() {
             />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="text-left">
-                <label className="font-aeonik text-white/70 text-[12px] mb-1 block">Nome</label>
+                <label className="font-aeonik text-white/70 text-[13px] lg:text-[14px] mb-1.5 block">Nome</label>
                 <input
                   type="text"
                   name="firstName"
@@ -647,7 +654,7 @@ export default function EventoFerrari() {
                 />
               </div>
               <div className="text-left">
-                <label className="font-aeonik text-white/70 text-[12px] mb-1 block">Cognome</label>
+                <label className="font-aeonik text-white/70 text-[13px] lg:text-[14px] mb-1.5 block">Cognome</label>
                 <input
                   type="text"
                   name="lastName"
@@ -659,7 +666,7 @@ export default function EventoFerrari() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="text-left">
-                <label className="font-aeonik text-white/70 text-[12px] mb-1 block">Email</label>
+                <label className="font-aeonik text-white/70 text-[13px] lg:text-[14px] mb-1.5 block">Email</label>
                 <input
                   type="email"
                   name="email"
@@ -669,7 +676,7 @@ export default function EventoFerrari() {
                 />
               </div>
               <div className="text-left">
-                <label className="font-aeonik text-white/70 text-[12px] mb-1 block">Telefono</label>
+                <label className="font-aeonik text-white/70 text-[13px] lg:text-[14px] mb-1.5 block">Telefono</label>
                 <input
                   type="tel"
                   name="phone"
@@ -680,7 +687,7 @@ export default function EventoFerrari() {
               </div>
             </div>
             <div className="text-left">
-              <label className="font-aeonik text-white/70 text-[12px] mb-1 block">Pacchetto</label>
+              <label className="font-aeonik text-white/70 text-[13px] lg:text-[14px] mb-1.5 block">Pacchetto</label>
               <div className="relative">
                 <select
                   name="pacchetto"
@@ -703,7 +710,7 @@ export default function EventoFerrari() {
               </div>
             </div>
             <div className="text-left">
-              <label className="font-aeonik text-white/70 text-[12px] mb-1 block">Messaggio</label>
+              <label className="font-aeonik text-white/70 text-[13px] lg:text-[14px] mb-1.5 block">Messaggio</label>
               <textarea
                 name="message"
                 placeholder="Hai qualche domanda? Scrivila qui"
