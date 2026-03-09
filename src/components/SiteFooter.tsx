@@ -1,5 +1,7 @@
 "use client";
 
+import CookiePreferencesLink from "./CookiePreferencesLink";
+
 export default function SiteFooter() {
   return (
     <footer className="relative w-full py-12 border-t border-white/10">
@@ -76,6 +78,18 @@ export default function SiteFooter() {
             alt="Altitudo"
             className="h-[24px] w-auto mx-auto mb-4"
           />
+        </div>
+
+        {/* Legal */}
+        <div className="text-center mb-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
+          <a
+            href="/privacy"
+            className="font-aeonik text-white/70 text-[11px] hover:text-white transition-colors"
+          >
+            Privacy e Cookie Policy
+          </a>
+          <span className="text-white/40 text-[11px]">·</span>
+          <CookiePreferencesLink />
         </div>
 
         {/* Copyright */}

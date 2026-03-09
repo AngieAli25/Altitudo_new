@@ -1,9 +1,10 @@
 import type { NextConfig } from "next";
+import path from "path";
 
 const nextConfig: NextConfig = {
+  // Root esplicita: evita che Next usi una cartella padre (es. per altri lockfile) e restituisca 404
   turbopack: {
-    // Forza la root di Turbopack su questa directory del progetto
-    root: __dirname,
+    root: path.resolve(__dirname),
   },
   images: {
     remotePatterns: [

@@ -225,12 +225,12 @@ export default function EventoFerrari() {
               I Pacchetti
             </h2>
             <p className="font-aeonik text-white/80 text-[14px] lg:text-[16px] leading-[1.5] max-w-[600px] mx-auto">
-              Due esperienze pensate per te. Scegli quella che pi&ugrave; si
+              Tre esperienze pensate per te. Scegli quella che pi&ugrave; si
               adatta ai tuoi desideri e a quelli della tua famiglia.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {/* Pacchetto 1 */}
             <div className="relative overflow-hidden rounded-2xl ring-1 ring-white/15 bg-gradient-to-br from-white/[0.12] to-white/[0.06] backdrop-blur-[16px] p-6 lg:p-8 flex flex-col" data-animate>
               <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-white/0 via-white/30 to-white/0" />
@@ -293,7 +293,7 @@ export default function EventoFerrari() {
                 href="#richiedi-info"
                 className="inline-block bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[13px] md:text-[14px] whitespace-nowrap text-center hover:bg-gray-100 transition-colors self-start"
               >
-                RICHIEDI MAGGIORI INFORMAZIONI
+                richiedi informazioni
               </a>
             </div>
 
@@ -375,7 +375,89 @@ export default function EventoFerrari() {
                 href="#richiedi-info"
                 className="inline-block bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[13px] md:text-[14px] whitespace-nowrap text-center hover:bg-gray-100 transition-colors self-start"
               >
-                RICHIEDI MAGGIORI INFORMAZIONI
+                richiedi informazioni
+              </a>
+            </div>
+
+            {/* Pacchetto 3 */}
+            <div className="relative overflow-hidden rounded-2xl ring-1 ring-white/15 bg-gradient-to-br from-white/[0.12] to-white/[0.06] backdrop-blur-[16px] p-6 lg:p-8 flex flex-col" data-animate>
+              <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-white/0 via-white/30 to-white/0" />
+
+              <span className="inline-block mb-4 px-3 py-1 rounded-full bg-white/10 text-white/80 text-[12px] tracking-wide self-start">
+                Pacchetto 3
+              </span>
+
+              <h3 className="font-itc-blair text-white text-[20px] lg:text-[24px] leading-tight mb-6 uppercase">
+                Pranzo + Shooting + Giro in Ferrari con autista
+              </h3>
+
+              <ul className="font-aeonik text-white text-[14px] lg:text-[15px] leading-[1.7] space-y-3 mb-8 flex-1">
+                <li className="flex items-start gap-3">
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="text-white/70 mt-[2px] shrink-0"
+                  >
+                    <path d="M9 16.2l-3.5-3.5-1.4 1.4L9 19 20.3 7.7l-1.4-1.4z" />
+                  </svg>
+                  <span>
+                    Pranzo completo presso la Tenuta Cambiaga con menu della
+                    tradizione lombarda
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="text-white/70 mt-[2px] shrink-0"
+                  >
+                    <path d="M9 16.2l-3.5-3.5-1.4 1.4L9 19 20.3 7.7l-1.4-1.4z" />
+                  </svg>
+                  <span>
+                    Sessione fotografica professionale con la Ferrari 296 GTS
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="text-white/70 mt-[2px] shrink-0"
+                  >
+                    <path d="M9 16.2l-3.5-3.5-1.4 1.4L9 19 20.3 7.7l-1.4-1.4z" />
+                  </svg>
+                  <span>
+                    Giro in Ferrari 296 GTS con autista lungo le strade del
+                    Naviglio
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="text-white/70 mt-[2px] shrink-0"
+                  >
+                    <path d="M9 16.2l-3.5-3.5-1.4 1.4L9 19 20.3 7.7l-1.4-1.4z" />
+                  </svg>
+                  <span>
+                    L&apos;emozione della supercar in totale relax, senza
+                    pensieri
+                  </span>
+                </li>
+              </ul>
+
+              <a
+                href="#richiedi-info"
+                className="inline-block bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[13px] md:text-[14px] whitespace-nowrap text-center hover:bg-gray-100 transition-colors self-start"
+              >
+                richiedi informazioni
               </a>
             </div>
           </div>
@@ -702,6 +784,9 @@ export default function EventoFerrari() {
                   </option>
                   <option value="Pacchetto 2 – Pranzo + Shooting + Drive" className="text-black">
                     Pacchetto 2 – Pranzo + Shooting + Drive
+                  </option>
+                  <option value="Pacchetto 3 – Pranzo + Shooting + Giro in Ferrari con autista" className="text-black">
+                    Pacchetto 3 – Pranzo + Shooting + Giro in Ferrari con autista
                   </option>
                 </select>
                 <svg className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/60" viewBox="0 0 20 20" fill="currentColor">

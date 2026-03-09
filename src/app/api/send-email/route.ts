@@ -28,6 +28,8 @@ export async function POST(request: NextRequest) {
     );
     const pageTitle = String(form.get("pageTitle") ?? "");
     const termsAccepted = String(form.get("termsAccepted") ?? "");
+    const pacchetto = String(form.get("pacchetto") ?? "");
+    const message = String(form.get("message") ?? "");
     const referer = request.headers.get("referer") ?? "";
 
     /* ── Costruisci il nome del form per l'oggetto email ── */
@@ -49,6 +51,8 @@ export async function POST(request: NextRequest) {
       dropoffPlace: "Luogo di consegna",
       newsletterEmail: "Email",
       termsAccepted: "Consenso termini",
+      pacchetto: "Pacchetto",
+      message: "Messaggio",
     };
 
     // Includi tutti i campi compilati (anche eventuali extra non mappati)
@@ -137,6 +141,8 @@ export async function POST(request: NextRequest) {
     if (termsAccepted) crmPayload.consenso = termsAccepted;
     if (formName) crmPayload.tipo_evento = formName;
     if (pageTitle) crmPayload.pagina = pageTitle;
+    if (pacchetto) crmPayload.pacchetto = pacchetto;
+    if (message) crmPayload.messaggio = message;
 
     let crmResult: { ok: boolean; status?: number; error?: string } = {
       ok: false,
