@@ -668,7 +668,7 @@ export default function EventoFerrari() {
                 <p className="font-aeonik text-white/70 text-[13px] lg:text-[14px] leading-[1.6] mt-2">
                   Per chi ha scelto il Pacchetto 2: il momento tanto atteso.
                   Mettiti al volante della Ferrari 296 GTS e vivi
-                  l&apos;adrenalina pura lungo le strade del Naviglio.
+                  l&apos;adrenalina pura lungo le strade del Naviglio. Per chi ha scelto il Pacchetto 3: un giro in Ferrari con autista, in totale relax, senza pensieri.
                 </p>
               </div>
               {/* Mobile content */}
@@ -679,7 +679,7 @@ export default function EventoFerrari() {
                 <p className="font-aeonik text-white/70 text-[13px] leading-[1.6] mt-2">
                   Per chi ha scelto il Pacchetto 2: il momento tanto atteso.
                   Mettiti al volante della Ferrari 296 GTS e vivi
-                  l&apos;adrenalina pura lungo le strade del Naviglio.
+                  l&apos;adrenalina pura lungo le strade del Naviglio. Per chi ha scelto il Pacchetto 3: un giro in Ferrari con autista, in totale relax, senza pensieri.
                 </p>
               </div>
             </div>
