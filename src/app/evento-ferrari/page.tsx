@@ -77,7 +77,7 @@ export default function EventoFerrari() {
             un ricordo per sempre
           </h1>
           <p className="font-aeonik text-white/90 text-[14px] lg:text-[18px] leading-[1.5] mb-6 max-w-[600px]">
-            Sabato 12 Aprile &middot; Tenuta Cambiaga, Robecco sul Naviglio
+            Domenica 12 Aprile &middot; Tenuta Cambiaga, Robecco sul Naviglio
           </p>
           <a
             href="#richiedi-info"
@@ -566,7 +566,7 @@ export default function EventoFerrari() {
             Il Programma della Giornata
           </h2>
           <p className="font-aeonik text-white/70 text-[14px] lg:text-[15px] text-center mb-14 max-w-[500px] mx-auto">
-            Sabato 12 Aprile &middot; Tenuta Cambiaga
+            Domenica 12 Aprile &middot; Tenuta Cambiaga
           </p>
 
           {/* Timeline */}
@@ -698,7 +698,7 @@ export default function EventoFerrari() {
           </h2>
           <p className="font-aeonik text-white text-[12px] lg:text-[13px] leading-[1.5] mb-8 max-w-[500px] mx-auto">
             Compila il modulo per ricevere tutti i dettagli sull&apos;evento,
-            i prezzi dei pacchetti e riservare il tuo posto per il 12 Aprile.
+            i prezzi dei pacchetti e riservare il tuo posto per domenica 12 Aprile.
           </p>
 
           {/* Dedicated event form – independent from site-wide booking forms */}

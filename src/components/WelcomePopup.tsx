@@ -107,7 +107,7 @@ export default function WelcomePopup() {
             {/* Data e luogo: livello 2, più piccoli del titolo */}
             <div className="flex flex-col gap-0.5 border-t border-white/15 pt-4">
               <p className="font-itc-blair text-white/95 text-[14px] sm:text-[15px] leading-snug uppercase tracking-tight">
-                Sabato 12 Aprile
+                Domenica 12 Aprile
               </p>
               <p className="font-aeonik text-white/80 text-[13px] sm:text-[14px]">
                 Tenuta Cambiaga · Robecco sul Naviglio
