@@ -129,7 +129,7 @@ export async function POST(request: NextRequest) {
       last_name: lastName,
       email,
       phone,
-      source: "Sito Altitudo",
+      source: formName === "evento-ferrari-info" ? "landing_evento" : "Sito Altitudo",
       page_url: referer,
     };
 
