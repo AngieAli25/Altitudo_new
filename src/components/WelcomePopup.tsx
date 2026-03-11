@@ -19,12 +19,13 @@ export default function WelcomePopup() {
     if (!mounted || typeof window === "undefined") return;
     // Non mostrare il popup se l'utente è già sulla landing evento-ferrari
     if (pathname?.startsWith("/evento-ferrari")) return;
-    const seen = localStorage.getItem(STORAGE_KEY);
+    // sessionStorage: il popup si mostra a ogni nuova visita (nuova scheda/sessione), non solo la prima volta
+    const seen = sessionStorage.getItem(STORAGE_KEY);
     if (!seen) setVisible(true);
   }, [mounted, pathname]);
 
   const close = () => {
-    localStorage.setItem(STORAGE_KEY, "1");
+    sessionStorage.setItem(STORAGE_KEY, "1");
     setVisible(false);
   };
 
@@ -77,7 +78,7 @@ export default function WelcomePopup() {
         <Link
           href="/evento-ferrari"
           onClick={() => {
-            localStorage.setItem(STORAGE_KEY, "1");
+            sessionStorage.setItem(STORAGE_KEY, "1");
             setVisible(false);
           }}
           className="flex flex-1 flex-col sm:flex-row focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-black rounded-2xl min-h-0"
