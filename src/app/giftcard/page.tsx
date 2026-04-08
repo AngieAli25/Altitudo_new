@@ -7,7 +7,7 @@ const CTA_HREF = "#prenota";
 export const metadata: Metadata = {
   title: "Gift Card Altitudo | Ferrari 296 GTS Experience",
   description:
-    "Accesso esclusivo Altitudo al noleggio Ferrari 296 GTS con vantaggio dedicato. Un'esperienza premium pensata per chi sceglie il valore dell'eccellenza.",
+    "Con Altitudo, quanto spendi per l'evento viene riconosciuto sul primo noleggio Ferrari 296 GTS di almeno una giornata. Valido fino al 23 settembre.",
 };
 
 export default function GiftCardPage() {
@@ -54,13 +54,15 @@ export default function GiftCardPage() {
             vantaggio dedicato
           </p>
           <h2 className="font-itc-blair text-white text-[28px] md:text-[40px] leading-[1.12] mb-6">
-            Accesso dedicato al noleggio Ferrari 296 GTS con condizione speciale del -20%.
+            Quanto investi per l&apos;evento ti viene riconosciuto sul tuo primo noleggio Ferrari 296 GTS.
           </h2>
           <p className="font-aeonik text-white/80 text-[14px] md:text-[16px] leading-[1.75] max-w-[740px] mx-auto mb-5">
-            Non è una proposta per tutti, ma un&apos;opportunità riservata a chi riconosce il valore delle esperienze autentiche.
+            Non è una promozione standard, ma una condizione riservata a chi sceglie Altitudo durante l&apos;evento.
           </p>
           <p className="font-aeonik text-white/80 text-[14px] md:text-[16px] leading-[1.75] max-w-[720px] mx-auto mb-9">
-            Prenota ora la tua esperienza e ricevi una proposta dedicata dal team Altitudo.
+            Ogni dettaglio viene seguito con cura: dalla disponibilità della vettura alla configurazione del servizio,
+            fino alla consegna, con standard elevati e assistenza discreta. Compila la richiesta e ricevi un contatto
+            dedicato per definire la tua esperienza Ferrari 296 GTS in modo personalizzato.
           </p>
           <a
             href={CTA_HREF}
@@ -81,16 +83,16 @@ export default function GiftCardPage() {
             Condizione riservata
           </h3>
           <div className="font-aeonik text-white/80 text-[13px] md:text-[15px] leading-[1.7] max-w-[720px] mx-auto text-left space-y-2">
-            <p>La condizione del -20% è dedicata ai possessori della card NFC Altitudo.</p>
+            <p>Quanto paghi per l&apos;evento viene riconosciuto sul primo noleggio Ferrari 296 GTS di almeno una giornata.</p>
             <p>
-              Il vantaggio viene applicato su prenotazione confermata e soggetta a{" "}
+              Il riconoscimento viene applicato su prenotazione confermata e soggetta a{" "}
               <span className="whitespace-nowrap">disponibilità</span> della vettura.
             </p>
             <p>
               La Ferrari 296 GTS viene consegnata con accoglienza dedicata,{" "}
               <span className="whitespace-nowrap">standard</span> elevati e gestione personalizzata.
             </p>
-            <p>La condizione riservata non è cumulabile con altre promozioni in corso.</p>
+            <p>Condizione valida fino al 23 settembre e non cumulabile con altre promozioni in corso.</p>
           </div>
         </div>
       </section>
@@ -104,13 +106,14 @@ export default function GiftCardPage() {
             Compila il modulo e prenota la tua esperienza
           </h2>
           <p className="font-aeonik text-white/80 text-[13px] md:text-[15px] leading-[1.7] max-w-[640px] mx-auto mb-8">
-            Inserisci i tuoi dettagli: il team Altitudo ti ricontatterà per confermare disponibilità, condizioni e gestione dedicata.
+            Inserisci i tuoi dettagli: il team Altitudo ti ricontatterà per confermare disponibilità, condizioni e{" "}
+            <span className="whitespace-nowrap">riconoscimento</span> dedicato.
           </p>
 
           <form action="/api/send-email" method="post" className="space-y-4 mb-2 text-left md:text-center">
             <input type="hidden" name="formName" value="giftcard-landing" />
             <input type="hidden" name="pageTitle" value="Gift Card - Prenotazione" />
-            <input type="hidden" name="promoCode" value="GIFTCARD20" />
+            <input type="hidden" name="promoCode" value="GIFTCARD-EVENTO-2309" />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <input
                 type="text"
