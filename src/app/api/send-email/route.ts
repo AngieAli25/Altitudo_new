@@ -129,7 +129,12 @@ export async function POST(request: NextRequest) {
       last_name: lastName,
       email,
       phone,
-      source: formName === "evento-ferrari-info" ? "landing_evento" : "Sito Altitudo",
+      source:
+        formName === "giftcard-landing"
+          ? "landing_giftcard"
+          : formName === "evento-ferrari-info"
+            ? "landing_evento"
+            : "Sito Altitudo",
       page_url: referer,
     };
 
@@ -182,7 +187,9 @@ export async function POST(request: NextRequest) {
     }
 
     /* ── Risposta ── */
-    return NextResponse.redirect(new URL("/thank-you", request.url), 303);
+    const thankYouPath =
+      formName === "giftcard-landing" ? "/giftcard/thank-you" : "/thank-you";
+    return NextResponse.redirect(new URL(thankYouPath, request.url), 303);
   } catch (err: any) {
     const message =
       (err && (err.response || err.message)) || "Mail send failed";
