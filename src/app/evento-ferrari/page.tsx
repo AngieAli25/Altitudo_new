@@ -49,8 +49,7 @@ export default function EventoFerrari() {
           <img
             src="/images/nuova_macchina_evento.png"
             alt="Esperienza in pista su Ferrari - Autodromo Tazio Nuvolari"
-            className="w-full h-full object-cover"
-            style={{ objectPosition: 'center 90%' }}
+            className="hero-img w-full h-full object-cover"
           />
         </div>
         {/* Gradient overlay – only darkens bottom strip where text lives */}
@@ -79,7 +78,7 @@ export default function EventoFerrari() {
           </p>
           <a
             href="#richiedi-info"
-            className="inline-block bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[13px] md:text-[14px] whitespace-nowrap text-center hover:bg-gray-100 transition-colors"
+            className="block w-full md:inline-block md:w-auto bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[13px] md:text-[14px] text-center hover:bg-gray-100 transition-colors"
           >
             RICHIEDI MAGGIORI INFORMAZIONI
           </a>
@@ -136,7 +135,7 @@ export default function EventoFerrari() {
           <div className="text-center mt-10">
             <a
               href="#richiedi-info"
-              className="inline-block bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[13px] md:text-[14px] whitespace-nowrap text-center hover:bg-gray-100 transition-colors"
+              className="block w-full md:inline-block md:w-auto bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[13px] md:text-[14px] text-center hover:bg-gray-100 transition-colors"
             >
               RICHIEDI MAGGIORI INFORMAZIONI
             </a>
@@ -179,7 +178,7 @@ export default function EventoFerrari() {
               <div className="mt-8">
                 <a
                   href="#richiedi-info"
-                  className="inline-block bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[13px] md:text-[14px] whitespace-nowrap text-center hover:bg-gray-100 transition-colors"
+                  className="block w-full md:inline-block md:w-auto bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[13px] md:text-[14px] text-center hover:bg-gray-100 transition-colors"
                 >
                   RICHIEDI MAGGIORI INFORMAZIONI
                 </a>
@@ -251,7 +250,7 @@ export default function EventoFerrari() {
             <div className="mt-8 lg:mt-14 flex justify-center">
               <a
                 href="#richiedi-info"
-                className="inline-block bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[13px] md:text-[14px] whitespace-nowrap text-center hover:bg-gray-100 transition-colors"
+                className="block w-full md:inline-block md:w-auto bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[13px] md:text-[14px] text-center hover:bg-gray-100 transition-colors"
               >
                 RICHIEDI MAGGIORI INFORMAZIONI
               </a>
@@ -287,7 +286,7 @@ export default function EventoFerrari() {
               <div className="mt-8">
                 <a
                   href="#richiedi-info"
-                  className="inline-block bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[13px] md:text-[14px] whitespace-nowrap text-center hover:bg-gray-100 transition-colors"
+                  className="block w-full md:inline-block md:w-auto bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[13px] md:text-[14px] text-center hover:bg-gray-100 transition-colors"
                 >
                   RICHIEDI MAGGIORI INFORMAZIONI
                 </a>
@@ -508,7 +507,7 @@ export default function EventoFerrari() {
             </div>
             <button
               type="submit"
-              className="inline-block bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[13px] md:text-[14px] whitespace-nowrap text-center hover:bg-gray-100 transition-colors"
+              className="block w-full md:inline-block md:w-auto bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[13px] md:text-[14px] text-center hover:bg-gray-100 transition-colors"
             >
               RICHIEDI MAGGIORI INFORMAZIONI
             </button>
@@ -536,6 +535,16 @@ export default function EventoFerrari() {
           -ms-hyphens: none !important;
           word-break: keep-all;
           overflow-wrap: normal;
+        }
+
+        /* Hero image position */
+        .hero-img {
+          object-position: center 30%;
+        }
+        @media (min-width: 768px) {
+          .hero-img {
+            object-position: center 90%;
+          }
         }
 
         /* Scroll reveal animations */
