@@ -47,10 +47,10 @@ export default function EventoFerrari() {
       <section className="relative h-[100svh] w-full">
         <div className="absolute inset-0">
           <img
-            src="/images/landing%20evento.png"
-            alt="Pranzo con Ferrari - Tenuta Cambiaga"
+            src="/images/nuova_macchina_evento.png"
+            alt="Esperienza in pista su Ferrari - Autodromo Tazio Nuvolari"
             className="w-full h-full object-cover"
-            style={{ objectPosition: 'center calc(60% - 80px)' }}
+            style={{ objectPosition: 'center 90%' }}
           />
         </div>
         {/* Gradient overlay – only darkens bottom strip where text lives */}
@@ -62,8 +62,6 @@ export default function EventoFerrari() {
           }}
         />
 
-        {/* Logo positioned relative to the title (40px above) */}
-
         {/* Hero content – title, subtitle & CTA pinned to the bottom */}
         <div className="relative z-10 flex flex-col items-center justify-end h-full text-center px-5 md:px-6 pb-[8vh] md:pb-[6vh]">
           <img
@@ -72,12 +70,12 @@ export default function EventoFerrari() {
             className="w-[50px] lg:w-[60px] h-auto mb-[40px]"
           />
           <h1 className="font-itc-blair text-white text-[22px] md:text-[32px] lg:text-[42px] leading-[1.15] tracking-tight mb-3 max-w-[800px] uppercase">
-            Un pranzo, una Ferrari,
+            Acquista o regala
             <br />
-            un ricordo per sempre
+            un&apos;esperienza in pista
           </h1>
           <p className="font-aeonik text-white/90 text-[14px] lg:text-[18px] leading-[1.5] mb-6 max-w-[600px]">
-            Domenica 12 Aprile &middot; Tenuta Cambiaga, Robecco sul Naviglio
+            16 Maggio &middot; Autodromo Tazio Nuvolari 2.8, Cervesina (PV)
           </p>
           <a
             href="#richiedi-info"
@@ -113,29 +111,25 @@ export default function EventoFerrari() {
 
           <div className="font-aeonik text-white text-[14px] lg:text-[16px] leading-[1.7] text-center max-w-[750px] mx-auto no-hyphen">
             <p className="mb-5">
-              Immagina una giornata diversa da tutte le altre. Un pranzo in
-              famiglia tra le campagne del Naviglio e{" "}
+              Immagina di sederti al posto del passeggero su una Ferrari, con un circuito professionale davanti a te.{" "}
               <span className="font-aeonik-bold">
-                lo sguardo dei tuoi figli che si illumina
+                Non una passeggiata — due giri di pista in piena velocità
               </span>{" "}
-              davanti a una Ferrari 296 GTS.
+              sull&apos;Autodromo Tazio Nuvolari 2.8.
             </p>
             <p className="mb-5">
-              Non un semplice pranzo fuori, ma un&apos;esperienza pensata per{" "}
-              <span className="font-aeonik-bold">
-                regalare un ricordo indimenticabile alla tua famiglia
-              </span>
-              . La{" "}
-              <span className="font-aeonik-bold">Ferrari 296 GTS</span>, con i
-              suoi 830 cavalli, sar&agrave; la protagonista: potrai ammirarla,
-              fotografarla e vivere l&apos;adrenalina di un&apos;esperienza di
-              guida unica.
+              Un&apos;esperienza{" "}
+              <span className="font-aeonik-bold">riservata a un numero limitato di partecipanti</span>,
+              dove ogni dettaglio è pensato per farti vivere l&apos;adrenalina pura di una supercar su un vero circuito.
+              Il{" "}
+              <span className="font-aeonik-bold">video della tua esperienza</span> sarà incluso,
+              per rivivere quei momenti ogni volta che vuoi.
             </p>
             <p>
-              Il tutto nell&apos;atmosfera genuina della{" "}
-              <span className="font-aeonik-bold">Tenuta Cambiaga</span>, tra
-              piatti della tradizione lombarda e il fascino della campagna
-              milanese.
+              Puoi portare con te{" "}
+              <span className="font-aeonik-bold">un ospite</span>: il pass è incluso.
+              Potrà vivere l&apos;atmosfera del paddock e gustare il rinfresco offerto,
+              restando accanto a te per tutta la giornata.
             </p>
           </div>
 
@@ -150,41 +144,35 @@ export default function EventoFerrari() {
         </div>
       </section>
 
-      {/* ====== 3. LA LOCATION ====== */}
+      {/* ====== 3. IL CIRCUITO ====== */}
       <section className="relative w-full py-20 lg:py-28">
         <div className="max-w-[1100px] mx-auto px-6">
           <div className="no-hyphen-location grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-center" data-animate>
             {/* Left column – text */}
             <div>
               <h2 className="font-itc-blair text-white text-[24px] md:text-[32px] lg:text-[38px] leading-[1.15] uppercase mb-3">
-                La Location
+                Il Circuito
               </h2>
               <div className="h-[2px] w-[72px] bg-white/25 mb-6" />
 
               <div className="font-aeonik text-white text-[14px] lg:text-[16px] leading-[1.7]">
                 <p className="mb-4">
-                  L&apos;evento si svolge presso l&apos;
+                  L&apos;evento si svolge all&apos;
                   <span className="font-aeonik-bold">
-                    Agriturismo Tenuta Cambiaga
+                    Autodromo Tazio Nuvolari 2.8
                   </span>
-                  , a Robecco sul Naviglio, alle porte di Milano. Un luogo dove
-                  il tempo rallenta e la natura diventa protagonista.
+                  , a Cervesina, in provincia di Pavia. Un circuito professionale immerso nell&apos;Oltrepò Pavese, progettato per regalare esperienze ad alta emozione.
                 </p>
                 <p className="mb-4">
-                  Circondata da campi coltivati e antiche cascine, la Tenuta
-                  offre un&apos;atmosfera{" "}
+                  Con i suoi 2,8 km di tracciato e le sue curve tecniche, il circuito è il palcoscenico ideale per vivere le{" "}
                   <span className="font-aeonik-bold">
-                    rurale, accogliente e familiare
+                    prestazioni di una Ferrari al massimo delle sue possibilità
                   </span>
-                  : il contesto perfetto per una giornata che unisce la
-                  genuinit&agrave; della campagna lombarda all&apos;emozione di
-                  una supercar italiana.
+                  : sicurezza, adrenalina e professionalità in un contesto esclusivo.
                 </p>
                 <p>
-                  Un pranzo con ingredienti locali, spazi verdi dove i bambini
-                  possono correre liberi, e la Ferrari 296 GTS che svetta
-                  elegante nel cortile della tenuta. Ogni dettaglio &egrave;
-                  pensato per farti vivere qualcosa di unico.
+                  Un luogo dove la velocità incontra il privilegio.
+                  Due giri che ti lasceranno senza fiato — e un video per ricordarlo per sempre.
                 </p>
               </div>
 
@@ -201,8 +189,8 @@ export default function EventoFerrari() {
             {/* Right column – image with black gradient */}
             <div className="relative rounded-2xl overflow-hidden">
               <img
-                src="/images/tenuta_cambiaga_robecco_image.jpg"
-                alt="Tenuta Cambiaga, Robecco sul Naviglio"
+                src="/images/circuito.png"
+                alt="Autodromo Tazio Nuvolari 2.8, Cervesina (PV)"
                 className="w-full h-[300px] md:h-[400px] lg:h-[460px] object-cover"
               />
               <div
@@ -217,324 +205,100 @@ export default function EventoFerrari() {
         </div>
       </section>
 
-      {/* ====== 4. I PACCHETTI ====== */}
+      {/* ====== 4. COSA È INCLUSO ====== */}
       <section className="relative w-full pt-10 lg:pt-14 pb-20 lg:pb-28">
         <div className="max-w-[1100px] mx-auto px-6">
-          <div className="text-center mb-12" data-animate>
-            <h2 className="font-itc-blair text-white text-[24px] md:text-[32px] lg:text-[38px] leading-[1.15] mb-4 uppercase">
-              I Pacchetti
-            </h2>
-            <p className="font-aeonik text-white/80 text-[14px] lg:text-[16px] leading-[1.5] max-w-[600px] mx-auto">
-              Tre esperienze pensate per te. Scegli quella che pi&ugrave; si
-              adatta ai tuoi desideri e a quelli della tua famiglia.
-            </p>
-          </div>
+          {/* Card recap unica */}
+          <div className="relative overflow-hidden rounded-2xl ring-1 ring-white/15 bg-gradient-to-br from-white/[0.12] to-white/[0.06] backdrop-blur-[16px] p-8 lg:p-10" data-animate>
+            <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-white/0 via-white/30 to-white/0" />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {/* Pacchetto 1 */}
-            <div className="relative overflow-hidden rounded-2xl ring-1 ring-white/15 bg-gradient-to-br from-white/[0.12] to-white/[0.06] backdrop-blur-[16px] p-6 lg:p-8 flex flex-col" data-animate>
-              <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-white/0 via-white/30 to-white/0" />
-
-              <span className="inline-block mb-4 px-3 py-1 rounded-full bg-white/10 text-white/80 text-[12px] tracking-wide self-start">
-                Pacchetto 1
-              </span>
-
-              <h3 className="font-itc-blair text-white text-[20px] lg:text-[24px] leading-tight mb-6 uppercase">
-                Pranzo + Shooting
-              </h3>
-
-              <ul className="font-aeonik text-white text-[14px] lg:text-[15px] leading-[1.7] space-y-3 mb-8 flex-1">
-                <li className="flex items-start gap-3">
-                  <svg
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="text-white/70 mt-[2px] shrink-0"
-                  >
-                    <path d="M9 16.2l-3.5-3.5-1.4 1.4L9 19 20.3 7.7l-1.4-1.4z" />
-                  </svg>
-                  <span>
-                    Pranzo completo presso la Tenuta Cambiaga con menu della
-                    tradizione lombarda
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <svg
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="text-white/70 mt-[2px] shrink-0"
-                  >
-                    <path d="M9 16.2l-3.5-3.5-1.4 1.4L9 19 20.3 7.7l-1.4-1.4z" />
-                  </svg>
-                  <span>
-                    Sessione fotografica professionale con la Ferrari 296 GTS
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <svg
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="text-white/70 mt-[2px] shrink-0"
-                  >
-                    <path d="M9 16.2l-3.5-3.5-1.4 1.4L9 19 20.3 7.7l-1.4-1.4z" />
-                  </svg>
-                  <span>
-                    Foto ricordo con la tua famiglia a bordo della supercar
-                  </span>
-                </li>
-              </ul>
-
-              <a
-                href="#richiedi-info"
-                className="inline-block bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[13px] md:text-[14px] whitespace-nowrap text-center hover:bg-gray-100 transition-colors self-start"
-              >
-                richiedi informazioni
-              </a>
+            <div className="mb-8 lg:mb-14 text-center">
+              <h2 className="font-itc-blair text-white text-[24px] md:text-[30px] lg:text-[36px] leading-[1.15] mb-3 uppercase">
+                L&apos;esperienza in sintesi
+              </h2>
+              <p className="font-aeonik text-white/70 text-[14px] lg:text-[15px] leading-[1.6] max-w-[620px] lg:max-w-[820px] mx-auto">
+                Un evento esclusivo a numero limitato, pensato per chi vuole vivere qualcosa di unico. Sali su una Ferrari, affronta due giri su un circuito professionale e porta con te un ospite — il tutto con video incluso e un rinfresco offerto. Qui trovi tutti i dettagli che ti servono per decidere.
+              </p>
             </div>
 
-            {/* Pacchetto 2 */}
-            <div className="relative overflow-hidden rounded-2xl ring-1 ring-white/15 bg-gradient-to-br from-white/[0.12] to-white/[0.06] backdrop-blur-[16px] p-6 lg:p-8 flex flex-col" data-animate>
-              <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-white/0 via-white/30 to-white/0" />
-
-              <span className="inline-block mb-4 px-3 py-1 rounded-full bg-white/10 text-white/80 text-[12px] tracking-wide self-start">
-                Pacchetto 2
-              </span>
-
-              <h3 className="font-itc-blair text-white text-[20px] lg:text-[24px] leading-tight mb-6 uppercase">
-                Pranzo + Shooting + Drive
-              </h3>
-
-              <ul className="font-aeonik text-white text-[14px] lg:text-[15px] leading-[1.7] space-y-3 mb-8 flex-1">
-                <li className="flex items-start gap-3">
-                  <svg
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="text-white/70 mt-[2px] shrink-0"
-                  >
-                    <path d="M9 16.2l-3.5-3.5-1.4 1.4L9 19 20.3 7.7l-1.4-1.4z" />
-                  </svg>
-                  <span>
-                    Pranzo completo presso la Tenuta Cambiaga con menu della
-                    tradizione lombarda
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <svg
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="text-white/70 mt-[2px] shrink-0"
-                  >
-                    <path d="M9 16.2l-3.5-3.5-1.4 1.4L9 19 20.3 7.7l-1.4-1.4z" />
-                  </svg>
-                  <span>
-                    Sessione fotografica professionale con la Ferrari 296 GTS
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <svg
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="text-white/70 mt-[2px] shrink-0"
-                  >
-                    <path d="M9 16.2l-3.5-3.5-1.4 1.4L9 19 20.3 7.7l-1.4-1.4z" />
-                  </svg>
-                  <span>
-                    Esperienza di guida sulla Ferrari 296 GTS lungo le strade
-                    del Naviglio
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <svg
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="text-white/70 mt-[2px] shrink-0"
-                  >
-                    <path d="M9 16.2l-3.5-3.5-1.4 1.4L9 19 20.3 7.7l-1.4-1.4z" />
-                  </svg>
-                  <span>
-                    L&apos;adrenalina di 830 cavalli e un ricordo che rester&agrave;
-                    per sempre
-                  </span>
-                </li>
-              </ul>
-
-              <a
-                href="#richiedi-info"
-                className="inline-block bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[13px] md:text-[14px] whitespace-nowrap text-center hover:bg-gray-100 transition-colors self-start"
-              >
-                richiedi informazioni
-              </a>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-0">
+              {[
+                { title: "Luogo", desc: "Autodromo Tazio Nuvolari 2.8, Cervesina (PV)." },
+                { title: "Data", desc: "16 Maggio 2026. Posti limitati, prenotazione necessaria." },
+                { title: "Giri", desc: "2 giri di pista al posto del passeggero su una Ferrari." },
+                { title: "Pass ospite", desc: "Incluso. Puoi portare una persona con te." },
+                { title: "Video", desc: "Incluso. La tua esperienza in pista ripresa integralmente." },
+              ].map((item, i, arr) => (
+                <div
+                  key={i}
+                  className={`flex flex-col gap-2 px-6 py-5 lg:py-0 lg:px-8 text-center items-center
+                    ${i !== arr.length - 1 ? "border-b sm:border-b-0 sm:border-r border-white/10 lg:border-b-0 lg:border-r" : ""}
+                    ${i === 1 ? "sm:border-r-0 lg:border-r border-white/10" : ""}
+                    ${i === 0 ? "lg:pl-0" : ""}
+                    ${i === arr.length - 1 ? "lg:pr-0" : ""}
+                  `}
+                >
+                  <p className="font-itc-blair text-white text-[15px] lg:text-[16px] uppercase leading-snug">
+                    {item.title}
+                  </p>
+                  <p className="font-aeonik text-white/60 text-[12px] lg:text-[13px] leading-[1.55]">
+                    {item.desc}
+                  </p>
+                </div>
+              ))}
             </div>
 
-            {/* Pacchetto 3 */}
-            <div className="relative overflow-hidden rounded-2xl ring-1 ring-white/15 bg-gradient-to-br from-white/[0.12] to-white/[0.06] backdrop-blur-[16px] p-6 lg:p-8 flex flex-col" data-animate>
-              <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-white/0 via-white/30 to-white/0" />
-
-              <span className="inline-block mb-4 px-3 py-1 rounded-full bg-white/10 text-white/80 text-[12px] tracking-wide self-start">
-                Pacchetto 3
-              </span>
-
-              <h3 className="font-itc-blair text-white text-[20px] lg:text-[24px] leading-tight mb-6 uppercase">
-                Pranzo + Shooting + Giro in Ferrari con autista
-              </h3>
-
-              <ul className="font-aeonik text-white text-[14px] lg:text-[15px] leading-[1.7] space-y-3 mb-8 flex-1">
-                <li className="flex items-start gap-3">
-                  <svg
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="text-white/70 mt-[2px] shrink-0"
-                  >
-                    <path d="M9 16.2l-3.5-3.5-1.4 1.4L9 19 20.3 7.7l-1.4-1.4z" />
-                  </svg>
-                  <span>
-                    Pranzo completo presso la Tenuta Cambiaga con menu della
-                    tradizione lombarda
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <svg
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="text-white/70 mt-[2px] shrink-0"
-                  >
-                    <path d="M9 16.2l-3.5-3.5-1.4 1.4L9 19 20.3 7.7l-1.4-1.4z" />
-                  </svg>
-                  <span>
-                    Sessione fotografica professionale con la Ferrari 296 GTS
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <svg
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="text-white/70 mt-[2px] shrink-0"
-                  >
-                    <path d="M9 16.2l-3.5-3.5-1.4 1.4L9 19 20.3 7.7l-1.4-1.4z" />
-                  </svg>
-                  <span>
-                    Giro in Ferrari 296 GTS con autista lungo le strade del
-                    Naviglio
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <svg
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="text-white/70 mt-[2px] shrink-0"
-                  >
-                    <path d="M9 16.2l-3.5-3.5-1.4 1.4L9 19 20.3 7.7l-1.4-1.4z" />
-                  </svg>
-                  <span>
-                    L&apos;emozione della supercar in totale relax, senza
-                    pensieri
-                  </span>
-                </li>
-              </ul>
-
+            <div className="mt-8 lg:mt-14 flex justify-center">
               <a
                 href="#richiedi-info"
-                className="inline-block bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[13px] md:text-[14px] whitespace-nowrap text-center hover:bg-gray-100 transition-colors self-start"
+                className="inline-block bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[13px] md:text-[14px] whitespace-nowrap text-center hover:bg-gray-100 transition-colors"
               >
-                richiedi informazioni
+                RICHIEDI MAGGIORI INFORMAZIONI
               </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ====== IL MENÙ ====== */}
+      {/* ====== IL RINFRESCO ====== */}
       <section className="relative w-full py-20 lg:py-28">
         <div className="max-w-[1100px] mx-auto px-5 md:px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-center" data-animate>
-            {/* Left column – menu text */}
+            {/* Left column – rinfresco text */}
             <div className="menu-block text-left">
               <h3 className="font-itc-blair text-white text-[24px] md:text-[32px] lg:text-[38px] leading-[1.15] uppercase mb-6">
-                IL MENÙ
+                Il Rinfresco
               </h3>
 
-              <div className="space-y-3 font-aeonik text-[13px] lg:text-[15px] leading-[1.6]">
-                {/* Entrée */}
-                <div>
-                  <span className="font-itc-blair text-white/50 text-[11px] lg:text-[12px] uppercase tracking-widest">
-                    Entr&eacute;e
-                  </span>
-                  <p className="text-white/90 mt-1">L&apos;Entr&egrave;e di benvenuto</p>
-                </div>
+              <div className="font-aeonik text-white text-[14px] lg:text-[16px] leading-[1.7] max-w-[480px]">
+                <p className="mb-5">
+                  Al termine dell&apos;esperienza in pista, potrai goderti un{" "}
+                  <span className="font-aeonik-bold">rinfresco offerto</span>{" "}
+                  con il tuo ospite: il momento perfetto per rielaborare l&apos;adrenalina vissuta e condividere l&apos;emozione appena vissuta.
+                </p>
+                <p className="mb-5">
+                  Un&apos;occasione per rilassarsi nell&apos;atmosfera del paddock, tra chi ha vissuto la stessa esperienza esclusiva, in un contesto curato in ogni dettaglio.
+                </p>
+                <p>
+                  Posti limitati: ogni partecipante avrà il tempo e lo spazio per vivere la giornata con la giusta attenzione.
+                </p>
+              </div>
 
-                <div className="h-px bg-white/10" />
-
-                {/* Antipasti */}
-                <div>
-                  <span className="font-itc-blair text-white/50 text-[11px] lg:text-[12px] uppercase tracking-widest">
-                    Antipasti
-                  </span>
-                  <p className="text-white/90 mt-1">
-                    Tagliere dei salumi della nostra Tenuta Cambiaga
-                  </p>
-                  <p className="text-white/90 mt-2">Vitello in salsa tonnata e fiore di cappero</p>
-                  <p className="text-white/90 mt-2">Tarte tatin salata agli asparagi e provola</p>
-                </div>
-
-                <div className="h-px bg-white/10" />
-
-                {/* Primo */}
-                <div>
-                  <span className="font-itc-blair text-white/50 text-[11px] lg:text-[12px] uppercase tracking-widest">
-                    Primo
-                  </span>
-                  <p className="text-white/90 mt-1">Riso carnaroli, zafferano, zucchine e robiola</p>
-                </div>
-
-                <div className="h-px bg-white/10" />
-
-                {/* Secondo */}
-                <div>
-                  <span className="font-itc-blair text-white/50 text-[11px] lg:text-[12px] uppercase tracking-widest">
-                    Secondo
-                  </span>
-                  <p className="text-white/90 mt-1">Tagliatina di vitellone alla senape e miele</p>
-                </div>
-
-                <div className="h-px bg-white/10" />
-
-                {/* Dolce */}
-                <div>
-                  <span className="font-itc-blair text-white/50 text-[11px] lg:text-[12px] uppercase tracking-widest">
-                    Dolce
-                  </span>
-                  <p className="text-white/90 mt-1">Torta della casa</p>
-                </div>
-
+              <div className="mt-8">
+                <a
+                  href="#richiedi-info"
+                  className="inline-block bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[13px] md:text-[14px] whitespace-nowrap text-center hover:bg-gray-100 transition-colors"
+                >
+                  RICHIEDI MAGGIORI INFORMAZIONI
+                </a>
               </div>
             </div>
 
-            {/* Right column – dish image */}
+            {/* Right column – dish image (unchanged as per instructions) */}
             <div className="relative rounded-2xl overflow-hidden">
               <img
-                src="/images/piatto_menu_altitudo.png"
-                alt="Piatto del menù"
+                src="/images/23617.jpg"
+                alt="Rinfresco"
                 className="w-full h-[300px] md:h-[400px] lg:h-[460px] object-cover"
               />
               <div
@@ -548,6 +312,7 @@ export default function EventoFerrari() {
           </div>
         </div>
       </section>
+
       {/* ====== 5. PROGRAMMA DELLA GIORNATA ====== */}
       <section className="relative w-full py-20 lg:py-28">
         {/* Decorative image – right side, desktop only */}
@@ -566,7 +331,7 @@ export default function EventoFerrari() {
             Il Programma della Giornata
           </h2>
           <p className="font-aeonik text-white/70 text-[14px] lg:text-[15px] text-center mb-14 max-w-[500px] mx-auto">
-            Domenica 12 Aprile &middot; Tenuta Cambiaga
+            16 Maggio &middot; Autodromo Tazio Nuvolari 2.8, Cervesina (PV)
           </p>
 
           {/* Timeline */}
@@ -581,8 +346,7 @@ export default function EventoFerrari() {
                   Accoglienza
                 </h3>
                 <p className="font-aeonik text-white/70 text-[13px] lg:text-[14px] leading-[1.6] mt-2">
-                  Arrivo in Tenuta, benvenuto con aperitivo e primo incontro con
-                  la Ferrari 296 GTS esposta nel cortile.
+                  Arrivo all&apos;autodromo, registrazione e primo contatto con la Ferrari. L&apos;atmosfera del paddock ti accoglie per una giornata fuori dall&apos;ordinario.
                 </p>
               </div>
               {/* Dot */}
@@ -593,8 +357,7 @@ export default function EventoFerrari() {
                   Accoglienza
                 </h3>
                 <p className="font-aeonik text-white/70 text-[13px] leading-[1.6] mt-2">
-                  Arrivo in Tenuta, benvenuto con aperitivo e primo incontro con
-                  la Ferrari 296 GTS esposta nel cortile.
+                  Arrivo all&apos;autodromo, registrazione e primo contatto con la Ferrari. L&apos;atmosfera del paddock ti accoglie per una giornata fuori dall&apos;ordinario.
                 </p>
               </div>
               <div className="hidden md:block md:w-1/2 md:pl-12" />
@@ -608,35 +371,32 @@ export default function EventoFerrari() {
               {/* Desktop content */}
               <div className="hidden md:block md:w-1/2 md:pl-12">
                 <h3 className="font-itc-blair text-white text-[18px] lg:text-[20px] uppercase">
-                  Pranzo
+                  Rinfresco
                 </h3>
                 <p className="font-aeonik text-white/70 text-[13px] lg:text-[14px] leading-[1.6] mt-2">
-                  Pranzo della tradizione lombarda con ingredienti locali e
-                  genuini, nell&apos;atmosfera accogliente dell&apos;agriturismo.
+                  Un momento per ambientarsi e godersi l&apos;atmosfera del circuito. Il rinfresco offerto ti aspetta nel paddock, insieme al tuo ospite.
                 </p>
               </div>
               {/* Mobile content */}
               <div className="md:hidden pl-12">
                 <h3 className="font-itc-blair text-white text-[18px] uppercase">
-                  Pranzo
+                  Rinfresco
                 </h3>
                 <p className="font-aeonik text-white/70 text-[13px] leading-[1.6] mt-2">
-                  Pranzo della tradizione lombarda con ingredienti locali e
-                  genuini, nell&apos;atmosfera accogliente dell&apos;agriturismo.
+                  Un momento per ambientarsi e godersi l&apos;atmosfera del circuito. Il rinfresco offerto ti aspetta nel paddock, insieme al tuo ospite.
                 </p>
               </div>
             </div>
 
             {/* Step 3 */}
-            <div className="relative flex flex-col md:flex-row md:items-start mb-14 last:mb-0" data-animate>
+            <div className="relative flex flex-col md:flex-row md:items-start" data-animate>
               <div className="hidden md:block md:w-1/2 md:pr-12 md:text-right">
                 <h3 className="font-itc-blair text-white text-[18px] lg:text-[20px] uppercase">
-                  Shooting Fotografico
+                  Esperienza in Pista
                 </h3>
                 <p className="font-aeonik text-white/70 text-[13px] lg:text-[14px] leading-[1.6] mt-2">
-                  Sessione fotografica professionale con la Ferrari 296 GTS.
-                  Scatti individuali, in famiglia e con i bambini a bordo della
-                  supercar.
+                  Il momento che aspettavi. Sali sulla Ferrari e affronta il circuito per{" "}
+                  <span className="font-itc-blair">due giri</span> di pura adrenalina. Il tuo video cattura ogni istante.
                 </p>
               </div>
               {/* Dot */}
@@ -644,44 +404,13 @@ export default function EventoFerrari() {
               {/* Mobile content */}
               <div className="md:hidden pl-12">
                 <h3 className="font-itc-blair text-white text-[18px] uppercase">
-                  Shooting Fotografico
+                  Esperienza in Pista
                 </h3>
                 <p className="font-aeonik text-white/70 text-[13px] leading-[1.6] mt-2">
-                  Sessione fotografica professionale con la Ferrari 296 GTS.
-                  Scatti individuali, in famiglia e con i bambini a bordo della
-                  supercar.
+                  Il momento che aspettavi. Sali sulla Ferrari e affronta il circuito per due giri di pura adrenalina. Il tuo video cattura ogni istante.
                 </p>
               </div>
               <div className="hidden md:block md:w-1/2 md:pl-12" />
-            </div>
-
-            {/* Step 4 */}
-            <div className="relative flex flex-col md:flex-row md:items-start" data-animate>
-              <div className="hidden md:block md:w-1/2 md:pr-12" />
-              {/* Dot */}
-              <div className="absolute left-[12px] md:left-1/2 md:-translate-x-1/2 top-1 w-[16px] h-[16px] rounded-full bg-white ring-4 ring-black z-10" />
-              {/* Desktop content */}
-              <div className="hidden md:block md:w-1/2 md:pl-12">
-                <h3 className="font-itc-blair text-white text-[18px] lg:text-[20px] mt-1 uppercase">
-                  Esperienza di Guida
-                </h3>
-                <p className="font-aeonik text-white/70 text-[13px] lg:text-[14px] leading-[1.6] mt-2">
-                  Per chi ha scelto il Pacchetto 2: il momento tanto atteso.
-                  Mettiti al volante della Ferrari 296 GTS e vivi
-                  l&apos;adrenalina pura lungo le strade del Naviglio. Per chi ha scelto il Pacchetto 3: un giro in Ferrari con autista, in totale relax, senza pensieri.
-                </p>
-              </div>
-              {/* Mobile content */}
-              <div className="md:hidden pl-12">
-                <h3 className="font-itc-blair text-white text-[18px] uppercase">
-                  Esperienza di Guida
-                </h3>
-                <p className="font-aeonik text-white/70 text-[13px] leading-[1.6] mt-2">
-                  Per chi ha scelto il Pacchetto 2: il momento tanto atteso.
-                  Mettiti al volante della Ferrari 296 GTS e vivi
-                  l&apos;adrenalina pura lungo le strade del Naviglio. Per chi ha scelto il Pacchetto 3: un giro in Ferrari con autista, in totale relax, senza pensieri.
-                </p>
-              </div>
             </div>
           </div>
         </div>
@@ -698,7 +427,7 @@ export default function EventoFerrari() {
           </h2>
           <p className="font-aeonik text-white text-[12px] lg:text-[13px] leading-[1.5] mb-8 max-w-[500px] mx-auto">
             Compila il modulo per ricevere tutti i dettagli sull&apos;evento,
-            i prezzi dei pacchetti e riservare il tuo posto per domenica 12 Aprile.
+            i costi e riservare il tuo posto. I posti sono limitati — non aspettare.
           </p>
 
           {/* Dedicated event form – independent from site-wide booking forms */}
@@ -766,32 +495,6 @@ export default function EventoFerrari() {
                   required
                   className="w-full h-11 bg-white/[0.08] rounded-lg px-4 text-white text-[13px] placeholder-white/50 focus:outline-none focus:ring-1 focus:ring-white/30"
                 />
-              </div>
-            </div>
-            <div className="text-left">
-              <label className="font-aeonik text-white/70 text-[13px] lg:text-[14px] mb-1.5 block">Pacchetto</label>
-              <div className="relative">
-                <select
-                  name="pacchetto"
-                  className="w-full h-11 bg-white/[0.08] rounded-lg px-4 pr-10 text-white text-[13px] placeholder-white/50 focus:outline-none focus:ring-1 focus:ring-white/30 appearance-none"
-                  defaultValue=""
-                >
-                  <option value="" disabled className="text-black">
-                    Seleziona il pacchetto di tuo interesse
-                  </option>
-                  <option value="Pacchetto 1 – Pranzo + Shooting" className="text-black">
-                    Pacchetto 1 – Pranzo + Shooting
-                  </option>
-                  <option value="Pacchetto 2 – Pranzo + Shooting + Drive" className="text-black">
-                    Pacchetto 2 – Pranzo + Shooting + Drive
-                  </option>
-                  <option value="Pacchetto 3 – Pranzo + Shooting + Giro in Ferrari con autista" className="text-black">
-                    Pacchetto 3 – Pranzo + Shooting + Giro in Ferrari con autista
-                  </option>
-                </select>
-                <svg className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/60" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
-                </svg>
               </div>
             </div>
             <div className="text-left">

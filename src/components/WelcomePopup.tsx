@@ -68,7 +68,7 @@ export default function WelcomePopup() {
 
       {/* Card cliccabile: due colonne 50% - sinistra testo, destra immagine */}
       <div
-        className="relative z-10 w-full max-w-[680px] rounded-2xl border border-white/25 bg-black/95 shadow-2xl overflow-hidden flex flex-col sm:flex-row min-h-[320px]"
+        className="relative z-10 w-full max-w-[780px] rounded-2xl border border-white/25 bg-black/95 shadow-2xl overflow-hidden flex flex-col sm:flex-row min-h-[320px]"
         onClick={handleContentClick}
         style={{
           boxShadow:
@@ -97,21 +97,21 @@ export default function WelcomePopup() {
             </div>
             {/* Titolo principale: livello 1 */}
             <h2 className="font-itc-blair text-white text-[20px] sm:text-[24px] leading-tight uppercase tracking-tight">
-              Un pranzo, una Ferrari,
+              Acquista o regala
               <br />
-              un ricordo per sempre
+              un&apos;esperienza in pista
             </h2>
             {/* Breve descrizione: cosa succede e invito all&apos;esperienza */}
             <p className="font-aeonik text-white/85 text-[13px] sm:text-[14px] leading-[1.55]">
-              Pranzo della tradizione lombarda in una location da sogno. La Ferrari 296 GTS sarà protagonista: shooting fotografico con la supercar e, per chi vuole, un giro al volante o con autista lungo le strade del Naviglio. Un&apos;esperienza da vivere in <span className="whitespace-nowrap">famiglia</span> o con chi ami.
+              Un&apos;esperienza esclusiva a numero limitato: 2 giri di pista su una Ferrari all&apos;Autodromo Tazio Nuvolari 2.8. Pass ospite e video inclusi. Rinfresco offerto.
             </p>
             {/* Data e luogo: livello 2, più piccoli del titolo */}
             <div className="flex flex-col gap-0.5 border-t border-white/15 pt-4">
               <p className="font-itc-blair text-white/95 text-[14px] sm:text-[15px] leading-snug uppercase tracking-tight">
-                Domenica 12 Aprile
+                16 Maggio
               </p>
               <p className="font-aeonik text-white/80 text-[13px] sm:text-[14px]">
-                Tenuta Cambiaga · Robecco sul Naviglio
+                Autodromo Tazio Nuvolari 2.8 · Cervesina (PV)
               </p>
             </div>
             {/* CTA: azione evidente */}
@@ -123,8 +123,8 @@ export default function WelcomePopup() {
           {/* Colonna destra 50%: immagine */}
           <div className="relative w-full sm:w-1/2 min-h-[200px] sm:min-h-0 sm:flex-1">
             <img
-              src="/images/foto_evento_ferrari_agriturismo_orizzontale.png"
-              alt="Evento Ferrari - Tenuta Cambiaga"
+              src="/images/nuova_macchina_evento.png"
+              alt="Esperienza in pista su Ferrari - Autodromo Tazio Nuvolari"
               className="absolute inset-0 w-full h-full object-cover object-center"
             />
             <div

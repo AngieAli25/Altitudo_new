@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import LayoutChrome from "@/components/LayoutChrome";
 import CookieBanner from "@/components/CookieBanner";
+import ConditionalWelcomePopup from "@/components/ConditionalWelcomePopup";
 
 export const metadata: Metadata = {
   title: "Altitudo - Noleggio Ferrari 296 GTS",
@@ -26,6 +27,7 @@ export default function RootLayout({
         {children}
         <LayoutChrome />
         <CookieBanner />
+        <ConditionalWelcomePopup />
       </body>
     </html>
   );
