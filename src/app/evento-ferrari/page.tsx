@@ -44,7 +44,52 @@ export default function EventoFerrari() {
   return (
     <main ref={mainRef} className="evento-ferrari-page bg-black min-h-screen w-full overflow-x-hidden">
       {/* ====== 1. HERO SECTION ====== */}
-      <section className="relative h-[100svh] w-full">
+
+      {/* MOBILE hero */}
+      <div className="md:hidden w-full">
+        {/* Foto con logo + titolo sovrapposti in basso */}
+        <div className="relative h-[60svh] w-full">
+          <img
+            src="/images/ferrrarimobile.png"
+            alt="Esperienza in pista su Ferrari - Autodromo Tazio Nuvolari"
+            className="hero-img w-full h-full object-cover"
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.6) 70%, rgb(0,0,0) 100%)",
+            }}
+          />
+          <div className="absolute bottom-0 left-0 right-0 z-10 flex flex-col items-center text-center px-5 pb-5">
+            <img
+              src="/images/logo_altitudo.png"
+              alt="Altitudo"
+              className="w-[40px] h-auto mb-4"
+            />
+            <h1 className="font-itc-blair text-white text-[20px] leading-[1.15] tracking-tight uppercase">
+              Acquista o regala
+              <br />
+              un&apos;esperienza in pista
+            </h1>
+          </div>
+        </div>
+        {/* Sottotitolo + bottone sotto la foto */}
+        <div className="flex flex-col items-center text-center px-5 pt-6 pb-8">
+          <p className="font-aeonik text-white/90 text-[13px] leading-[1.5] mb-6">
+            16 Maggio &middot; Autodromo Tazio Nuvolari 2.8, Cervesina (PV)
+          </p>
+          <a
+            href="#richiedi-info"
+            className="block w-full bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[13px] text-center hover:bg-gray-100 transition-colors"
+          >
+            RICHIEDI MAGGIORI INFORMAZIONI
+          </a>
+        </div>
+      </div>
+
+      {/* DESKTOP hero – layout originale invariato */}
+      <section className="relative hidden md:block md:h-[100svh] w-full">
         <div className="absolute inset-0">
           <img
             src="/images/nuova_macchina_evento.png"
@@ -52,7 +97,6 @@ export default function EventoFerrari() {
             className="hero-img w-full h-full object-cover"
           />
         </div>
-        {/* Gradient overlay – only darkens bottom strip where text lives */}
         <div
           className="absolute inset-0"
           style={{
@@ -60,25 +104,23 @@ export default function EventoFerrari() {
               "linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0) 15%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.6) 80%, rgb(0,0,0) 100%)",
           }}
         />
-
-        {/* Hero content – title, subtitle & CTA pinned to the bottom */}
-        <div className="relative z-10 flex flex-col items-center justify-end h-full text-center px-5 md:px-6 pb-[8vh] md:pb-[6vh]">
+        <div className="relative z-10 flex flex-col items-center justify-end h-full text-center md:px-6 md:pb-[6vh]">
           <img
             src="/images/logo_altitudo.png"
             alt="Altitudo"
             className="w-[50px] lg:w-[60px] h-auto mb-[40px]"
           />
-          <h1 className="font-itc-blair text-white text-[22px] md:text-[32px] lg:text-[42px] leading-[1.15] tracking-tight mb-3 max-w-[800px] uppercase">
+          <h1 className="font-itc-blair text-white md:text-[32px] lg:text-[42px] leading-[1.15] tracking-tight mb-3 max-w-[800px] uppercase">
             Acquista o regala
             <br />
             un&apos;esperienza in pista
           </h1>
-          <p className="font-aeonik text-white/90 text-[14px] lg:text-[18px] leading-[1.5] mb-6 max-w-[600px]">
+          <p className="font-aeonik text-white/90 md:text-[14px] lg:text-[18px] leading-[1.5] mb-6 max-w-[600px]">
             16 Maggio &middot; Autodromo Tazio Nuvolari 2.8, Cervesina (PV)
           </p>
           <a
             href="#richiedi-info"
-            className="block w-full md:inline-block md:w-auto bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[13px] md:text-[14px] text-center hover:bg-gray-100 transition-colors"
+            className="md:inline-block md:w-auto bg-white text-black font-itc-blair px-6 py-3 rounded-lg md:text-[14px] text-center hover:bg-gray-100 transition-colors"
           >
             RICHIEDI MAGGIORI INFORMAZIONI
           </a>
@@ -539,7 +581,7 @@ export default function EventoFerrari() {
 
         /* Hero image position */
         .hero-img {
-          object-position: center 30%;
+          object-position: center 20%;
         }
         @media (min-width: 768px) {
           .hero-img {
