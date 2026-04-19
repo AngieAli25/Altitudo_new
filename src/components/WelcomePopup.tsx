@@ -103,7 +103,7 @@ export default function WelcomePopup() {
             </h2>
             {/* Breve descrizione: cosa succede e invito all&apos;esperienza */}
             <p className="font-aeonik text-white/85 text-[13px] sm:text-[14px] leading-[1.55]">
-              Un&apos;esperienza esclusiva a numero limitato: 2 giri di pista su una Ferrari all&apos;Autodromo Tazio Nuvolari 2.8. Pass ospite e video inclusi. Rinfresco offerto.
+              Un&apos;esperienza esclusiva a numero limitato: guida tu una Ferrari per 2 giri di pista all&apos;Autodromo Tazio Nuvolari 2.8. Pass ospite e video inclusi. Rinfresco offerto.
             </p>
             {/* Data e luogo: livello 2, più piccoli del titolo */}
             <div className="flex flex-col gap-0.5 border-t border-white/15 pt-4">

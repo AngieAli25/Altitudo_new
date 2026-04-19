@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 
-export default function EventoFerrari() {
+export default function EventoFerrariProva() {
   /* Hide the global SiteFooter and WhatsApp button rendered by root layout */
   useEffect(() => {
     const rootFooter = document.querySelector<HTMLElement>(
@@ -128,61 +128,59 @@ export default function EventoFerrari() {
       </section>
 
       {/* ====== 2. L'ESPERIENZA ====== */}
-      <section className="w-full py-20 lg:py-28">
-        <div className="max-w-[1100px] mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-center" data-animate>
-            {/* Left column – text */}
-            <div>
-              <h2 className="font-itc-blair text-white text-[24px] md:text-[32px] lg:text-[38px] leading-[1.15] uppercase mb-3">
-                L&apos;esperienza
-              </h2>
-              <div className="h-[2px] w-[72px] bg-white/25 mb-6" />
+      <section className="relative w-full py-20 lg:py-28">
+        {/* Decorative background */}
+        <div className="absolute inset-0 pointer-events-none">
+          <img
+            src="/images/luci_altitudo.png"
+            alt=""
+            className="w-full h-full object-contain object-top opacity-50"
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(35deg, rgba(0,0,0,0) 63%, rgb(0,0,0) 98%), linear-gradient(-34deg, rgba(0,0,0,0) 62%, rgb(0,0,0) 97%)",
+            }}
+          />
+        </div>
 
-              <div className="font-aeonik text-white text-[14px] lg:text-[16px] leading-[1.7]">
-                <p className="mb-5">
-                  Immagina di metterti al volante di una Ferrari su un circuito professionale.{" "}
-                  <span className="font-aeonik-bold">
-                    Non una simulazione — due giri di pista reali, ad alta velocità
-                  </span>{" "}
-                  sull&apos;Autodromo Tazio Nuvolari 2.8.
-                </p>
-                <p className="mb-5">
-                  Un&apos;esperienza{" "}
-                  <span className="font-aeonik-bold">riservata a un numero limitato di partecipanti</span>,
-                  dove sei tu a guidare — a sentirti il rombo del motore sotto i piedi e la pista che scorre davanti a te.
-                  Il{" "}
-                  <span className="font-aeonik-bold">video della tua esperienza</span> sarà incluso,
-                  per rivivere quei momenti ogni volta che vuoi.
-                </p>
-                <p>
-                  Puoi portare con te{" "}
-                  <span className="font-aeonik-bold">un ospite</span>: il pass è incluso.
-                  Potrà vivere l&apos;atmosfera del paddock e gustare il rinfresco offerto,
-                  restando accanto a te per tutta la giornata.
-                </p>
-              </div>
+        <div className="relative z-10 max-w-[900px] mx-auto px-6" data-animate>
+          <h2 className="font-itc-blair text-white text-[24px] md:text-[32px] lg:text-[38px] leading-[1.15] text-center mb-10 uppercase">
+            L&apos;esperienza
+          </h2>
 
-              <div className="mt-8">
-                <a
-                  href="#richiedi-info"
-                  className="block w-full md:inline-block md:w-auto bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[13px] md:text-[14px] text-center hover:bg-gray-100 transition-colors"
-                >
-                  RICHIEDI MAGGIORI INFORMAZIONI
-                </a>
-              </div>
-            </div>
+          <div className="font-aeonik text-white text-[14px] lg:text-[16px] leading-[1.7] text-center max-w-[750px] mx-auto no-hyphen">
+            <p className="mb-5">
+              Immagina di metterti al volante di una Ferrari su un circuito professionale.{" "}
+              <span className="font-aeonik-bold">
+                Non una simulazione — due giri di pista reali, ad alta velocità
+              </span>{" "}
+              sull&apos;Autodromo Tazio Nuvolari 2.8.
+            </p>
+            <p className="mb-5">
+              Un&apos;esperienza{" "}
+              <span className="font-aeonik-bold">riservata a un numero limitato di partecipanti</span>,
+              dove sei tu a guidare — a sentirti il rombo del motore sotto i piedi e la pista che scorre davanti a te.
+              Il{" "}
+              <span className="font-aeonik-bold">video della tua esperienza</span> sarà incluso,
+              per rivivere quei momenti ogni volta che vuoi.
+            </p>
+            <p>
+              Puoi portare con te{" "}
+              <span className="font-aeonik-bold">un ospite</span>: il pass è incluso.
+              Potrà vivere l&apos;atmosfera del paddock e gustare il rinfresco offerto,
+              restando accanto a te per tutta la giornata.
+            </p>
+          </div>
 
-            {/* Right column – video */}
-            <div className="relative rounded-2xl overflow-hidden">
-              <video
-                src="/alittudovideocircuito2.mp4"
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="w-full h-[300px] md:h-[400px] lg:h-[460px] object-cover"
-              />
-            </div>
+          <div className="text-center mt-10">
+            <a
+              href="#richiedi-info"
+              className="block w-full md:inline-block md:w-auto bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[13px] md:text-[14px] text-center hover:bg-gray-100 transition-colors"
+            >
+              RICHIEDI MAGGIORI INFORMAZIONI
+            </a>
           </div>
         </div>
       </section>
@@ -191,23 +189,7 @@ export default function EventoFerrari() {
       <section className="relative w-full py-20 lg:py-28">
         <div className="max-w-[1100px] mx-auto px-6">
           <div className="no-hyphen-location grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-center" data-animate>
-            {/* Left column – image with black gradient */}
-            <div className="relative rounded-2xl overflow-hidden">
-              <img
-                src="/images/circuito.png"
-                alt="Autodromo Tazio Nuvolari 2.8, Cervesina (PV)"
-                className="w-full h-[300px] md:h-[400px] lg:h-[460px] object-cover"
-              />
-              <div
-                className="absolute inset-0 pointer-events-none"
-                style={{
-                  background:
-                    "linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.5) 100%), linear-gradient(90deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.4) 100%)",
-                }}
-              />
-            </div>
-
-            {/* Right column – text */}
+            {/* Left column – text */}
             <div>
               <h2 className="font-itc-blair text-white text-[24px] md:text-[32px] lg:text-[38px] leading-[1.15] uppercase mb-3">
                 Il Circuito
@@ -243,6 +225,22 @@ export default function EventoFerrari() {
                   RICHIEDI MAGGIORI INFORMAZIONI
                 </a>
               </div>
+            </div>
+
+            {/* Right column – image with black gradient */}
+            <div className="relative rounded-2xl overflow-hidden">
+              <img
+                src="/images/circuito.png"
+                alt="Autodromo Tazio Nuvolari 2.8, Cervesina (PV)"
+                className="w-full h-[300px] md:h-[400px] lg:h-[460px] object-cover"
+              />
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background:
+                    "linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.5) 100%), linear-gradient(270deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.4) 100%)",
+                }}
+              />
             </div>
           </div>
         </div>
@@ -298,6 +296,59 @@ export default function EventoFerrari() {
               >
                 RICHIEDI MAGGIORI INFORMAZIONI
               </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ====== IL RINFRESCO ====== */}
+      <section className="relative w-full py-20 lg:py-28">
+        <div className="max-w-[1100px] mx-auto px-5 md:px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-center" data-animate>
+            {/* Left column – rinfresco text */}
+            <div className="menu-block text-left">
+              <h3 className="font-itc-blair text-white text-[24px] md:text-[32px] lg:text-[38px] leading-[1.15] uppercase mb-6">
+                Il Rinfresco
+              </h3>
+
+              <div className="font-aeonik text-white text-[14px] lg:text-[16px] leading-[1.7] max-w-[480px]">
+                <p className="mb-5">
+                  Al termine dell&apos;esperienza in pista, potrai goderti un{" "}
+                  <span className="font-aeonik-bold">rinfresco offerto</span>{" "}
+                  con il tuo ospite: il momento perfetto per rielaborare l&apos;adrenalina vissuta e condividere l&apos;emozione appena vissuta.
+                </p>
+                <p className="mb-5">
+                  Un&apos;occasione per rilassarsi nell&apos;atmosfera del paddock, tra chi ha vissuto la stessa esperienza esclusiva, in un contesto curato in ogni dettaglio.
+                </p>
+                <p>
+                  Posti limitati: ogni partecipante avrà il tempo e lo spazio per vivere la giornata con la giusta attenzione.
+                </p>
+              </div>
+
+              <div className="mt-8">
+                <a
+                  href="#richiedi-info"
+                  className="block w-full md:inline-block md:w-auto bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[13px] md:text-[14px] text-center hover:bg-gray-100 transition-colors"
+                >
+                  RICHIEDI MAGGIORI INFORMAZIONI
+                </a>
+              </div>
+            </div>
+
+            {/* Right column – dish image (unchanged as per instructions) */}
+            <div className="relative rounded-2xl overflow-hidden">
+              <img
+                src="/images/23617.jpg"
+                alt="Rinfresco"
+                className="w-full h-[300px] md:h-[400px] lg:h-[460px] object-cover"
+              />
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background:
+                    "linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.5) 100%), linear-gradient(90deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 40%)",
+                }}
+              />
             </div>
           </div>
         </div>
@@ -409,122 +460,100 @@ export default function EventoFerrari() {
       {/* ====== 6. FORM – RICHIEDI INFORMAZIONI ====== */}
       <section
         id="richiedi-info"
-        className="relative w-full py-20 lg:py-28 scroll-mt-24 md:scroll-mt-28"
+        className="relative w-full py-14 scroll-mt-24 md:scroll-mt-28"
       >
-        <div className="max-w-[1100px] mx-auto px-6">
-          <div className="relative overflow-hidden rounded-2xl ring-1 ring-white/15 bg-gradient-to-br from-white/[0.12] to-white/[0.06] backdrop-blur-[16px] p-8 lg:p-10" data-animate>
-          <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-white/0 via-white/30 to-white/0" />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-start">
-            {/* Left column – title, subtitle, form */}
-            <div>
-              <h2 className="font-itc-blair text-white text-[22px] md:text-[24px] lg:text-[30px] leading-[1.2] mb-4 uppercase">
-                Vuoi partecipare? Scrivici!
-              </h2>
-              <p className="font-aeonik text-white text-[12px] lg:text-[13px] leading-[1.5] mb-8">
-                Compila il modulo per ricevere tutti i dettagli sull&apos;evento,
-                i costi e riservare il tuo posto. I posti sono limitati — non aspettare.
-              </p>
+        <div className="max-w-[800px] mx-auto px-6 text-center" data-animate>
+          <h2 className="font-itc-blair text-white text-[22px] md:text-[28px] lg:text-[32px] leading-[1.2] mb-4 uppercase">
+            Vuoi partecipare? Scrivici!
+          </h2>
+          <p className="font-aeonik text-white text-[12px] lg:text-[13px] leading-[1.5] mb-8 max-w-[500px] mx-auto">
+            Compila il modulo per ricevere tutti i dettagli sull&apos;evento,
+            i costi e riservare il tuo posto. I posti sono limitati — non aspettare.
+          </p>
 
-              {/* Dedicated event form – independent from site-wide booking forms */}
-              <form
-                className="space-y-4"
-                onSubmit={async (e) => {
-                  e.preventDefault();
-                  const formEl = e.currentTarget;
-                  const data = new FormData(formEl);
-                  try {
-                    await fetch("/api/send-email", { method: "POST", body: data });
-                  } catch { /* ignore */ }
-                  window.location.href = "/evento-ferrari/grazie";
-                }}
-              >
+          {/* Dedicated event form – independent from site-wide booking forms */}
+          <form
+            className="space-y-4 mb-8"
+            onSubmit={async (e) => {
+              e.preventDefault();
+              const formEl = e.currentTarget;
+              const data = new FormData(formEl);
+              try {
+                await fetch("/api/send-email", { method: "POST", body: data });
+              } catch { /* ignore */ }
+              window.location.href = "/evento-ferrari/grazie";
+            }}
+          >
+            <input
+              type="hidden"
+              name="formName"
+              value="evento-ferrari-info"
+            />
+            <input
+              type="hidden"
+              name="pageTitle"
+              value="Evento Ferrari Tenuta Cambiaga - Richiesta Info"
+            />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="text-left">
+                <label className="font-aeonik text-white/70 text-[13px] lg:text-[14px] mb-1.5 block">Nome</label>
                 <input
-                  type="hidden"
-                  name="formName"
-                  value="evento-ferrari-info"
+                  type="text"
+                  name="firstName"
+                  placeholder="Inserisci il tuo nome"
+                  required
+                  className="w-full h-11 bg-white/[0.08] rounded-lg px-4 text-white text-[13px] placeholder-white/50 focus:outline-none focus:ring-1 focus:ring-white/30"
                 />
+              </div>
+              <div className="text-left">
+                <label className="font-aeonik text-white/70 text-[13px] lg:text-[14px] mb-1.5 block">Cognome</label>
                 <input
-                  type="hidden"
-                  name="pageTitle"
-                  value="Nuovo contatto evento - Esperienza Ferrari 16 Maggio"
-                />
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="text-left">
-                    <label className="font-aeonik text-white/70 text-[13px] lg:text-[14px] mb-1.5 block">Nome</label>
-                    <input
-                      type="text"
-                      name="firstName"
-                      placeholder="Inserisci il tuo nome"
-                      required
-                      className="w-full h-11 bg-white/[0.08] rounded-lg px-4 text-white text-[13px] placeholder-white/50 focus:outline-none focus:ring-1 focus:ring-white/30"
-                    />
-                  </div>
-                  <div className="text-left">
-                    <label className="font-aeonik text-white/70 text-[13px] lg:text-[14px] mb-1.5 block">Cognome</label>
-                    <input
-                      type="text"
-                      name="lastName"
-                      placeholder="Inserisci il tuo cognome"
-                      required
-                      className="w-full h-11 bg-white/[0.08] rounded-lg px-4 text-white text-[13px] placeholder-white/50 focus:outline-none focus:ring-1 focus:ring-white/30"
-                    />
-                  </div>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="text-left">
-                    <label className="font-aeonik text-white/70 text-[13px] lg:text-[14px] mb-1.5 block">Email</label>
-                    <input
-                      type="email"
-                      name="email"
-                      placeholder="La tua email di contatto"
-                      required
-                      className="w-full h-11 bg-white/[0.08] rounded-lg px-4 text-white text-[13px] placeholder-white/50 focus:outline-none focus:ring-1 focus:ring-white/30"
-                    />
-                  </div>
-                  <div className="text-left">
-                    <label className="font-aeonik text-white/70 text-[13px] lg:text-[14px] mb-1.5 block">Telefono</label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      placeholder="Il tuo numero di telefono"
-                      required
-                      className="w-full h-11 bg-white/[0.08] rounded-lg px-4 text-white text-[13px] placeholder-white/50 focus:outline-none focus:ring-1 focus:ring-white/30"
-                    />
-                  </div>
-                </div>
-                <div className="text-left">
-                  <label className="font-aeonik text-white/70 text-[13px] lg:text-[14px] mb-1.5 block">Messaggio</label>
-                  <textarea
-                    name="message"
-                    placeholder="Hai qualche domanda? Scrivila qui"
-                    rows={3}
-                    className="w-full bg-white/[0.08] rounded-lg px-4 py-3 text-white text-[13px] placeholder-white/50 focus:outline-none focus:ring-1 focus:ring-white/30 resize-none"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="block w-full md:inline-block md:w-auto bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[13px] md:text-[14px] text-center hover:bg-gray-100 transition-colors"
-                >
-                  RICHIEDI MAGGIORI INFORMAZIONI
-                </button>
-              </form>
-            </div>
-
-            {/* Right column – vertical video */}
-            <div className="flex justify-center md:justify-end">
-              <div className="relative rounded-2xl overflow-hidden w-full max-w-[320px] md:max-w-[400px]" style={{ height: "569px" }}>
-                <video
-                  src="/altitudovideocircuito1.mp4"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="w-full h-full object-cover"
+                  type="text"
+                  name="lastName"
+                  placeholder="Inserisci il tuo cognome"
+                  required
+                  className="w-full h-11 bg-white/[0.08] rounded-lg px-4 text-white text-[13px] placeholder-white/50 focus:outline-none focus:ring-1 focus:ring-white/30"
                 />
               </div>
             </div>
-          </div>
-          </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="text-left">
+                <label className="font-aeonik text-white/70 text-[13px] lg:text-[14px] mb-1.5 block">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="La tua email di contatto"
+                  required
+                  className="w-full h-11 bg-white/[0.08] rounded-lg px-4 text-white text-[13px] placeholder-white/50 focus:outline-none focus:ring-1 focus:ring-white/30"
+                />
+              </div>
+              <div className="text-left">
+                <label className="font-aeonik text-white/70 text-[13px] lg:text-[14px] mb-1.5 block">Telefono</label>
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Il tuo numero di telefono"
+                  required
+                  className="w-full h-11 bg-white/[0.08] rounded-lg px-4 text-white text-[13px] placeholder-white/50 focus:outline-none focus:ring-1 focus:ring-white/30"
+                />
+              </div>
+            </div>
+            <div className="text-left">
+              <label className="font-aeonik text-white/70 text-[13px] lg:text-[14px] mb-1.5 block">Messaggio</label>
+              <textarea
+                name="message"
+                placeholder="Hai qualche domanda? Scrivila qui"
+                rows={3}
+                className="w-full bg-white/[0.08] rounded-lg px-4 py-3 text-white text-[13px] placeholder-white/50 focus:outline-none focus:ring-1 focus:ring-white/30 resize-none"
+              />
+            </div>
+            <button
+              type="submit"
+              className="block w-full md:inline-block md:w-auto bg-white text-black font-itc-blair px-6 py-3 rounded-lg text-[13px] md:text-[14px] text-center hover:bg-gray-100 transition-colors"
+            >
+              RICHIEDI MAGGIORI INFORMAZIONI
+            </button>
+          </form>
         </div>
       </section>
 
