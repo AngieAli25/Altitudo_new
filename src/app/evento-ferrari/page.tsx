@@ -192,7 +192,7 @@ export default function EventoFerrari() {
         <div className="max-w-[1100px] mx-auto px-6">
           <div className="no-hyphen-location grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-center" data-animate>
             {/* Left column – image with black gradient */}
-            <div className="relative rounded-2xl overflow-hidden">
+            <div className="relative rounded-2xl overflow-hidden order-2 md:order-1">
               <img
                 src="/images/circuito.png"
                 alt="Autodromo Tazio Nuvolari 2.8, Cervesina (PV)"
@@ -208,7 +208,7 @@ export default function EventoFerrari() {
             </div>
 
             {/* Right column – text */}
-            <div>
+            <div className="order-1 md:order-2">
               <h2 className="font-itc-blair text-white text-[24px] md:text-[32px] lg:text-[38px] leading-[1.15] uppercase mb-3">
                 Il Circuito
               </h2>
