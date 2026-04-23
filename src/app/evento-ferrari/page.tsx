@@ -50,8 +50,8 @@ export default function EventoFerrari() {
         {/* Foto con logo + titolo sovrapposti in basso */}
         <div className="relative h-[60svh] w-full">
           <img
-            src="/images/ferrrarimobile.png"
-            alt="Esperienza in pista su Ferrari - Autodromo Tazio Nuvolari"
+            src="/images/bella.png"
+            alt="Esperienza in pista su Ferrari - Motodromo Castelletto di Branduzzo"
             className="hero-img w-full h-full object-cover"
           />
           <div
@@ -77,7 +77,7 @@ export default function EventoFerrari() {
         {/* Sottotitolo + bottone sotto la foto */}
         <div className="flex flex-col items-center text-center px-5 pt-6 pb-8">
           <p className="font-aeonik text-white/90 text-[13px] leading-[1.5] mb-6">
-            16 Maggio &middot; Autodromo Tazio Nuvolari 2.8, Cervesina (PV)
+            16 Maggio &middot; Motodromo Castelletto di Branduzzo
           </p>
           <a
             href="#richiedi-info"
@@ -92,8 +92,8 @@ export default function EventoFerrari() {
       <section className="relative hidden md:block md:h-[100svh] w-full">
         <div className="absolute inset-0">
           <img
-            src="/images/nuova_macchina_evento.png"
-            alt="Esperienza in pista su Ferrari - Autodromo Tazio Nuvolari"
+            src="/images/bella.png"
+            alt="Esperienza in pista su Ferrari - Motodromo Castelletto di Branduzzo"
             className="hero-img w-full h-full object-cover"
           />
         </div>
@@ -101,7 +101,7 @@ export default function EventoFerrari() {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0) 15%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.6) 80%, rgb(0,0,0) 100%)",
+              "linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0) 15%, rgba(0,0,0,0) 45%, rgba(0,0,0,0.6) 70%, rgb(0,0,0) 100%)",
           }}
         />
         <div className="relative z-10 flex flex-col items-center justify-end h-full text-center md:px-6 md:pb-[6vh]">
@@ -116,7 +116,7 @@ export default function EventoFerrari() {
             un&apos;esperienza in pista
           </h1>
           <p className="font-aeonik text-white/90 md:text-[14px] lg:text-[18px] leading-[1.5] mb-6 max-w-[600px]">
-            16 Maggio &middot; Autodromo Tazio Nuvolari 2.8, Cervesina (PV)
+            16 Maggio &middot; Motodromo Castelletto di Branduzzo
           </p>
           <a
             href="#richiedi-info"
@@ -142,9 +142,9 @@ export default function EventoFerrari() {
                 <p className="mb-5">
                   Immagina di metterti al volante di una Ferrari su un circuito professionale.{" "}
                   <span className="font-aeonik-bold">
-                    Non una simulazione — due giri di pista reali, ad alta velocità
+                    Non una simulazione — tre giri di pista reali, ad alta velocità
                   </span>{" "}
-                  sull&apos;Autodromo Tazio Nuvolari 2.8.
+                  al Motodromo Castelletto di Branduzzo.
                 </p>
                 <p className="mb-5">
                   Un&apos;esperienza{" "}
@@ -194,8 +194,8 @@ export default function EventoFerrari() {
             {/* Left column – image with black gradient */}
             <div className="relative rounded-2xl overflow-hidden order-2 md:order-1">
               <img
-                src="/images/circuito.png"
-                alt="Autodromo Tazio Nuvolari 2.8, Cervesina (PV)"
+                src="/images/circuito_nuovo.jpg"
+                alt="Motodromo Castelletto di Branduzzo"
                 className="w-full h-[300px] md:h-[400px] lg:h-[460px] object-cover"
               />
               <div
@@ -216,22 +216,22 @@ export default function EventoFerrari() {
 
               <div className="font-aeonik text-white text-[14px] lg:text-[16px] leading-[1.7]">
                 <p className="mb-4">
-                  L&apos;evento si svolge all&apos;
+                  L&apos;evento si svolge al{" "}
                   <span className="font-aeonik-bold">
-                    Autodromo Tazio Nuvolari 2.8
+                    Motodromo Castelletto di Branduzzo
                   </span>
-                  , a Cervesina, in provincia di Pavia. Un circuito professionale immerso nell&apos;Oltrepò Pavese, progettato per regalare esperienze ad alta emozione.
+                  , in provincia di Pavia. Un circuito professionale pensato per chi vuole vivere la velocità in totale sicurezza, con un tracciato tecnico e stimolante.
                 </p>
                 <p className="mb-4">
-                  Con i suoi 2,8 km di tracciato e le sue curve tecniche, il circuito è il palcoscenico ideale per vivere le{" "}
+                  Le sue curve e i suoi rettilinei sono il palcoscenico ideale per spingere al limite le{" "}
                   <span className="font-aeonik-bold">
-                    prestazioni di una Ferrari al massimo delle sue possibilità
+                    prestazioni di una Ferrari
                   </span>
-                  : sicurezza, adrenalina e professionalità in un contesto esclusivo.
+                  : adrenalina, controllo e professionalità in un contesto esclusivo.
                 </p>
                 <p>
                   Un luogo dove la velocità incontra il privilegio.
-                  Due giri che ti lasceranno senza fiato — e un video per ricordarlo per sempre.
+                  Tre giri che ti lasceranno senza fiato — e un video per ricordarlo per sempre.
                 </p>
               </div>
 
@@ -260,15 +260,15 @@ export default function EventoFerrari() {
                 L&apos;esperienza in sintesi
               </h2>
               <p className="font-aeonik text-white/70 text-[14px] lg:text-[15px] leading-[1.6] max-w-[620px] lg:max-w-[820px] mx-auto">
-                Un evento esclusivo a numero limitato, pensato per chi vuole vivere qualcosa di unico. Guida una Ferrari su un circuito professionale per due giri e porta con te un ospite — il tutto con video incluso e un rinfresco offerto. Qui trovi tutti i dettagli che ti servono per decidere.
+                Un evento esclusivo a numero limitato, pensato per chi vuole vivere qualcosa di unico. Guida una Ferrari su un circuito professionale per tre giri e porta con te un ospite — il tutto con video incluso e un rinfresco offerto. Qui trovi tutti i dettagli che ti servono per decidere.
               </p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-0">
               {[
-                { title: "Luogo", desc: "Autodromo Tazio Nuvolari 2.8, Cervesina (PV)." },
+                { title: "Luogo", desc: "Motodromo Castelletto di Branduzzo." },
                 { title: "Data", desc: "16 Maggio 2026. Posti limitati, prenotazione necessaria." },
-                { title: "Giri", desc: "2 giri di pista al volante di una Ferrari su circuito." },
+                { title: "Giri", desc: "3 giri di pista al volante di una Ferrari su circuito." },
                 { title: "Pass ospite", desc: "Incluso. Puoi portare una persona con te." },
                 { title: "Video", desc: "Incluso. La tua esperienza in pista ripresa integralmente." },
               ].map((item, i, arr) => (
@@ -321,7 +321,7 @@ export default function EventoFerrari() {
             Il Programma della Giornata
           </h2>
           <p className="font-aeonik text-white/70 text-[14px] lg:text-[15px] text-center mb-14 max-w-[500px] mx-auto">
-            16 Maggio &middot; Autodromo Tazio Nuvolari 2.8, Cervesina (PV)
+            16 Maggio &middot; Motodromo Castelletto di Branduzzo
           </p>
 
           {/* Timeline */}
@@ -386,7 +386,7 @@ export default function EventoFerrari() {
                 </h3>
                 <p className="font-aeonik text-white/70 text-[13px] lg:text-[14px] leading-[1.6] mt-2">
                   Il momento che aspettavi. Mettiti al volante della Ferrari e affronta il circuito per{" "}
-                  <span className="font-itc-blair">due giri</span> di pura adrenalina. Il tuo video cattura ogni istante.
+                  <span className="font-itc-blair">tre giri</span> di pura adrenalina. Il tuo video cattura ogni istante.
                 </p>
               </div>
               {/* Dot */}
@@ -397,7 +397,7 @@ export default function EventoFerrari() {
                   Esperienza in Pista
                 </h3>
                 <p className="font-aeonik text-white/70 text-[13px] leading-[1.6] mt-2">
-                  Il momento che aspettavi. Mettiti al volante della Ferrari e affronta il circuito per due giri di pura adrenalina. Il tuo video cattura ogni istante.
+                  Il momento che aspettavi. Mettiti al volante della Ferrari e affronta il circuito per tre giri di pura adrenalina. Il tuo video cattura ogni istante.
                 </p>
               </div>
               <div className="hidden md:block md:w-1/2 md:pl-12" />

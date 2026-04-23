@@ -48,7 +48,7 @@ export default function GrazieEvento() {
           </h1>
           <p className="font-aeonik text-white/80 text-[14px] md:text-[15px] leading-[1.7] mb-4 max-w-[460px] mx-auto">
             Abbiamo ricevuto la tua richiesta per l&apos;esperienza in pista
-            del 16 Maggio all&apos;Autodromo Tazio Nuvolari 2.8, Cervesina (PV).
+            del 16 Maggio al Motodromo Castelletto di Branduzzo.
           </p>
           <p className="font-aeonik text-white/60 text-[13px] md:text-[14px] leading-[1.6] mb-10 max-w-[460px] mx-auto">
             Ti contatteremo al pi&ugrave; presto con tutti i dettagli

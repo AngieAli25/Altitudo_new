@@ -103,7 +103,7 @@ export default function WelcomePopup() {
             </h2>
             {/* Breve descrizione: cosa succede e invito all&apos;esperienza */}
             <p className="font-aeonik text-white/85 text-[13px] sm:text-[14px] leading-[1.55]">
-              Un&apos;esperienza esclusiva a numero limitato: guida tu una Ferrari per 2 giri di pista all&apos;Autodromo Tazio Nuvolari 2.8. Pass ospite e video inclusi. Rinfresco offerto.
+              Un&apos;esperienza esclusiva a numero limitato: guida tu una Ferrari per 3 giri di pista al Motodromo Castelletto di Branduzzo. Pass ospite e video inclusi. Rinfresco offerto.
             </p>
             {/* Data e luogo: livello 2, più piccoli del titolo */}
             <div className="flex flex-col gap-0.5 border-t border-white/15 pt-4">
@@ -111,7 +111,7 @@ export default function WelcomePopup() {
                 16 Maggio
               </p>
               <p className="font-aeonik text-white/80 text-[13px] sm:text-[14px]">
-                Autodromo Tazio Nuvolari 2.8 · Cervesina (PV)
+                Motodromo Castelletto di Branduzzo
               </p>
             </div>
             {/* CTA: azione evidente */}
@@ -123,8 +123,8 @@ export default function WelcomePopup() {
           {/* Colonna destra 50%: immagine */}
           <div className="relative w-full sm:w-1/2 min-h-[200px] sm:min-h-0 sm:flex-1">
             <img
-              src="/images/nuova_macchina_evento.png"
-              alt="Esperienza in pista su Ferrari - Autodromo Tazio Nuvolari"
+              src="/images/bella.png"
+              alt="Esperienza in pista su Ferrari - Motodromo Castelletto di Branduzzo"
               className="absolute inset-0 w-full h-full object-cover object-center"
             />
             <div
