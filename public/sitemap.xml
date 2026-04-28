@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://altitudo.club/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://altitudo.club/prezzi</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://altitudo.club/eventi</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://altitudo.club/eventi/compleanno</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://altitudo.club/eventi/shooting</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://altitudo.club/eventi/matrimonio</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://altitudo.club/contatti</loc><priority>0.6</priority><changefreq>yearly</changefreq></url>
+</urlset>
