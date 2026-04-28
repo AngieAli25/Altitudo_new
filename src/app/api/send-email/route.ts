@@ -151,6 +151,12 @@ export async function POST(request: NextRequest) {
     if (pacchetto) crmPayload.pacchetto = pacchetto;
     if (message) crmPayload.messaggio = message;
 
+    console.log("CRM source debug:", {
+      sourceOverride,
+      formName,
+      finalSource: crmPayload.source,
+    });
+
     let crmResult: { ok: boolean; status?: number; error?: string } = {
       ok: false,
     };
