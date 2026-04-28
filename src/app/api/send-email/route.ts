@@ -30,6 +30,7 @@ export async function POST(request: NextRequest) {
     const termsAccepted = String(form.get("termsAccepted") ?? "");
     const pacchetto = String(form.get("pacchetto") ?? "");
     const message = String(form.get("message") ?? "");
+    const sourceOverride = String(form.get("source") ?? "");
     const referer = request.headers.get("referer") ?? "";
 
     /* ── Costruisci il nome del form per l'oggetto email ── */
@@ -130,11 +131,12 @@ export async function POST(request: NextRequest) {
       email,
       phone,
       source:
-        formName === "giftcard-landing"
+        sourceOverride ||
+        (formName === "giftcard-landing"
           ? "landing_giftcard"
           : formName === "evento-ferrari-info"
             ? "landing_evento"
-            : "Sito Altitudo",
+            : "Sito Altitudo"),
       page_url: referer,
     };
 
